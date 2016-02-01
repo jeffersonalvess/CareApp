@@ -11,6 +11,7 @@
           <set>
             <option value="$USER_HOME$/OneDrive/Documents/Android/CareApp" />
             <option value="$USER_HOME$/OneDrive/Documents/Android/CareApp/app" />
+            <option value="$USER_HOME$/OneDrive/Documents/Android/CareApp/backend" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$USER_HOME$/OneDrive/Documents/Android/CareApp/CareApp.iml" filepath="$USER_HOME$/OneDrive/Documents/Android/CareApp/CareApp.iml" />
       <module fileurl="file://$USER_HOME$/OneDrive/Documents/Android/CareApp/app/app.iml" filepath="$USER_HOME$/OneDrive/Documents/Android/CareApp/app/app.iml" />
+      <module fileurl="file://$USER_HOME$/OneDrive/Documents/Android/CareApp/backend/backend.iml" filepath="$USER_HOME$/OneDrive/Documents/Android/CareApp/backend/backend.iml" />
     </modules>
   </component>
 </project>

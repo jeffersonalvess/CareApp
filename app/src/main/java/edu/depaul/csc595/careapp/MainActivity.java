@@ -1,11 +1,13 @@
 package edu.depaul.csc595.careapp;
 
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
@@ -18,6 +20,7 @@ import com.facebook.appevents.AppEventsLogger;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import edu.depaul.csc595.careapp.CareAPI.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Jefferson seu lindo!"));
     }
 
     @Override

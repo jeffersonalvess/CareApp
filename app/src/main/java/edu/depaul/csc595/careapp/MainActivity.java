@@ -131,32 +131,26 @@ public class MainActivity extends AppCompatActivity
     // Tab Methods
     private void setupTabIcons() {
 
+        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabOne.setText("PROFILE");
+        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_person_white_48dp, 0, 0);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_timer_profile_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_steering_wheel);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_directions_car);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_attach_money_24dp);
+        tabLayout.getTabAt(0).setCustomView(tabOne);
 
-//        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabOne.setText("PROFILE");
-//        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_timer_profile_24dp, 0, 0);
-//
-//        tabLayout.getTabAt(0).setCustomView(tabOne);
-//
-//        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabTwo.setText("GAME");
-//        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_action_steering_wheel, 0, 0);
-//        tabLayout.getTabAt(1).setCustomView(tabTwo);
-//
-//        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabThree.setText("MY CAR");
-//        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_directions_car, 0, 0);
-//        tabLayout.getTabAt(2).setCustomView(tabThree);
-//
-//        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabFour.setText("REWARD");
-//        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_attach_money_24dp, 0, 0);
-//        tabLayout.getTabAt(3).setCustomView(tabFour);
+        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabTwo.setText("GAME");
+        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_action_transport_steering_wheel_icon, 0, 0);
+        tabLayout.getTabAt(1).setCustomView(tabTwo);
+
+        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabThree.setText("MY CAR");
+        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_directions_car_white_48dp, 0, 0);
+        tabLayout.getTabAt(2).setCustomView(tabThree);
+
+        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabFour.setText("REWARD");
+        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_attach_money_white_48dp, 0, 0);
+        tabLayout.getTabAt(3).setCustomView(tabFour);
     }
 
     /**

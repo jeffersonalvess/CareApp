@@ -1,7 +1,9 @@
 package edu.depaul.csc595.careapp;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +33,16 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    MenuItem facelogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
         setSupportActionBar(toolbar);
+
+        facelogout = (MenuItem) findViewById(R.id.face_logout);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -57,14 +63,10 @@ public class MainActivity extends AppCompatActivity
 
         // Tab stuff
 
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         setupViewPager(viewPager);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.main_tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
     }
@@ -107,18 +109,9 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.face_logout) {
+            // TODO: Acrescentar FacebookLogoutActivity ou Ação de logout.
+            Toast.makeText(MainActivity.this, "Replace with your own action", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -131,26 +124,32 @@ public class MainActivity extends AppCompatActivity
     // Tab Methods
     private void setupTabIcons() {
 
-        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabOne.setText("PROFILE");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_person_white_48dp, 0, 0);
 
-        tabLayout.getTabAt(0).setCustomView(tabOne);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_timer_profile_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_steering_wheel);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_directions_car);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_attach_money_24dp);
 
-        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabTwo.setText("GAME");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_action_transport_steering_wheel_icon, 0, 0);
-        tabLayout.getTabAt(1).setCustomView(tabTwo);
-
-        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabThree.setText("MY CAR");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_directions_car_white_48dp, 0, 0);
-        tabLayout.getTabAt(2).setCustomView(tabThree);
-
-        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-        tabFour.setText("REWARD");
-        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_attach_money_white_48dp, 0, 0);
-        tabLayout.getTabAt(3).setCustomView(tabFour);
+//        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+//        tabOne.setText("PROFILE");
+//        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_person_white_48dp, 0, 0);
+//
+//        tabLayout.getTabAt(0).setCustomView(tabOne);
+//
+//        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+//        tabTwo.setText("GAME");
+//        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_action_transport_steering_wheel_icon, 0, 0);
+//        tabLayout.getTabAt(1).setCustomView(tabTwo);
+//
+//        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+//        tabThree.setText("MY CAR");
+//        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_directions_car_white_24dp, 0, 0);
+//        tabLayout.getTabAt(2).setCustomView(tabThree);
+//
+//        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+//        tabFour.setText("REWARD");
+//        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_attach_money_white_48dp, 0, 0);
+//        tabLayout.getTabAt(3).setCustomView(tabFour);
     }
 
     /**
@@ -165,6 +164,10 @@ public class MainActivity extends AppCompatActivity
         adapter.addFrag(new TestFragment(), "FOUR");
         viewPager.setAdapter(adapter);
     }
+
+//    public void doFaceLogout(MenuItem item) {
+//        Toast.makeText(MainActivity.this, "Replace with your own action", Toast.LENGTH_SHORT).show();
+//    }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -191,7 +194,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return null;
         }
     }
 }

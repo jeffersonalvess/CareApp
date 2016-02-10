@@ -35,10 +35,6 @@
             android:authorities="com.facebook.app.FacebookContentProvider504428666396302"
             android:exported="true" />
 
-        <activity
-            android:name=".CareActivity"
-            android:label="@string/title_activity_care"
-            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

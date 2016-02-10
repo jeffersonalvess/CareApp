@@ -3,4 +3,17 @@
     <string name="action_settings">Settings</string>
 
     <string name="facebook_app_id">504428666396302</string>
+    <string name="title_activity_care">CareActivity</string>
+
+    <!-- Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tab_stream">Profile</string>
+    <string name="tab_messages">Game</string>
+    <string name="tab_notifications">My Car</string>
+    <string name="tab_photos">Rewards</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

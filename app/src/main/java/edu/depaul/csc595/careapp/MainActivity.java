@@ -1,15 +1,12 @@
 package edu.depaul.csc595.careapp;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,10 +23,8 @@ import java.util.List;
 
 import edu.depaul.csc595.careapp.main_fragments.TestFragment;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     MenuItem facelogout;
@@ -39,19 +33,14 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Toolbar support code
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
         setSupportActionBar(toolbar);
 
-        facelogout = (MenuItem) findViewById(R.id.face_logout);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Jefferson Gordo
-            }
-        });
 
+        //Sidebar Menu
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -61,16 +50,32 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Tab stuff
+        facelogout = (MenuItem) findViewById(R.id.face_logout);
 
+
+
+        //Floating Button <<temporary?>>
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Jefferson Gordo
+            }
+        });
+
+
+
+        // TabView Elements
         viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.main_tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
     }
 
+    //region SIDEMENU
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -118,38 +123,14 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    //endregion
 
-
-
-    // Tab Methods
+    //region TAB_VIEW
     private void setupTabIcons() {
-
-
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_timer_profile_24dp);
         tabLayout.getTabAt(1).setIcon(R.mipmap.ic_steering_wheel);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_directions_car);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_attach_money_24dp);
-
-//        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabOne.setText("PROFILE");
-//        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_person_white_48dp, 0, 0);
-//
-//        tabLayout.getTabAt(0).setCustomView(tabOne);
-//
-//        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabTwo.setText("GAME");
-//        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_action_transport_steering_wheel_icon, 0, 0);
-//        tabLayout.getTabAt(1).setCustomView(tabTwo);
-//
-//        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabThree.setText("MY CAR");
-//        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_directions_car_white_24dp, 0, 0);
-//        tabLayout.getTabAt(2).setCustomView(tabThree);
-//
-//        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
-//        tabFour.setText("REWARD");
-//        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_attach_money_white_48dp, 0, 0);
-//        tabLayout.getTabAt(3).setCustomView(tabFour);
     }
 
     /**
@@ -165,9 +146,6 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(adapter);
     }
 
-//    public void doFaceLogout(MenuItem item) {
-//        Toast.makeText(MainActivity.this, "Replace with your own action", Toast.LENGTH_SHORT).show();
-//    }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -197,4 +175,5 @@ public class MainActivity extends AppCompatActivity
             return null;
         }
     }
+    //endregion
 }

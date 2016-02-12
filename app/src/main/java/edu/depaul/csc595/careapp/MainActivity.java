@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity
 
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_timer_profile_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_steering_wheel);
+        tabLayout.getTabAt(1).setIcon(R.mipmap.ic_steering_wheel);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_directions_car);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_attach_money_24dp);
 

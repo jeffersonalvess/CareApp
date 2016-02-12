@@ -5,17 +5,23 @@ import edu.depaul.csc595.careapp.R;
 /**
  * Created by Miller on 12/02/2016.
  */
-public class Profile {
+public class Card {
+
+    public static enum Type {type_1, type_2}
 
     String name;
     String shortDescription;
     String longDescription;
+    Type type;
 
-    public Profile(String name, String shortDescription, String longDescription) {
+    public Card(Type type, String name, String shortDescription, String longDescription) {
+        this.type = type;
         this.name = name;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
+
+    public Type getType(){ return type; }
 
     public String getName() {
         return name;

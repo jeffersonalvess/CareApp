@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -140,15 +141,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ProfileFragment(), "ONE");
-        adapter.addFrag(new TestFragment(), "TWO");
-        adapter.addFrag(new TestFragment(), "THREE");
-        adapter.addFrag(new TestFragment(), "FOUR");
+        adapter.addFrag(new ProfileFragment(), "PROFILE");
+        adapter.addFrag(new TestFragment(), "GAME");
+        adapter.addFrag(new TestFragment(), "MY CAR");
+        adapter.addFrag(new TestFragment(), "REWARDS");
         viewPager.setAdapter(adapter);
     }
 
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+    private class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return null;
         }
     }
     //endregion

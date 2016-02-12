@@ -141,10 +141,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ProfileFragment(), "ONE");
-        adapter.addFrag(new TestFragment(), "TWO");
-        adapter.addFrag(new TestFragment(), "THREE");
-        adapter.addFrag(new TestFragment(), "FOUR");
+        adapter.addFrag(new ProfileFragment(), "PROFILE");
+        adapter.addFrag(new TestFragment(), "GAME");
+        adapter.addFrag(new TestFragment(), "MY CAR");
+        adapter.addFrag(new TestFragment(), "REWARDS");
         viewPager.setAdapter(adapter);
     }
 
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return null;
         }
     }
     //endregion

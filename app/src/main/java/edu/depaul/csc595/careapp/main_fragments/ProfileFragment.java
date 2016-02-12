@@ -3,11 +3,8 @@ package edu.depaul.csc595.careapp.main_fragments;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import edu.depaul.csc595.careapp.ListData.Profile;
-import edu.depaul.csc595.careapp.ListData.ProfileList;
-import edu.depaul.csc595.careapp.MainActivity;
+import edu.depaul.csc595.careapp.ListData.Card;
+import edu.depaul.csc595.careapp.ListData.CardList;
 import edu.depaul.csc595.careapp.R;
 
 public class ProfileFragment extends Fragment {
@@ -47,27 +43,27 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        GameListAdapter adapter = new GameListAdapter(getActivity());
+        CardListAdapter adapter = new CardListAdapter(getActivity());
         mList.setAdapter(adapter);
     }
 
 
-    // Profile List Custom Adapter
-    static class GameListAdapter extends BaseAdapter {
+    // Card List Custom Adapter
+    static class CardListAdapter extends BaseAdapter {
 
         private LayoutInflater inflater;
         private final Context context;
 
-        public GameListAdapter(Context context) {
+        public CardListAdapter(Context context) {
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             this.context = context;
         }
 
         @Override
-        public int getCount() { return ProfileList.PROFILES.size(); }
+        public int getCount() { return CardList.PROFILES.size(); }
 
         @Override
-        public Object getItem(int position) { return ProfileList.PROFILES.get(position); }
+        public Object getItem(int position) { return CardList.PROFILES.get(position); }
 
         @Override
         public long getItemId(int position) { return position; }
@@ -76,21 +72,29 @@ public class ProfileFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
             View row = convertView;
+
+
+            Card card = CardList.PROFILES.get(position);
+
             if (row == null) {
-                row = inflater.inflate(R.layout.game_list_item, parent, false);
+                if(card.getType() == Card.Type.type_1) {
+                    row = inflater.inflate(R.layout.list_item_type_1, parent, false);
+                }
+                else{
+                    row = inflater.inflate(R.layout.list_item_type_2, parent, false);
+                }
                 holder = new ViewHolder();
-                holder.icon = (ImageView) row.findViewById(R.id.image);
-                holder.name = (TextView) row.findViewById(R.id.text1);
-                holder.description = (TextView) row.findViewById(R.id.text2);
+                holder.icon = (ImageView) row.findViewById(R.id.imgCardIcon);
+                holder.name = (TextView) row.findViewById(R.id.txtCardTitle);
+                holder.description = (TextView) row.findViewById(R.id.txtLine1);
                 row.setTag(holder);
             } else {
                 holder = (ViewHolder) row.getTag();
             }
 
-            Profile profile = ProfileList.PROFILES.get(position);
-            holder.name.setText(profile.getName());
-            holder.description.setText(profile.getShortDescription());
-            holder.icon.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), Profile.getIconResource()));
+            holder.name.setText(card.getName());
+            holder.description.setText(card.getShortDescription());
+            holder.icon.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), Card.getIconResource()));
             return row;
         }
 

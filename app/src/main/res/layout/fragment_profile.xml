@@ -1,8 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -15,12 +15,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/profile_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        tools:context=".WineListActivity"
-        tools:layout="@android:layout/list_content"
-        android:layout_below="@id/topView" />
-        <!--android:name="edu.depaul.csc595.careapp.main_fragments.ProfileListFragment" />-->
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CCCCCC"
+        android:divider="#CCCCCC"
+        />
 
-</RelativeLayout>
+    <!--tools:context=".MainActivity"-->
+        <!--tools:layout="@android:layout/list_content"-->
+
+</LinearLayout>

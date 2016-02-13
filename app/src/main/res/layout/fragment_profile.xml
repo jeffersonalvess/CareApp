@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/topView"
         android:layout_width="match_parent"
@@ -16,11 +15,10 @@
         android:id="@+id/profile_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#CCCCCC"
-        android:divider="#CCCCCC"
-        />
-
-    <!--tools:context=".MainActivity"-->
-        <!--tools:layout="@android:layout/list_content"-->
+        android:dividerHeight="12dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:divider="#0FFF"
+        android:scrollbars="none" />
 
 </LinearLayout>

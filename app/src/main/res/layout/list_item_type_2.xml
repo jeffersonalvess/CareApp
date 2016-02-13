@@ -12,8 +12,7 @@
     android:layout_height="wrap_content"
     android:padding="5dp"
     android:background="#FFFFFFFF"
-    android:elevation="4dp"
-    android:clickable="true" >
+    android:elevation="4dp" >
 
 
     <LinearLayout

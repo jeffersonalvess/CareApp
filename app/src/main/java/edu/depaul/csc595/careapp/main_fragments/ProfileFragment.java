@@ -1,6 +1,7 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.depaul.csc595.careapp.ListData.Card;
 import edu.depaul.csc595.careapp.ListData.CardList;
@@ -34,15 +36,30 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         mList = (ListView) view.findViewById(R.id.profile_list);
+        CardListAdapter adapter = new CardListAdapter(getActivity());
+
+        mList.setAdapter(adapter);
+
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+            {
+                Toast.makeText(getActivity(), "Stop Clicking me " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
@@ -50,17 +67,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        CardListAdapter adapter = new CardListAdapter(getActivity());
-
-        mList.setAdapter(adapter);
-
-        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), TestActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override

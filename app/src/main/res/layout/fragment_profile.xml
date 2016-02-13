@@ -19,6 +19,7 @@
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
         android:divider="#0FFF"
-        android:scrollbars="none" />
+        android:scrollbars="none"
+        android:drawSelectorOnTop="true" /> <!-- Very important to animate the click on the list item, otherwise is needed to create our own selector. -->
 
 </LinearLayout>

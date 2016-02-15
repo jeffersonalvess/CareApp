@@ -51,6 +51,21 @@
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Lucas.ChallengeList"
+            android:label="@string/title_activity_challenges"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Lucas.LeaderboardList"
+            android:label="@string/title_activity_leaderboard"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".Lucas.QuestionsViewer"
+            android:label="@string/title_activity_quizz"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

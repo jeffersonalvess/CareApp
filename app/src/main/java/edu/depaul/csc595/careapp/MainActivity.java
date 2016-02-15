@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.depaul.csc595.careapp.Lucas.GamesFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
 import edu.depaul.csc595.careapp.main_fragments.TestFragment;
 
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new ProfileFragment(), "PROFILE");
-        adapter.addFrag(new TestFragment(), "GAME");
+        adapter.addFrag(new GamesFragment(), "GAME");
         adapter.addFrag(new TestFragment(), "MY CAR");
         adapter.addFrag(new TestFragment(), "REWARDS");
         viewPager.setAdapter(adapter);

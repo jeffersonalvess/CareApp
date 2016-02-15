@@ -1,13 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="15dp" android:background="@drawable/shape_cards_rounded_corners">
 
     <!-- TODO: Layout dos dados do facebook -->
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AQUI, TETEU. :)"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Name"
+        android:id="@+id/username"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imgRoundedRight"
+        android:layout_marginStart="17dp" />
 
-</LinearLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgRoundedRight"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/com_facebook_profile_picture_blank_square"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/background_material_light"
+        android:visibility="visible"
+        android:layout_toEndOf="@+id/imgVersus" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/trophy"
+        android:src="@drawable/ic_trophy"
+        android:layout_below="@+id/username"
+        android:layout_alignStart="@+id/username"
+        android:layout_marginLeft="-8dp"
+        android:tint="#a69200" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Trophies"
+        android:id="@+id/trophyText"
+        android:layout_marginBottom="5dp"
+        android:layout_alignBottom="@+id/trophy"
+        android:layout_toEndOf="@+id/trophy"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reward"
+        android:src="@drawable/ic_trophy"
+        android:layout_below="@+id/username"
+        android:layout_toEndOf="@id/trophyText"
+        android:layout_marginLeft="10dp"
+        android:tint="#a69200"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Reward"
+        android:id="@+id/rewardText"
+        android:layout_alignBottom="@+id/trophyText"
+        android:layout_toEndOf="@+id/reward" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/username"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/trophy"
+        android:progress="0"/>
+
+
+
+</RelativeLayout>

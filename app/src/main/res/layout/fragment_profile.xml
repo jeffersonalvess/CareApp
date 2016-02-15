@@ -6,11 +6,6 @@
 
     <!-- TODO: Substituir por include do xml referente aos dados de perfil do Facebook. -->
     <include layout="@layout/profile_top" />
-    <!--<TextView-->
-        <!--android:id="@+id/topView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Topo da página a ser criado" />-->
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/profile_list"

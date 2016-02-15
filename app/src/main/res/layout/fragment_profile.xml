@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/topView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Topo da página a ser criado" />
+    <!-- TODO: Substituir por include do xml referente aos dados de perfil do Facebook. -->
+    <include layout="@layout/profile_top" />
+    <!--<TextView-->
+        <!--android:id="@+id/topView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Topo da página a ser criado" />-->
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/profile_list"
@@ -18,6 +20,7 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         android:paddingBottom="8dp"
+        android:paddingTop="5dp"
         android:clipToPadding="false"
         android:divider="#0FFF"
         android:scrollbars="none"

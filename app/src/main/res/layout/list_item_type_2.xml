@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="horizontal"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--
+    list_item_type_2
 
+    This list item refers to the challenge notification and status design.
+    It follows this name pattern:
+
+        Title: txtCardTitle
+        Subtitle: txtContentTitle
+        Challenge Description: txtChallengeShortDescription
+        Name Left: txtNameLeft
+        Name Right: txtNameRight
+        Button Accept: btnAccept
+        Button Reject: btnReject
+        Image View Left: imgRoundedLeft
+        Image View Right: imgRoundedRight
+        Status Label: lbUserChosenOption
+        Status ImageView: imgUserChosenOption
+
+    Enjoy baby!
+
+-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:background="#FFFFFFFF"
-    android:elevation="4dp" >
-
+    android:background="@drawable/shape_cards_rounded_corners"
+    android:elevation="4dp">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@drawable/card_horizontal_divider"
@@ -25,56 +38,87 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/txtCardTitle" />
+            android:text="Card Title"
+            android:id="@+id/txtCardTitle"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"
+            android:textColor="@android:color/black" />
+
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/txtContentTitle" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/txtLine1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/txtLine2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:id="@+id/txtLine3" />
-        </LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imgCardIconRounded"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/background_material_light"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:visibility="visible"/>
 
         <ImageView
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:id="@+id/imgCardIcon"
-            android:layout_gravity="center"
+            android:id="@+id/imgCardIconSquared"
             android:src="@drawable/com_facebook_profile_picture_blank_square"
             android:contentDescription="Content Icon"
-            android:layout_weight="0"/>
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Subtitle"
+                android:id="@+id/txtContentTitle"
+                android:layout_marginBottom="3dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine1"
+                android:singleLine="false"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine2"
+                android:singleLine="false"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine3"
+                android:singleLine="false" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -82,23 +126,28 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp">
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/progressBar"
-            android:layout_weight="3" />
+            android:layout_weight="3"
+            android:progress="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="New Text"
+            android:text="0%"
             android:id="@+id/txtProgress"
             android:layout_weight="0"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical|right"
+            android:maxLength="4" />
 
     </LinearLayout>
 </LinearLayout>
-<!--</LinearLayout>-->

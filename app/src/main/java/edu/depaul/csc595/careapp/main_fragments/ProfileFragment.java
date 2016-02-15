@@ -121,7 +121,7 @@ public class ProfileFragment extends Fragment {
                     row = inflater.inflate(R.layout.list_item_type_2, parent, false);
                 }
                 holder = new ViewHolder();
-                holder.icon = (ImageView) row.findViewById(R.id.imgCardIcon);
+                holder.icon = (ImageView) row.findViewById(R.id.imgCardIconRounded);
                 holder.name = (TextView) row.findViewById(R.id.txtCardTitle);
                 holder.description = (TextView) row.findViewById(R.id.txtLine1);
                 row.setTag(holder);

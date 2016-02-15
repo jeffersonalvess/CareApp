@@ -30,4 +30,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'com.android.support:support-v4:23.1.1'
+    compile 'de.hdodenhof:circleimageview:2.0.0' //This line adds the rounded image view object by: https://github.com/hdodenhof/CircleImageView
 }

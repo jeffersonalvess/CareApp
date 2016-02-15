@@ -11,13 +11,14 @@
         android:text="Topo da página a ser criado" />
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/profile_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:dividerHeight="12dp"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"
         android:divider="#0FFF"
         android:scrollbars="none"
         android:drawSelectorOnTop="true" /> <!-- Very important to animate the click on the list item, otherwise is needed to create our own selector. -->

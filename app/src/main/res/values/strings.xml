@@ -24,5 +24,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_tabbed_screen">TabbedScreen</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

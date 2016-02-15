@@ -30,5 +30,9 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.viewpagerindicator:library:2.4.1@aar.jar'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1@aar'
+    compile files('libs/android-support-v13.jar')
     compile 'de.hdodenhof:circleimageview:2.0.0' //This line adds the rounded image view object by: https://github.com/hdodenhof/CircleImageView
 }

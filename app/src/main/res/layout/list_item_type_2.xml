@@ -10,12 +10,12 @@
         Challenge Description: txtChallengeShortDescription
         Name Left: txtNameLeft
         Name Right: txtNameRight
-        Button Accept: btnAccept
-        Button Reject: btnReject
+        Button Accept: btnAccept (Default visibility: visible)
+        Button Reject: btnReject (Default visibility: visible)
+        Result Label: lbUserChosenOption (Default visibility: gone)
         Image View Left: imgRoundedLeft
         Image View Right: imgRoundedRight
-        Status Label: lbUserChosenOption
-        Status ImageView: imgUserChosenOption
+        Image between images: imgVersus
 
     Enjoy baby!
 
@@ -50,43 +50,20 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="5dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imgCardIconRounded"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_gravity="center"
-            android:src="@drawable/com_facebook_profile_picture_blank_square"
-            app:civ_border_width="1dp"
-            app:civ_border_color="@color/background_material_light"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:visibility="visible"/>
-
-        <ImageView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:id="@+id/imgCardIconSquared"
-            android:src="@drawable/com_facebook_profile_picture_blank_square"
-            android:contentDescription="Content Icon"
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:visibility="gone"/>
+        android:layout_marginBottom="0dp"
+        android:divider="@drawable/card_horizontal_divider"
+        android:showDividers="end">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp">
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -99,55 +76,109 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
-                android:id="@+id/txtLine1"
+                android:text="Lorem ipsum dolor sit amet, his alterum percipit nominati ea, ea ius assum inciderint. In per maiorum apeirian, sit ex causae deserunt."
+                android:id="@+id/txtChallengeShortDescription"
                 android:singleLine="false"
                 android:layout_marginBottom="5dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
-                android:id="@+id/txtLine2"
-                android:singleLine="false"
-                android:layout_marginBottom="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
-                android:id="@+id/txtLine3"
-                android:singleLine="false" />
         </LinearLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imgRoundedLeft"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:src="@drawable/com_facebook_profile_picture_blank_square"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/background_material_light"
+                android:visibility="visible"
+                android:layout_marginEnd="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/imgVersus" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/imgVersus"
+                android:src="@drawable/ic_action_versus"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imgRoundedRight"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:src="@drawable/com_facebook_profile_picture_blank_square"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/background_material_light"
+                android:visibility="visible"
+                android:layout_marginStart="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/imgVersus" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="5dp">
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/progressBar"
-            android:layout_weight="3"
-            android:progress="0" />
+        android:layout_height="match_parent">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Challenge Accepetd"
+            android:id="@+id/lbUserChosenOption"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:textColor="@color/colorAccent"
+            android:visibility="gone"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@drawable/card_vertical_divider"
+        android:showDividers="middle">
+
+        <Button
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="0%"
-            android:id="@+id/txtProgress"
-            android:layout_weight="0"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical|right"
-            android:maxLength="4" />
+            android:layout_height="wrap_content"
+            android:text="Accept"
+            android:id="@+id/btnAccept"
+            android:textColor="#388E3C"
+            android:layout_weight="1"
+            android:visibility="visible"
+            style="?android:attr/borderlessButtonStyle" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reject"
+            android:id="@+id/btnReject"
+            android:layout_weight="1"
+            android:textColor="#D32F2F"
+            android:visibility="visible"
+            style="?android:attr/borderlessButtonStyle"/>
 
     </LinearLayout>
 </LinearLayout>

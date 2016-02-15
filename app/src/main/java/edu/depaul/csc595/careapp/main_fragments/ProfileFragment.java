@@ -120,18 +120,20 @@ public class ProfileFragment extends Fragment {
                 else{
                     row = inflater.inflate(R.layout.list_item_type_2, parent, false);
                 }
-                holder = new ViewHolder();
-                holder.icon = (ImageView) row.findViewById(R.id.imgCardIconRounded);
-                holder.name = (TextView) row.findViewById(R.id.txtCardTitle);
-                holder.description = (TextView) row.findViewById(R.id.txtLine1);
+
+               holder = new ViewHolder();
+//                holder.icon = (ImageView) row.findViewById(R.id.imgCardIconRounded);
+//                holder.name = (TextView) row.findViewById(R.id.txtCardTitle);
+//                holder.description = (TextView) row.findViewById(R.id.txtLine1);
+
                 row.setTag(holder);
             } else {
                 holder = (ViewHolder) row.getTag();
             }
 
-            holder.name.setText(card.getName());
-            holder.description.setText(card.getShortDescription());
-            holder.icon.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), Card.getIconResource()));
+//            holder.name.setText(card.getName());
+//            holder.description.setText(card.getShortDescription());
+//            holder.icon.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), Card.getIconResource()));
             return row;
         }
 

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    list_item_type_5
+
+    This list item can be used to:
+        - Used mainly on rewards tab
+
+    It follows this name pattern:
+
+        Title: txtCardTitle
+        Subtitle: txtContentTitle
+        TextLine 1: txtLine1
+        Image View Squared: imgCardIconSquared (By default visible = "gone")
+        ProgressBar: progressBar
+        TextView next to ProgressBar: txtprogress
+
+    Enjoy baby!
+
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_cards_rounded_corners"
+    android:elevation="4dp">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/card_horizontal_divider"
+        android:showDividers="end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Card Title"
+            android:id="@+id/txtCardTitle"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="16dp"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:id="@+id/imgCardIconSquared"
+            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            android:contentDescription="Content Icon"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Subtitle"
+                android:id="@+id/txtContentTitle"
+                android:layout_marginBottom="3dp"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine1"
+                android:singleLine="false"
+                android:layout_marginBottom="5dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="0dp">
+
+                <!-- TODO: Fix this icon for a '$' icon -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imgIconRewards"
+                    android:src="@drawable/ic_trophy"
+                    android:layout_marginLeft="0dp"
+                    android:tint="#a69200"/>
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/progressBar"
+                    android:layout_weight="3"
+                    android:progress="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1275/3000"
+                    android:id="@+id/txtProgress"
+                    android:layout_weight="0"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical|right" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

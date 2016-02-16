@@ -7,7 +7,7 @@ import edu.depaul.csc595.careapp.R;
  */
 public class Card {
 
-    public static enum Type {type_1, type_2}
+    public static enum Type {type_1, type_2, type_3, type_4, type_5}
 
     String name;
     String shortDescription;

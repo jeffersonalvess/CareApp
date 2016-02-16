@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="15dp" android:background="@drawable/shape_cards_rounded_corners">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:background="@android:color/white"
+    android:elevation="4dp">
 
     <!-- TODO: Layout dos dados do facebook -->
 
@@ -50,6 +55,8 @@
         android:layout_toEndOf="@+id/trophy"
         />
 
+    <!-- TODO: Change this icon to a Rewards Icon -->
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,11 +67,12 @@
         android:layout_marginLeft="10dp"
         android:tint="#a69200"/>
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Reward"
+        android:text="Rewards"
         android:id="@+id/rewardText"
         android:layout_alignBottom="@+id/trophyText"
         android:layout_toEndOf="@+id/reward" />

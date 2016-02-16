@@ -114,12 +114,27 @@ public class ProfileFragment extends Fragment {
             Card card = CardList.PROFILES.get(position);
 
             if (row == null) {
-                if(card.getType() == Card.Type.type_1) {
-                    row = inflater.inflate(R.layout.list_item_type_1, parent, false);
+                switch (card.getType()) {
+                    case type_1:
+                        row = inflater.inflate(R.layout.list_item_type_4, parent, false);
+                        break;
+                    case type_2:
+                        row = inflater.inflate(R.layout.list_item_type_3, parent, false);
+                        break;
+                    case type_3:
+                        row = inflater.inflate(R.layout.list_item_type_5, parent, false);
+                        break;
+                    case type_4:
+                        row = inflater.inflate(R.layout.list_item_type_5, parent, false);
+                        break;
+                    case type_5:
+                        row = inflater.inflate(R.layout.list_item_type_2, parent, false);
+                        break;
+                    default:
+                        row = inflater.inflate(R.layout.list_item_type_2, parent, false);
+                        break;
                 }
-                else{
-                    row = inflater.inflate(R.layout.list_item_type_3, parent, false);
-                }
+
 
                holder = new ViewHolder();
 //                holder.icon = (ImageView) row.findViewById(R.id.imgCardIconRounded);

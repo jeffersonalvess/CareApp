@@ -20,23 +20,22 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import edu.depaul.csc595.careapp.ListData.Card;
-import edu.depaul.csc595.careapp.ListData.CardList;
-import edu.depaul.csc595.careapp.ListData.ProfileList;
+import edu.depaul.csc595.careapp.ListData.GamesList;
 import edu.depaul.csc595.careapp.R;
 import edu.depaul.csc595.careapp.TestActivity;
 
-public class ProfileFragment extends Fragment {
+public class GamesFragment extends Fragment {
 
     private ListView mList;
     private View view;
 
-    public ProfileFragment() {
+    public GamesFragment() {
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
@@ -45,11 +44,11 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        mList = (ListView) view.findViewById(R.id.profile_list);
+        view = inflater.inflate(R.layout.fragment_games, container, false);
 
-        CardListAdapter adapter = new CardListAdapter(getContext(), new ProfileList());
+        mList = (ListView) view.findViewById(R.id.games_list);
+        CardListAdapter adapter = new CardListAdapter(getContext(), new GamesList());
 
         mList.setAdapter(adapter);
 
@@ -83,4 +82,7 @@ public class ProfileFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

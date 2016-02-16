@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO: Substituir por include do xml referente aos dados de perfil do Facebook. -->
     <include layout="@layout/profile_top" />
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"

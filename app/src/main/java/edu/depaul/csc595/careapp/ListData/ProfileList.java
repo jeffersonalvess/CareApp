@@ -72,7 +72,7 @@ public class ProfileList extends CardList {
                 type = Card.Type.type_2;
             }
 
-            int progress = 10;
+            int progress = -1;
 
             if((Math.abs(random.nextInt()) % 4) == 0){
                 progress = (Math.abs(random.nextInt()) % 101);

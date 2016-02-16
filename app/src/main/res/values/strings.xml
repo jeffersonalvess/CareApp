@@ -29,5 +29,7 @@
     <string name="title_activity_quizz">Quizz</string>
     <string name="title_activity_challenges">Challenges</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_challenge_list">ChallengeListActivity</string>
+    <string name="title_activity_leaderboard_list">LeaderboardListActivity</string>
 
 </resources>

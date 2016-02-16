@@ -1,4 +1,4 @@
-package edu.depaul.csc595.careapp.Lucas;
+package edu.depaul.csc595.careapp.ListData;
 
 import edu.depaul.csc595.careapp.R;
 

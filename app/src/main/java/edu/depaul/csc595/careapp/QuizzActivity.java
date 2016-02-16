@@ -1,9 +1,10 @@
-package edu.depaul.csc595.careapp.Lucas;
+package edu.depaul.csc595.careapp;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,61 +12,27 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import edu.depaul.csc595.careapp.R;
+import edu.depaul.csc595.careapp.ListData.QuestionType;
 
-public class QuestionsViewer extends AppCompatActivity {
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    private int currentQuestion = 0;
-    private int questionNumber = 3;
-
-    private final String [] QUESTIONS = {
-            "PERGUNTA 1",
-            "PERGUNTA 2",
-            "PERGUNTA 3"
-    };
-
-    private final String [][] ANSWERS = {
-            {
-                    "P1 - R1",
-                    "P1 - R2",
-                    "P1 - R3",
-                    "P1 - R4",
-                    "P1 - R5"},
-            {
-                    "P2 - R1",
-                    "P2 - R2",
-                    "P2 - R3",
-                    "P2 - R4",
-                    "P2 - R5"},
-            {
-                    "P3 - R1",
-                    "P3 - R2",
-                    "P3 - R3",
-                    "P3 - R4",
-                    "P3 - R5"},
-    };
-
-    TextView questionText;
-    RadioButton [] radio = new RadioButton[5];
-    CheckBox [] checkBox = new CheckBox[5];
+public class QuizzActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        QuestionType type = QuestionType.CHECKBOX;
-
-//        if(type == QuestionType.CHECKBOX) {
-//            RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
-//            radioGroup.
-//        }
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_questions_viewer);
+        setContentView(R.layout.activity_quizz);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+        QuestionType type = QuestionType.CHECKBOX;
 
         TextView questionHeaderText = (TextView) findViewById(R.id.questionHeaderText);
 
@@ -132,4 +99,40 @@ public class QuestionsViewer extends AppCompatActivity {
             }
         });
     }
+
+
+
+    private int currentQuestion = 0;
+    private int questionNumber = 3;
+
+    private final String [] QUESTIONS = {
+            "PERGUNTA 1",
+            "PERGUNTA 2",
+            "PERGUNTA 3"
+    };
+
+    private final String [][] ANSWERS = {
+            {
+                    "P1 - R1",
+                    "P1 - R2",
+                    "P1 - R3",
+                    "P1 - R4",
+                    "P1 - R5"},
+            {
+                    "P2 - R1",
+                    "P2 - R2",
+                    "P2 - R3",
+                    "P2 - R4",
+                    "P2 - R5"},
+            {
+                    "P3 - R1",
+                    "P3 - R2",
+                    "P3 - R3",
+                    "P3 - R4",
+                    "P3 - R5"},
+    };
+
+    TextView questionText;
+    RadioButton[] radio = new RadioButton[5];
+    CheckBox[] checkBox = new CheckBox[5];
 }

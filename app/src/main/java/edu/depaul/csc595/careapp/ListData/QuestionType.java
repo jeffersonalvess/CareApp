@@ -1,4 +1,4 @@
-package edu.depaul.csc595.careapp.Lucas;
+package edu.depaul.csc595.careapp.ListData;
 
 /**
  * Created by Lucas on 2/12/2016.

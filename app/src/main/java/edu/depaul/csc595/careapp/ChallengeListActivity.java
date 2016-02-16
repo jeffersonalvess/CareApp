@@ -1,39 +1,48 @@
-package edu.depaul.csc595.careapp.Lucas;
+package edu.depaul.csc595.careapp;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import edu.depaul.csc595.careapp.R;
+import edu.depaul.csc595.careapp.ListData.Challenge;
 
-public class ChallengeList extends ListActivity {
+public class ChallengeListActivity extends AppCompatActivity {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+    private ListView mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new ChallangeAdapter());
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_challenge_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+        ChallengeAdapter adapter = new ChallengeAdapter();
+
+        mList = (ListView) findViewById(R.id.challenge_list);
+        mList.setAdapter(adapter);
     }
 
-    class ChallangeAdapter extends BaseAdapter {
+    class ChallengeAdapter extends BaseAdapter {
         private LayoutInflater inflater;
 
         @Override
@@ -58,7 +67,7 @@ public class ChallengeList extends ListActivity {
 
             if (convertView == null) {
                 if (inflater == null) {
-                    inflater = (LayoutInflater) ChallengeList.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    inflater = (LayoutInflater) ChallengeListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 }
                 row = inflater.inflate(R.layout.list_item_type_5, parent, false);
             }
@@ -111,4 +120,5 @@ public class ChallengeList extends ListActivity {
             new Challenge(Challenge.ChallengeType.HARDBREAK, "Hard Break", "Details about it", 90),
             new Challenge(Challenge.ChallengeType.HARDCURVE, "Hard Curve", "Details about it", 30)
     };
+
 }

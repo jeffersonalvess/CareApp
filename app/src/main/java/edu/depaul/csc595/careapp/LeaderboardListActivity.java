@@ -1,36 +1,45 @@
-package edu.depaul.csc595.careapp.Lucas;
+package edu.depaul.csc595.careapp;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import edu.depaul.csc595.careapp.R;
+import edu.depaul.csc595.careapp.ListData.Leaderboard;
 
-/**
- * Created by Lucas on 2/12/2016.
- */
-public class LeaderboardList extends ListActivity {
+public class LeaderboardListActivity extends AppCompatActivity {
+
+    private ListView mList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new LeaderboardAdapter());
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-    }
+        setContentView(R.layout.activity_leaderboard_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+        LeaderboardAdapter adapter = new LeaderboardAdapter();
+
+        mList = (ListView) findViewById(R.id.leaderboard_list);
+        mList.setAdapter(adapter);
     }
 
     class LeaderboardAdapter extends BaseAdapter {
@@ -51,7 +60,7 @@ public class LeaderboardList extends ListActivity {
 
             if(convertView == null) {
                 if(inflater == null) {
-                    inflater = (LayoutInflater) LeaderboardList.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    inflater = (LayoutInflater) LeaderboardListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 } row = inflater.inflate(R.layout.leaderboard_list_item, parent, false);
             }
 
@@ -71,10 +80,10 @@ public class LeaderboardList extends ListActivity {
             switch (leaderboard.getimageString()) {
                 case "LucasPhoto":
                     //imageProfile.setImageResource(R.drawable.ic_action_hard_brake);
-                break;
+                    break;
 
                 case "RenatoPhoto":
-                   // imageProfile.setImageResource(R.drawable.ic_action_hard_curve);
+                    // imageProfile.setImageResource(R.drawable.ic_action_hard_curve);
                     break;
 
                 case "MillerPhoto":
@@ -85,8 +94,9 @@ public class LeaderboardList extends ListActivity {
     }
 
     private Leaderboard[] LEADERBOARDS = {
-            new Leaderboard(1, "LucasPhoto", "Lucas Nunes", 2500),
-            new Leaderboard(2, "RenatoPhoto", "Renato Leonel", 2000),
-            new Leaderboard(3, "MillerPhoto", "Miller Horvath", 1500)
+            new Leaderboard(1, "MillerPhoto", "Miller Horvath", 28350),
+            new Leaderboard(2, "LucasPhoto", "Lucas Nunes", 2500),
+            new Leaderboard(3, "RenatoPhoto", "Renato Leonel", 2000)
     };
+
 }

@@ -20,7 +20,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import edu.depaul.csc595.careapp.ChallengeListActivity;
+import edu.depaul.csc595.careapp.LeaderboardListActivity;
 import edu.depaul.csc595.careapp.ListData.GamesList;
+import edu.depaul.csc595.careapp.QuizzActivity;
 import edu.depaul.csc595.careapp.R;
 import edu.depaul.csc595.careapp.TestActivity;
 
@@ -57,6 +60,21 @@ public class GamesFragment extends Fragment {
             @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
             {
                 Toast.makeText(getActivity(), "Stop Clicking me " + position, Toast.LENGTH_SHORT).show();
+                Intent intent;
+                switch (position){
+                    case 0:
+                        intent = new Intent(getActivity(), ChallengeListActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(getActivity(), QuizzActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(getActivity(), LeaderboardListActivity.class);
+                        startActivity(intent);
+                        break;
+                }
             }
         });
 

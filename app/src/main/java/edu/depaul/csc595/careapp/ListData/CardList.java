@@ -16,6 +16,6 @@ public class CardList {
 
     protected void addItem(Card card) {
         PROFILES.add(card);
-        PROFILE_MAP.put(card.title, card);
+        PROFILE_MAP.put(card.getTitle(), card);
     }
 }

@@ -13,15 +13,15 @@ public class Card {
 
     public static enum ImgShape {rounded, squared}
 
-    Type type;
-    String title;
-    int icon;
-    String contentTitle;
-    String line1;
-    String line2;
-    String line3;
-    int progress;
-    ImgShape imgShape;
+    private Type type;
+    private String title;
+    private int icon;
+    private String contentTitle;
+    private String line1;
+    private String line2;
+    private String line3;
+    private int progress;
+    private ImgShape imgShape;
 
     public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, ImgShape imgShape) {
         this.type = type;

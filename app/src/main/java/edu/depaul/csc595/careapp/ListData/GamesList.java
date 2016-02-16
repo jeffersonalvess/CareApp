@@ -9,31 +9,21 @@ public class GamesList extends CardList {
 
 
     public GamesList(){
-        for (Card card : PROFILES_ARRAY) {
-            addItem(card);
+        for (int i = 0; i < PROFILES_ARRAY.length; i++) {
+            addItem(PROFILES_ARRAY[i]);
         }
     }
 
-    public static final Card[] PROFILES_ARRAY = {
+    public final Card[] PROFILES_ARRAY = {
             new Card(Card.Type.type_1,
                     "Challenge",
                     R.drawable.com_facebook_profile_picture_blank_square,
                     "Hard Curve",
                     "Complete 100 miles without make a hard curve",
-                    "",
-                    "",
-                    30,
-                    Card.ImgShape.rounded),
-
-            new Card(Card.Type.type_1,
-                    "Challenge",
-                    R.drawable.com_facebook_profile_picture_blank_square,
-                    "Hard Curve",
-                    "Complete 100 miles without make a hard curve",
-                    "",
-                    "",
-                    30,
-                    Card.ImgShape.rounded),
+                    "  a",
+                    "  bu",
+                    -1,
+                    Card.ImgShape.squared),
 
             new Card(Card.Type.type_1,
                     "Quizz",

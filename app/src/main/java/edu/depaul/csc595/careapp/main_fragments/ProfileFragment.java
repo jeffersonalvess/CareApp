@@ -49,7 +49,7 @@ public class ProfileFragment extends Fragment {
 
         mList = (ListView) view.findViewById(R.id.profile_list);
 
-        CardListAdapter adapter = new CardListAdapter(getActivity(), new ProfileList());
+        CardListAdapter adapter = new CardListAdapter(getContext(), new ProfileList());
 
         mList.setAdapter(adapter);
 

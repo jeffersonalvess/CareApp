@@ -48,7 +48,7 @@ public class GamesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_games, container, false);
 
         mList = (ListView) view.findViewById(R.id.games_list);
-        CardListAdapter adapter = new CardListAdapter(getActivity(), new GamesList());
+        CardListAdapter adapter = new CardListAdapter(getContext(), new GamesList());
 
         mList.setAdapter(adapter);
 

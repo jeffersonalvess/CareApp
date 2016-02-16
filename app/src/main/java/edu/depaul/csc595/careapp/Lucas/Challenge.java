@@ -18,13 +18,13 @@ public class Challenge {
     public static int getImageResource(ChallengeType type) {
         switch (type) {
             case MAXSPEED:
-                return R.drawable.ic_action_speeding;
+                return R.mipmap.ic_action_speeding;
 
             case HARDBREAK:
-                return R.drawable.ic_action_hard_brake;
+                return R.mipmap.ic_hard_brake;
 
             case HARDCURVE:
-                return R.drawable.ic_action_hard_curve;
+                return R.mipmap.ic_action_hard_curve;
         } return -1;
     }
 

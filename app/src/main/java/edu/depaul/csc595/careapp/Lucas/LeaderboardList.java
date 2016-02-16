@@ -56,6 +56,7 @@ public class LeaderboardList extends ListActivity {
             }
 
             TextView textRank = (TextView) row.findViewById(R.id.leaderboardRank);
+            //ImageView imageTrophy = (ImageView) row.findViewById(R.id.reward);
             ImageView imageProfile = (ImageView) row.findViewById(R.id.leaderboardImage);
             TextView textName = (TextView) row.findViewById(R.id.leaderboardName);
             TextView textPoints = (TextView) row.findViewById(R.id.leaderboardPoints);
@@ -64,18 +65,20 @@ public class LeaderboardList extends ListActivity {
             textRank.setText(Integer.toString(leaderboard.getRank()));
             textName.setText(leaderboard.getName());
             textPoints.setText(Integer.toString(leaderboard.getPoints()));
+            //imageTrophy.setImageResource(R.drawable.ic_action_trophy);
+
 
             switch (leaderboard.getimageString()) {
                 case "LucasPhoto":
-                    imageProfile.setImageResource(R.drawable.ic_action_hard_brake);
+                    //imageProfile.setImageResource(R.drawable.ic_action_hard_brake);
                 break;
 
                 case "RenatoPhoto":
-                    imageProfile.setImageResource(R.drawable.ic_action_hard_curve);
+                   // imageProfile.setImageResource(R.drawable.ic_action_hard_curve);
                     break;
 
                 case "MillerPhoto":
-                    imageProfile.setImageResource(R.drawable.ic_action_speeding);
+                    //imageProfile.setImageResource(R.drawable.ic_action_speeding);
                     break;
             } return row;
         }

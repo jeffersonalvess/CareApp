@@ -112,7 +112,9 @@
                 android:id="@+id/imgVersus"
                 android:src="@drawable/ic_action_versus"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:tint="#a69200"
+                />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"

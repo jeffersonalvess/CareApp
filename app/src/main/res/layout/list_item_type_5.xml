@@ -15,6 +15,7 @@
         TextView next to ProgressBar: txtprogress
         Button Redeem: btnGetOffer [android:visibility="gone"]
         Button Save offer: btnSaveOffer
+        Icon ProgressBar: imgIconRewards
         Label Status used to give a feedback to the user: lblStatus [android:visibility="gone"]
 
     Enjoy baby!
@@ -106,12 +107,11 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="0dp">
 
-                    <!-- TODO: Fix this icon for a '$' icon -->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/imgIconRewards"
-                        android:src="@drawable/ic_trophy"
+                        android:src="@drawable/ic_rewards"
                         android:layout_marginLeft="0dp"
                         android:tint="#a69200"/>
 

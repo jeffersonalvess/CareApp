@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -59,31 +60,46 @@ public class ChallengeList extends ListActivity {
                 if (inflater == null) {
                     inflater = (LayoutInflater) ChallengeList.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 }
-                row = inflater.inflate(R.layout.challenge_list_item, parent, false);
+                row = inflater.inflate(R.layout.list_item_type_5, parent, false);
             }
 
-            TextView textTitle = (TextView) row.findViewById(R.id.challengeTitle);
-            TextView textDetail = (TextView) row.findViewById(R.id.challengeDetails);
-            ImageView imageChallenge = (ImageView) row.findViewById(R.id.challengeImage);
+
+
+            TextView txtCardTitle = (TextView) row.findViewById(R.id.txtCardTitle);
+            TextView textContentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+            TextView txtLine1 = (TextView) row.findViewById(R.id.txtLine1);
+            ImageView imgCardIconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
             ProgressBar progressBar = (ProgressBar) row.findViewById(R.id.progressBar);
+            Button btnGetOffer = (Button) row.findViewById((R.id.btnGetOffer));
+            Button btnSaveOffer = (Button) row.findViewById((R.id.btnSaveOffer));
+            ImageView imgIconRewards = (ImageView) row.findViewById(R.id.imgIconRewards);
+            TextView lblStatus = (TextView) row.findViewById(R.id.lblStatus);
+
+
+
+
+            btnGetOffer.setVisibility(View.GONE);
+            btnSaveOffer.setVisibility(View.GONE);
+            textContentTitle.setVisibility(View.GONE);
 
             Challenge challenge = CHALLENGES[position];
-            textTitle.setText(challenge.getTitle());
-            textDetail.setText(challenge.getDetails());
+            txtCardTitle.setText(challenge.getTitle());
+
+            txtLine1.setText(challenge.getDetails());
             progressBar.setMax(100);
             progressBar.setProgress(challenge.getChallengeProgress());
 
             switch (challenge.getChallengeType()) {
                 case HARDBREAK:
-                    imageChallenge.setImageResource(R.drawable.ic_action_hard_brake);
+                    imgCardIconSquared.setImageResource(R.mipmap.ic_action_hard_break);
                     break;
 
                 case HARDCURVE:
-                    imageChallenge.setImageResource(R.drawable.ic_action_hard_curve);
+                    imgCardIconSquared.setImageResource(R.mipmap.ic_action_hard_curve);
                     break;
 
                 case MAXSPEED:
-                    imageChallenge.setImageResource(R.drawable.ic_action_speeding);
+                    imgCardIconSquared.setImageResource(R.mipmap.ic_action_speeding);
                     break;
             }
             return row;
@@ -91,8 +107,8 @@ public class ChallengeList extends ListActivity {
     }
 
     private Challenge[] CHALLENGES = {
-            new Challenge(Challenge.ChallengeType.MAXSPEED, "Max Speed", "Detals about it", 60),
-            new Challenge(Challenge.ChallengeType.HARDBREAK, "Hard Break", "Detals about it", 90),
-            new Challenge(Challenge.ChallengeType.HARDCURVE, "Hard Curve", "Detals about it", 30)
+            new Challenge(Challenge.ChallengeType.MAXSPEED, "Max Speed", "Details about it", 60),
+            new Challenge(Challenge.ChallengeType.HARDBREAK, "Hard Break", "Details about it", 90),
+            new Challenge(Challenge.ChallengeType.HARDCURVE, "Hard Curve", "Details about it", 30)
     };
 }

@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.depaul.csc595.careapp.Lucas.GamesFragment;
+import edu.depaul.csc595.careapp.main_fragments.GamesFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
 import edu.depaul.csc595.careapp.main_fragments.TestFragment;
 

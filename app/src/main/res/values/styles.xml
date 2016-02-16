@@ -30,4 +30,13 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="CustomFbButton">
+        <item name="android:background">@drawable/facebook_login_button</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
 </resources>

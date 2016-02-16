@@ -11,39 +11,32 @@
     <TextView
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/logoFace"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="24dp"
+        android:textColor="@android:color/white"
+        android:layout_above="@+id/section_label2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="135dp"
-        />
+        android:layout_marginBottom="12dp" />
 
     <TextView
+        android:id="@+id/section_label2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Enter with Facebook to start"
+        android:text="Welcome"
+        android:textColor="@android:color/white"
+        android:layout_above="@+id/imageTabbedWelcome"
+        android:layout_marginBottom="0dp"
         android:textAlignment="center"
-        android:id="@+id/txtWelcome4"
+        android:layout_alignStart="@+id/imageTabbedWelcome"
+        android:layout_alignEnd="@+id/imageTabbedWelcome" />
+
+    <ImageView
+        android:id="@+id/imageTabbedWelcome"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="305dp"
-        android:textColor="#19209c"
-        android:textStyle="bold"
-        android:typeface="normal"
-        android:textSize="25dp" />
-
-
-    <!--<com.viewpagerindicator.CirclePageIndicator-->
-    <!--android:id="@+id/pagerIndicator"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:layout_marginTop="50dp"-->
-    <!--android:layout_below="@id/fb_login_button" />-->
-
-
-
+        android:src="@drawable/app_icon_splash"
+        android:background="@color/colorPrimary" />
 </RelativeLayout>

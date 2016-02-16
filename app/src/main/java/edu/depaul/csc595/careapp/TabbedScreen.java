@@ -35,21 +35,10 @@ import java.net.URL;
 
 public class TabbedScreen extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     public static final String FACEBOOK_PREFS = "FacebookPreferences";
     private AccessTokenTracker accessTokenTracker;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     public static String userName;
@@ -57,7 +46,6 @@ public class TabbedScreen extends AppCompatActivity {
 
     private LoginButton loginButton;
 
-    //private CallbackManager mCallBackManager;
     private CallbackManager callbackManager;
 
 
@@ -70,66 +58,18 @@ public class TabbedScreen extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences(FACEBOOK_PREFS, 0);
 
-//        if (settings.getBoolean("loginSucessful", false)) {
-//            //Intent intent = new Intent();
-//            //intent.setClass(WelcomeScreen.this, Splashscreen.class);
-//            //intent.setClass(WelcomeScreen.this, GoogleMapsTest.class);
-//            //intent.putExtra("REQ", 1);
-//            //startActivity(intent);
-//            finish();
-//        }
-
-//        accessTokenTracker = new AccessTokenTracker() {
-//            @Override
-//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken,
-//                                                       AccessToken currentAccessToken) {
-//                if (currentAccessToken != null) {
-//                    //showFragment(SELECTION, false);
-//                } else {
-//                    //showFragment(SPLASH, false);
-//                    finish();
-//                }
-//                //}
-//            }
-//        };
-
         setContentView(R.layout.activity_tabbed_screen);
 
         loginButton = (LoginButton) findViewById(R.id.fb_login_button);
-        System.out.println("uhuuuuuuuR");
-
+        loginButton.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                //info.setText("Login Successful!");
-                //Method to get Facebook information
-//                GraphRequest request;
-//                request = GraphRequest.newMeRequest(
-//                        AccessToken.getCurrentAccessToken(),
-//                        new GraphRequest.GraphJSONObjectCallback() {
-//                            @Override
-//                            public void onCompleted(JSONObject object, GraphResponse response) {
-//
-//                                try {
-//                                    //userLocation = object.getJSONObject("user_location").getString("name");
-//                                    saveProfileInformation(object.getString("first_name") + " " + object.getString("last_name"), object.getString("id"));
-//
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        });
-
-
                 Bundle parameters = new Bundle();
                 parameters.putString("fields", "id, location, last_name, first_name");
-                //request.setParameters(parameters);
-                //request.executeAsync();
 
                 SharedPreferences settings = getSharedPreferences(FACEBOOK_PREFS, 0);
                 SharedPreferences.Editor editor = settings.edit();
@@ -140,7 +80,6 @@ public class TabbedScreen extends AppCompatActivity {
                 intent.putExtra("REQ", 1);
                 startActivity(intent);
                 finish();
-                //getActivity().finish();
             }
 
             @Override
@@ -160,17 +99,14 @@ public class TabbedScreen extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //CirclePageIndicator circlePageIndicator = (CirclePageIndicator) findViewById(R.id.pagerIndicator);
-        //circlePageIndicator.setViewPager(mViewPager);
-
         CirclePageIndicator mIndicator = (CirclePageIndicator) findViewById(R.id.pagerIndicator);
         mIndicator.setViewPager(mViewPager);
 
         final float density = getResources().getDisplayMetrics().density;
-        mIndicator.setRadius(5 * density);
+        mIndicator.setRadius(4 * density);
         mIndicator.setPageColor(0x00FFFFFF);
-        mIndicator.setFillColor(0x880000FF);
-        mIndicator.setStrokeColor(0xFF000000);
+        mIndicator.setFillColor(0xFFF17105);
+        mIndicator.setStrokeColor(0xA0145EA7);
         mIndicator.setStrokeWidth(1 * density);
 
     }
@@ -231,122 +167,30 @@ public class TabbedScreen extends AppCompatActivity {
             return fragment;
         }
 
-//        private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
-//
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                AccessToken accessToken = loginResult.getAccessToken();
-//                Profile profile = Profile.getCurrentProfile();
-//
-//                if (profile != null) {
-//                    //Do something with data obtained
-//
-//                }
-//
-//
-//                GraphRequest request;
-//                request = GraphRequest.newMeRequest(
-//                        AccessToken.getCurrentAccessToken(),
-//                        new GraphRequest.GraphJSONObjectCallback() {
-//                            @Override
-//                            public void onCompleted(JSONObject object, GraphResponse response) {
-//
-//                                try {
-//                                    //userLocation = object.getJSONObject("user_location").getString("name");
-//                                    saveProfileInformation(object.getString("first_name") + " " + object.getString("last_name"), object.getString("id"));
-//
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                } catch (IOException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        });
-//
-//                Bundle parameters = new Bundle();
-//                parameters.putString("fields", "id, location, last_name, first_name");
-//                request.setParameters(parameters);
-//                request.executeAsync();
-//
-//                SharedPreferences settings = getContext().getSharedPreferences(FACEBOOK_PREFS, 0); // 0 - for private mode
-//                SharedPreferences.Editor editor = settings.edit();
-//                editor.putBoolean("loginSucessful", false);
-//                editor.commit();
-//
-//
-//                Intent intent = new Intent(getActivity(), MainActivity.class);
-//                intent.putExtra("REQ", 1);
-//                startActivity(intent);
-//
-//                //getActivity().finish();
-//
-//
-//
-//
-//                //Intent intent = new Intent(getActivity(), Splashscreen.class);
-//                //intent.putExtra("REQ", 1);
-//                //startActivity(intent);
-//                //getActivity().finish();
-//
-//                // System.out.println("Facebook Login Successful!");
-//                // System.out.println("Logged in user Details : ");
-//                // System.out.println("--------------------------");
-//                // System.out.println("User ID  : " + loginResult.getAccessToken().getUserId());
-//                // System.out.println("Authentication Token : " + loginResult.getAccessToken().getToken());
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                System.out.println("Facebook Login failed!!");
-//
-//            }
-//
-//            @Override
-//            public void onError(FacebookException e) {
-//                System.out.println("Facebook Login failed!!");
-//            }
-//        };
-
-
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_tabbed_screen, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.txtWelcome4);
-            ImageView facebookLogo = (ImageView) rootView.findViewById(R.id.logoFace);
+            TextView txtTitle = (TextView) rootView.findViewById(R.id.section_label);
+            TextView txtLine1 = (TextView) rootView.findViewById(R.id.section_label2);
+            ImageView imageTabbedWelcome = (ImageView) rootView.findViewById(R.id.imageTabbedWelcome);
 
-            //LoginButton loginButton2= (LoginButton) rootView.findViewById(R.id.fb_login_button2);
-            //loginButton = (LoginButton) findViewById(R.id.fb_login_button2);
-
-
-
-
-            //mCallBackManager = CallbackManager.Factory.create();
-            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
-            //loginButton.setFragment(this);
-            //loginButton.registerCallback(mCallBackManager, mCallback);
-
+            //TODO: Change the images on the splash screen
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
-                    textView.setText("SCREEN 1");
-                    //textView.setVisibility(View.INVISIBLE);
-                    facebookLogo.setVisibility(View.INVISIBLE);
-                    //loginButton.setVisibility(View.INVISIBLE);
+                    txtTitle.setText("WELCOME");
+                    txtLine1.setVisibility(View.INVISIBLE);
                     break;
                 case 2:
-                    textView.setText("SCREEN 2");
-                    //textView.setVisibility(View.INVISIBLE);
-                    facebookLogo.setVisibility(View.INVISIBLE);
-                    //loginButton.setVisibility(View.INVISIBLE);
+                    txtTitle.setText("REWARDS");
+                    txtLine1.setText("Get rewards when you improve your driving behavior.");
+                    imageTabbedWelcome.setImageResource(R.drawable.app_icon_splash);
                     break;
                 case 3:
-                    //textView.setText("");
-                    textView.setVisibility(View.VISIBLE);
-                    facebookLogo.setVisibility(View.VISIBLE);
-                    //loginButton.setVisibility(View.INVISIBLE);
+                    txtTitle.setText("ENGAGE TOGETHER");
+                    txtLine1.setText("Challenge friends and compare yourself with other drivers.");
+                    imageTabbedWelcome.setImageResource(R.drawable.app_icon_splash);
                     break;
             }
 
@@ -399,15 +243,7 @@ public class TabbedScreen extends AppCompatActivity {
 
     public static void setInformationToView() throws IOException {
 
-        //TextView Line1 = (TextView) findViewById(R.id.txtWelcome4);
-
-        //ImageView imagem1 = (ImageView) findViewById(R.id.logoFace);
-
-        //Line1.setText(userName);
-
-        //new ImageLoadTask("https://graph.facebook.com/" + userID + "/picture?type=large", imagem1).execute();
         System.out.println("https://graph.facebook.com/" + userID + "/picture?type=large");
-
     }
 }
 

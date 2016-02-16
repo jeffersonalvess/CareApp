@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main_content"
@@ -12,22 +16,11 @@
         tools:context="edu.depaul.csc595.careapp.TabbedScreen"
         android:layout_above="@+id/pagerIndicator">
 
-
-
         <android.support.v4.view.ViewPager
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-
-        <!--<com.facebook.login.widget.LoginButton-->
-        <!--android:id="@+id/fb_login_button"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_allignBotton="true"/>-->
-
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -42,10 +35,13 @@
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/fb_login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="18dp"
+        android:paddingLeft="50dp"
+        android:paddingBottom="18dp"
+        android:textSize="16sp"
+        android:elevation="4dp"
+        style="@style/CustomFbButton" />
+
 </RelativeLayout>

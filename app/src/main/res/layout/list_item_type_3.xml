@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    list_item_type_3
+
+    This list item can be used to:
+        - Bring the user attention, due its yellow background.
+        - Recommended to use on Did you know? section.
+
+    Card Features:
+        - Title bar
+        - Subtitle and Big Title
+        - Rounded and Squared images
+        - Images on left and right
+
+    It follows this name pattern:
+
+        Content Title: txtContentTitle
+        Content Subtitle: txtContentTitle [android:visibility="gone"]
+        TextLine 1: txtLine1
+        TextLine 2: txtLine2
+        TextLine 3: txtLine3
+        Image View Squared Left: imgCardIconSquaredLeft [android:visibility="gone"]
+        Image View Squared Right: imgCardIconSquaredRight [android:visibility="visible"]
+
+    PS.: Due the colored background it's strongly recommended using images with transparent background.
+    PS.: This card uses a yellow background by default, which can be changed by code to the white one:
+         [android:background="@drawable/shape_cards_rounded_corners"]
+
+    Enjoy baby!
+
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_cards_rounded_corners_yellow_background"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:id="@+id/imgCardIconSquaredLeft"
+            android:src="@drawable/ic_action_hard_brake"
+            android:contentDescription="Content Icon"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:id="@+id/imgCardIconSquaredRight"
+            android:src="@drawable/ic_action_hard_brake"
+            android:contentDescription="Content Icon"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:id="@+id/linearLayout3"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgCardIconSquaredLeft"
+            android:layout_toLeftOf="@+id/imgCardIconSquaredRight">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Title"
+                android:id="@+id/txtContentTitle"
+                android:layout_marginBottom="3dp"
+                android:textColor="@android:color/black"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Subtitle"
+                android:id="@+id/txtContentSubTitle"
+                android:layout_marginBottom="3dp"
+                android:textColor="@android:color/black"
+                android:visibility="gone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine1"
+                android:singleLine="false"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine2"
+                android:singleLine="false"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine3"
+                android:singleLine="false" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

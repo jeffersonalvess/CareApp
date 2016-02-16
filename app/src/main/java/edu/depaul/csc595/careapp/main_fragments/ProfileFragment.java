@@ -118,7 +118,7 @@ public class ProfileFragment extends Fragment {
                     row = inflater.inflate(R.layout.list_item_type_1, parent, false);
                 }
                 else{
-                    row = inflater.inflate(R.layout.list_item_type_2, parent, false);
+                    row = inflater.inflate(R.layout.list_item_type_3, parent, false);
                 }
 
                holder = new ViewHolder();

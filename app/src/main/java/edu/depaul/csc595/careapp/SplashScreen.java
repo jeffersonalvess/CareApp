@@ -22,6 +22,9 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_splash_screen);
+        getSupportActionBar().hide();
+
         //FacebookSdk.sdkInitialize(getApplicationContext());
         //mCallbackManager = CallbackManager.Factory.create();
 
@@ -45,8 +48,7 @@ public class SplashScreen extends AppCompatActivity {
             finish();
         }
 
-        setContentView(R.layout.activity_splash_screen);
-        getSupportActionBar().hide();
+
     }
 
     @Override

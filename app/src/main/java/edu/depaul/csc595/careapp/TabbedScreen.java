@@ -139,7 +139,7 @@ public class TabbedScreen extends AppCompatActivity {
                 Intent intent = new Intent(TabbedScreen.this, MainActivity.class);
                 intent.putExtra("REQ", 1);
                 startActivity(intent);
-                //finish();
+                finish();
                 //getActivity().finish();
             }
 

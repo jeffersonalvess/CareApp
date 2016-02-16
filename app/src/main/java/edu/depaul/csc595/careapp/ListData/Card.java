@@ -9,9 +9,9 @@ import edu.depaul.csc595.careapp.R;
  */
 public class Card {
 
-    public static enum Type {type_1, type_2, type_3, type_4, type_5}
+    public enum Type {type_1, type_2, type_3, type_4, type_5}
 
-    public static enum ImgShape {rounded, squared}
+    public enum ImgShape {rounded, squared}
 
     private Type type;
     private String title;
@@ -21,9 +21,10 @@ public class Card {
     private String line2;
     private String line3;
     private int progress;
+    private String progressText;
     private ImgShape imgShape;
 
-    public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, ImgShape imgShape) {
+    public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, String progressText, ImgShape imgShape) {
         this.type = type;
         this.title = title;
         this.icon = icon;
@@ -32,6 +33,7 @@ public class Card {
         this.line2 = line2;
         this.line3 = line3;
         this.progress = progress;
+        this.progressText = progressText;
         this.imgShape = imgShape;
     }
 
@@ -64,6 +66,10 @@ public class Card {
     public int getProgress(){return progress;}
 
     public void setProgress(int progress){this.progress = progress;}
+
+    public void setProgressText(String progressText){this.progressText = progressText;}
+
+    public String getProgressText(){return progressText;}
 
     public ImgShape getImgShape(){return imgShape;}
 

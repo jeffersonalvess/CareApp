@@ -20,10 +20,11 @@ public class GamesList extends CardList {
                     R.drawable.com_facebook_profile_picture_blank_square,
                     "Hard Curve",
                     "Complete 100 miles without make a hard curve",
+                    "  a",
+                    "  bu",
+                    -1,
                     "",
-                    "",
-                    30,
-                    Card.ImgShape.rounded),
+                    Card.ImgShape.squared),
 
             new Card(Card.Type.type_1,
                     "Quizz",
@@ -33,6 +34,7 @@ public class GamesList extends CardList {
                     "",
                     "",
                     -1,
+                    "",
                     Card.ImgShape.squared),
 
             new Card(Card.Type.type_1,
@@ -43,6 +45,7 @@ public class GamesList extends CardList {
                     "",
                     "",
                     -1,
+                    "",
                     Card.ImgShape.rounded)
     };
 }

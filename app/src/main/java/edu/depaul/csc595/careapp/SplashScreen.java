@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
 import com.facebook.login.widget.LoginButton;
 
 /**
@@ -27,7 +28,7 @@ public class SplashScreen extends AppCompatActivity {
 
         //FacebookSdk.sdkInitialize(getApplicationContext());
         //mCallbackManager = CallbackManager.Factory.create();
-
+        FacebookSdk.sdkInitialize(getApplicationContext());
         SharedPreferences settings = getSharedPreferences(FACEBOOK_PREFS, 0);
 
         if (settings.getBoolean("loginSucessful", true)) {

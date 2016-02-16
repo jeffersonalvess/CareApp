@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
 
-
         //Sidebar Menu
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         facelogout = (MenuItem) findViewById(R.id.face_logout);
 
 
-
         //Floating Button <<temporary?>>
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //Jefferson Gordo
             }
         });
-
 
 
         // TabView Elements

@@ -19,7 +19,7 @@ public class CardListAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private final Context context;
-    CardList cardList;
+    CardList cardList = new CardList();
 
     public CardListAdapter(Context context, CardList cardList) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -73,6 +73,8 @@ public class CardListAdapter extends BaseAdapter {
         if(card.getIcon() != -1) {
             if(card.getImgShape() == Card.ImgShape.rounded) {
                 holder.iconRounded.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), card.getIcon()));
+                holder.iconRounded.setVisibility(View.VISIBLE);
+                holder.iconSquared.setVisibility(View.GONE);
             }
             else{
                 holder.iconSquared.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), card.getIcon()));
@@ -85,12 +87,20 @@ public class CardListAdapter extends BaseAdapter {
             holder.iconSquared.setVisibility(View.GONE);
         }
 
-        holder.title.setText(card.getTitle());
+        if (card.getTitle().matches("")) {
+            holder.title.setVisibility(View.GONE);
+        }
+        else{
+            holder.title.setVisibility(View.VISIBLE);
+            holder.title.setText(card.getTitle());
+        }
+
 
         if(card.getContentTitle().matches("")){
             holder.contentTitle.setVisibility(View.GONE);
         }
         else{
+            holder.contentTitle.setVisibility(View.VISIBLE);
             holder.contentTitle.setText(card.getContentTitle());
         }
 
@@ -98,6 +108,7 @@ public class CardListAdapter extends BaseAdapter {
             holder.line1.setVisibility(View.GONE);
         }
         else{
+            holder.line1.setVisibility(View.VISIBLE);
             holder.line1.setText(card.getLine1());
         }
 
@@ -105,6 +116,7 @@ public class CardListAdapter extends BaseAdapter {
             holder.line2.setVisibility(View.GONE);
         }
         else{
+            holder.line2.setVisibility(View.VISIBLE);
             holder.line2.setText(card.getLine2());
         }
 
@@ -112,10 +124,13 @@ public class CardListAdapter extends BaseAdapter {
             holder.line3.setVisibility(View.GONE);
         }
         else{
+            holder.line3.setVisibility(View.VISIBLE);
             holder.line3.setText(card.getLine3());
         }
 
         if(card.getProgress() != -1){
+            holder.progressTxt.setVisibility(View.VISIBLE);
+            holder.progressBar.setVisibility(View.VISIBLE);
             holder.progressBar.setProgress(card.getProgress());
             holder.progressTxt.setText(card.getProgress() + "%");
         }

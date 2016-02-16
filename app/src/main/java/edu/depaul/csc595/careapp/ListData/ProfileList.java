@@ -65,7 +65,7 @@ public class ProfileList extends CardList {
         for (int i = 0; i < 95; i++) {
 
             Card.Type type;
-            if(random.nextInt() % 2 == 0){
+            if(Math.abs(random.nextInt()) % 2 == 0){
                 type = Card.Type.type_1;
             }
             else{
@@ -74,13 +74,13 @@ public class ProfileList extends CardList {
 
             int progress = 10;
 
-            if((random.nextInt() % 4) == 0){
-                progress = (random.nextInt() % 101);
+            if((Math.abs(random.nextInt()) % 4) == 0){
+                progress = (Math.abs(random.nextInt()) % 101);
             }
 
             Card.ImgShape imgShape;
 
-            if((random.nextInt() % 2) == 0){
+            if((Math.abs(random.nextInt()) % 2) == 0){
                 imgShape = Card.ImgShape.rounded;
             }
             else {
@@ -95,7 +95,7 @@ public class ProfileList extends CardList {
                     "Line 2" + ((int)i+6),
                     "Line 3" + ((int)i+6),
                     progress,
-                    Card.ImgShape.rounded));
+                    imgShape));
         }
     }
 }

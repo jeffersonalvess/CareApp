@@ -35,6 +35,7 @@ import java.net.URL;
 
 public class TabbedScreen extends AppCompatActivity {
 
+    //Edit para ajudar o Teteu
     private SectionsPagerAdapter mSectionsPagerAdapter;
     public static final String FACEBOOK_PREFS = "FacebookPreferences";
     private AccessTokenTracker accessTokenTracker;

@@ -31,6 +31,7 @@ public class GamesList extends CardList {
             new Card(Card.Type.type_1,
                     "Quizz",
                     R.mipmap.ic_action_quiz,
+
                     "You have a new quizz",
                     "Answer quizzes to learn more about safe driving and to get more points.",
                     "Each quizz can give you more than 50 points",

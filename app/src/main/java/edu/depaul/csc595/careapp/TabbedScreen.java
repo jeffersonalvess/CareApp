@@ -105,9 +105,9 @@ public class TabbedScreen extends AppCompatActivity {
 
         final float density = getResources().getDisplayMetrics().density;
         mIndicator.setRadius(4 * density);
-        mIndicator.setPageColor(0x00FFFFFF);
+        mIndicator.setPageColor(0x24F17105);
         mIndicator.setFillColor(0xFFF17105);
-        mIndicator.setStrokeColor(0xA0145EA7);
+        mIndicator.setStrokeColor(0x30FFFFFF);
         mIndicator.setStrokeWidth(1 * density);
 
 

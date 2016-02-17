@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light">
+    android:background="@color/colorPrimary">
 
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -41,7 +41,6 @@
         android:paddingLeft="160dp"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
-
         android:textSize="16sp"
         android:elevation="4dp"
         style="@style/CustomFbButton"

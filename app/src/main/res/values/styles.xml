@@ -31,7 +31,7 @@
     </style>
 
     <style name="CustomFbButton">
-        <item name="android:background">@drawable/facebook_login_button</item>
+        <item name="android:background">@drawable/facebook_login</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:layout_alignParentBottom">true</item>

@@ -87,5 +87,18 @@ public class ProfileList extends CardList {
                 "",
                 true,
                 true));
+
+        addItem(new Card(
+                Card.Type.type_5,
+                R.mipmap.ic_action_splash_rewards,
+                "Rewards Information",
+                "Amazon GiftCard",
+                "Change your points for an Amazon $50 Gift Card",
+                51,
+                "1253/2500",
+                "",
+                true,
+                false
+        ));
     }
 }

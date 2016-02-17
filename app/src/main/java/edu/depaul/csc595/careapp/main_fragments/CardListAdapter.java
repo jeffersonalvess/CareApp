@@ -296,6 +296,24 @@ public class CardListAdapter extends BaseAdapter
             //TODO: Implement button actions
         }
 
+        if (card.isBtnSaveOffer() && card.isBtnGetOffer())
+        {
+            holder.btnGetOffer.setVisibility(View.VISIBLE);
+            holder.btnSaveOffer.setVisibility(View.VISIBLE);
+
+            //TODO: Implement button actions
+        }
+        else if (card.isBtnSaveOffer() && !card.isBtnGetOffer())
+        {
+            holder.btnSaveOffer.setVisibility(View.VISIBLE);
+            //TODO: Implement button actions
+        }
+        else if (!card.isBtnSaveOffer() && card.isBtnGetOffer())
+        {
+            holder.btnGetOffer.setVisibility(View.VISIBLE);
+            //TODO: Implement button actions
+        }
+
         // STRING FIELDS
         if (!card.getTitle().matches(""))
         {
@@ -349,6 +367,12 @@ public class CardListAdapter extends BaseAdapter
         {
             holder.userOption.setVisibility(View.VISIBLE);
             holder.userOption.setText(card.getUserOption());
+        }
+
+        if (!card.getRewardStatus().matches("") && !(card.isBtnAccept() && card.isBtnReject()))
+        {
+            holder.rewardStatus.setVisibility(View.VISIBLE);
+            holder.rewardStatus.setText(card.getRewardStatus());
         }
 
         return row;

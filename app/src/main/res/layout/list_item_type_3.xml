@@ -54,7 +54,9 @@
             android:layout_gravity="center"
             android:visibility="gone"
             android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+
+            android:tint="#a69200"/>
 
         <ImageView
             android:layout_width="72dp"
@@ -64,7 +66,9 @@
             android:contentDescription="Content Icon"
             android:layout_gravity="center"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+
+            android:tint="#000000"/>
 
         <LinearLayout
             android:orientation="vertical"

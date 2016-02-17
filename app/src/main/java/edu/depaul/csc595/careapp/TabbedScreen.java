@@ -186,12 +186,12 @@ public class TabbedScreen extends AppCompatActivity {
                 case 2:
                     txtTitle.setText("REWARDS");
                     txtLine1.setText("Get rewards when you improve your driving behavior.");
-                    imageTabbedWelcome.setImageResource(R.drawable.app_icon_splash);
+                    imageTabbedWelcome.setImageResource(R.mipmap.ic_action_splash_rewards);
                     break;
                 case 3:
                     txtTitle.setText("ENGAGE TOGETHER");
                     txtLine1.setText("Challenge friends and compare yourself with other drivers.");
-                    imageTabbedWelcome.setImageResource(R.drawable.app_icon_splash);
+                    imageTabbedWelcome.setImageResource(R.mipmap.ic_action_splash_social);
                     break;
             }
 

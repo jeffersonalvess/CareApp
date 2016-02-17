@@ -1,5 +1,6 @@
 package edu.depaul.csc595.careapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -17,6 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.facebook.login.LoginManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +118,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.face_logout) {
             // TODO: Acrescentar FacebookLogoutActivity ou Ação de logout.
-            Toast.makeText(MainActivity.this, "Replace with your own action", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "Replace with your own action", Toast.LENGTH_SHORT).show();
+            LoginManager.getInstance().logOut();
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, TabbedScreen.class);
+            intent.putExtra("REQ", 1);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

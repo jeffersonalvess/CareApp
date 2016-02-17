@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -133,6 +134,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fbLeft = (FloatingActionButton) findViewById(R.id.buttonLeft);
         fbCenter = (FloatingActionButton) findViewById(R.id.buttonCenter);
         fbRight = (FloatingActionButton) findViewById(R.id.buttonRight);
+
+        fbLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Coming soon...", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
+        fbCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LeaderboardListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        fbRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Coming soon...", Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
         //TODO: Criar isso aqui dentro de uma classe com metodos para retorno dos valores, assim fica mais facil acessa isso de qualquer do codigo.
         //Method to get Facebook information

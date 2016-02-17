@@ -60,8 +60,7 @@ public class GamesFragment extends Fragment {
                         startActivityForResult(intent, 0);
                         break;
                     case 2:
-                        intent = new Intent(getActivity(), LeaderboardListActivity.class);
-                        startActivity(intent);
+                        Snackbar.make(arg1, "Coming soon...", Snackbar.LENGTH_SHORT).show();
                         break;
                 }
             }

@@ -212,36 +212,36 @@ public class QuizActivity extends AppCompatActivity {
     private int questionNumber = 3;
 
     private final QuestionType [] TYPE = {
-        QuestionType.CHECKBOX,
         QuestionType.RADIOBUTTON,
-        QuestionType.CHECKBOX
+        QuestionType.CHECKBOX,
+        QuestionType.RADIOBUTTON
     };
 
     private final String [] QUESTIONS = {
-            "PERGUNTA 1",
-            "PERGUNTA 2",
-            "PERGUNTA 3"
+            "The only time you can cross two solid yellow lines is when: ",
+            "Always leave extra space in front of you when (Mark all that aplly):",
+            "To safely navigate through a curve, you should:"
     };
 
     private final String [][] ANSWERS = {
             {
-                    "P1 - R1",
-                    "P1 - R2",
-                    "P1 - R3",
-                    "P1 - R4",
-                    "P1 - R5"},
+                    "You need to pass.",
+                    "Turning left at an intersection.",
+                    "The car in front of you is driving under the speed limit.",
+                    "There is a strange object on the road.",
+                    "You should never cross double solid yellow lines."},
             {
-                    "P2 - R1",
-                    "P2 - R2",
-                    "P2 - R3",
-                    "P2 - R4",
-                    "P2 - R5"},
+                    "Driving in bad weather.",
+                    "Another driver is following you closely.",
+                    "You are following a motorcycle.",
+                    "You are having problens with your car.",
+                    "Never leave extra space in front of you."},
             {
-                    "P3 - R1",
-                    "P3 - R2",
-                    "P3 - R3",
-                    "P3 - R4",
-                    "P3 - R5"},
+                    "Slow down before entering a curve and avoid braking while in the curve.",
+                    "Accelerate in the curve.",
+                    "Brake once you are in the curve to slow down.",
+                    "Maintain your regular speed there is no other traffic.",
+                    "Break until the car stoppes and then make the curve"},
     };
 
     TextView questionText;

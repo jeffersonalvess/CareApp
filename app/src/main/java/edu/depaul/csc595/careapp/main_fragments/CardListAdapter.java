@@ -52,6 +52,18 @@ public class CardListAdapter extends BaseAdapter
     }
 
     @Override
+    public int getViewTypeCount()
+    {
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position)
+    {
+        return cardList.PROFILES.get(position).getType().ordinal();
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
         // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> BEFORE EDIT THIS METHOD PLESE READ THIS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -79,7 +91,7 @@ public class CardListAdapter extends BaseAdapter
         if (row == null)
         {
 
-            if (card.getType() == Card.Type.type_1)
+            if (getItemViewType(position) == Card.Type.type_1.ordinal())
             {
                 row = inflater.inflate(R.layout.list_item_type_1, parent, false);
 
@@ -95,7 +107,7 @@ public class CardListAdapter extends BaseAdapter
                 holder.progressBar = (ProgressBar) row.findViewById(R.id.progressBar);
                 holder.progressTxt = (TextView) row.findViewById(R.id.txtProgress);
             }
-             else if (card.getType() == Card.Type.type_2)
+             else if (getItemViewType(position) == Card.Type.type_2.ordinal())
             {
                 row = inflater.inflate(R.layout.list_item_type_2, parent, false);
 

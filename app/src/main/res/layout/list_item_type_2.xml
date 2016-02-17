@@ -7,9 +7,9 @@
 
         Title: txtCardTitle
         Subtitle: txtContentTitle
-        Challenge Description: txtChallengeShortDescription
-        Name Left: txtNameLeft
-        Name Right: txtNameRight
+        Challenge Description: txtChallengeDesc
+        Name Left: txtPlayerLeft
+        Name Right: txtPlayerRight
         Button Accept: btnAccept (Default visibility: visible)
         Button Reject: btnReject (Default visibility: visible)
         Result Label: lbUserChosenOption (Default visibility: gone)
@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lorem ipsum dolor sit amet, his alterum percipit nominati ea, ea ius assum inciderint. In per maiorum apeirian, sit ex causae deserunt."
-                android:id="@+id/txtChallengeShortDescription"
+                android:id="@+id/txtDescription"
                 android:singleLine="false"
                 android:layout_marginBottom="5dp" />
 
@@ -106,6 +106,16 @@
                 android:layout_alignParentTop="true"
                 android:layout_toStartOf="@+id/imgVersus" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You"
+                android:id="@+id/txtPlayerLeft"
+                android:layout_below="@+id/imgRoundedLeft"
+                android:layout_alignLeft="@+id/imgRoundedLeft"
+                android:layout_alignRight="@+id/imgRoundedLeft"
+                android:textAlignment="center"/>
+
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -129,6 +139,16 @@
                 android:layout_marginStart="40dp"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/imgVersus" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friend"
+                android:id="@+id/txtPlayerRight"
+                android:layout_alignLeft="@+id/imgRoundedRight"
+                android:layout_below="@+id/imgRoundedRight"
+                android:layout_alignRight="@+id/imgRoundedRight"
+                android:textAlignment="center"/>
 
         </RelativeLayout>
 

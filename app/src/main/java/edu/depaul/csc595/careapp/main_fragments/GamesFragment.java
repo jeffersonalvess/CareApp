@@ -102,6 +102,7 @@ public class GamesFragment extends Fragment {
                     "",
                     "",
                     30,
+                    "30",
                     Card.ImgShape.rounded),
 
             new Card(Card.Type.type_1,
@@ -112,6 +113,7 @@ public class GamesFragment extends Fragment {
                     "",
                     "",
                     -1,
+                    "",
                     Card.ImgShape.squared),
 
             new Card(Card.Type.type_1,
@@ -122,6 +124,7 @@ public class GamesFragment extends Fragment {
                     "",
                     "",
                     -1,
+                    "",
                     Card.ImgShape.rounded)
     };
 }

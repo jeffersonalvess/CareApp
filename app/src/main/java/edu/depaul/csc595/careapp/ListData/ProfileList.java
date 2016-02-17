@@ -9,62 +9,46 @@ import edu.depaul.csc595.careapp.R;
  */
 public class ProfileList extends CardList {
 
-    public ProfileList(){
+    public ProfileList()
+    {
         Random random = new Random();
 
-        addItem(new Card(Card.Type.type_1,
-                "Title  Teste 1",
-                R.drawable.com_facebook_profile_picture_blank_square,
-                "Content Title Teste 1",
-                "Line 1 Teste 1",
-                "Line 2 Teste 1",
-                "Line 3 Teste 1",
-                10,
-                "10",
-                Card.ImgShape.rounded));
-
-        addItem(new Card(Card.Type.type_1,
-                "Title  Teste 2",
-                R.drawable.com_facebook_profile_picture_blank_square,
-                "Content Title Teste 2",
-                "Line 1 Teste 2",
-                "Line 2 Teste 2",
-                "Line 3 Teste 2",
-                20,
-                "20",
-                Card.ImgShape.rounded));
-
-        addItem(new Card(Card.Type.type_1,
-                "Title  Teste 3",
-                R.drawable.com_facebook_profile_picture_blank_square,
-                "Content Title Teste 3",
-                "Line 1 Teste 3",
-                "Line 2 Teste 3",
-                "Line 3 Teste 3",
-                -1,
-                "",
+        addItem(new Card(
+                Card.Type.type_1,
+                "Current Machine Challenge",
+                R.mipmap.ic_action_hard_break,
+                "Three Days hard break free",
+                "Hard Breaking is dangerous and one of the top accident related issue.",
+                "Try to not hard break for three consecutive days.",
+                "1000 reward points",
+                66,
+                "66%",
                 Card.ImgShape.squared));
 
-        addItem(new Card(Card.Type.type_1,
-                "Title  Teste 4",
+        addItem(new Card(
+                Card.Type.type_2,
                 R.drawable.com_facebook_profile_picture_blank_square,
-                "Content Title Teste 4",
-                "Line 1 Teste 4",
-                "Line 2 Teste 4",
-                "Line 3 Teste 4",
-                40,
-                "40",
-                Card.ImgShape.rounded));
+                R.drawable.com_facebook_profile_picture_blank_square,
+                "Friend Challenge",
+                "100 Miles Challenge",
+                "Drive 100 miles without hardbreaking.",
+                "You",
+                "Renato",
+                "",
+                true,
+                true));
 
-        addItem(new Card(Card.Type.type_1,
-                "Title  Teste 5",
+        addItem(new Card(
+                Card.Type.type_2,
                 R.drawable.com_facebook_profile_picture_blank_square,
-                "Content Title Teste 5",
-                "Line 1 Teste 5",
-                "Line 2 Teste 5",
-                "Line 3 Teste 5",
-                100,
-                "100",
-                Card.ImgShape.rounded));
+                R.drawable.com_facebook_profile_picture_blank_square,
+                "Friend Challenge",
+                "Drivewise",
+                "Mark 1000 points on Drivewise mode, the first to accomplish the points wil be the winner.",
+                "You",
+                "Matheus",
+                "",
+                true,
+                true));
     }
 }

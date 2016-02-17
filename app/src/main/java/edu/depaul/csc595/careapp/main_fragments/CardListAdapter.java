@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import edu.depaul.csc595.careapp.ListData.Card;
 import edu.depaul.csc595.careapp.ListData.CardList;
 import edu.depaul.csc595.careapp.R;
@@ -69,47 +71,49 @@ public class CardListAdapter extends BaseAdapter
 
         // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        ViewHolder holder;
+        ViewHolder holder = null;
         View row = convertView;
 
         Card card = cardList.PROFILES.get(position);
 
         if (row == null)
         {
-            holder = new ViewHolder();
 
-            switch (card.getType())
+            if (card.getType() == Card.Type.type_1)
             {
-                case type_1:
-                    row = inflater.inflate(R.layout.list_item_type_1, parent, false);
+                row = inflater.inflate(R.layout.list_item_type_1, parent, false);
 
-                    holder.iconRounded = (ImageView) row.findViewById(R.id.imgCardIconRounded);
-                    holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
-                    holder.title = (TextView) row.findViewById(R.id.txtCardTitle);
-                    holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
-                    holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
-                    holder.line2 = (TextView) row.findViewById(R.id.txtLine2);
-                    holder.line3 = (TextView) row.findViewById(R.id.txtLine3);
-                    holder.progressBar = (ProgressBar) row.findViewById(R.id.progressBar);
-                    holder.progressTxt = (TextView) row.findViewById(R.id.txtProgress);
+                holder = new ViewHolder();
 
-                    break;
-                case type_2:
-                    row = inflater.inflate(R.layout.list_item_type_2, parent, false);
-                    break;
-                case type_3:
-                    row = inflater.inflate(R.layout.list_item_type_3, parent, false);
-                    break;
-                case type_4:
-                    row = inflater.inflate(R.layout.list_item_type_4, parent, false);
-                    break;
-                case type_5:
-                    row = inflater.inflate(R.layout.list_item_type_5, parent, false);
-                    break;
-                default:
-                    holder = (ViewHolder) row.getTag();
-                    break;
+                holder.iconRounded = (CircleImageView) row.findViewById(R.id.imgCardIconRounded);
+                holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
+                holder.title = (TextView) row.findViewById(R.id.txtCardTitle);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+                holder.line2 = (TextView) row.findViewById(R.id.txtLine2);
+                holder.line3 = (TextView) row.findViewById(R.id.txtLine3);
+                holder.progressBar = (ProgressBar) row.findViewById(R.id.progressBar);
+                holder.progressTxt = (TextView) row.findViewById(R.id.txtProgress);
             }
+             else if (card.getType() == Card.Type.type_2)
+            {
+                row = inflater.inflate(R.layout.list_item_type_2, parent, false);
+
+                holder = new ViewHolder();
+
+                holder.title = (TextView) row.findViewById(R.id.txtCardTitle);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.challengeDescription = (TextView) row.findViewById(R.id.txtDescription);
+                holder.playerLeft = (TextView) row.findViewById(R.id.txtPlayerLeft);
+                holder.playerRight = (TextView) row.findViewById(R.id.txtPlayerRight);
+                holder.userOption = (TextView) row.findViewById(R.id.lbUserChosenOption);
+                holder.imgRoundedLeft = (CircleImageView) row.findViewById(R.id.imgRoundedLeft);
+                holder.imgRoundedRight = (CircleImageView) row.findViewById(R.id.imgRoundedRight);
+                holder.btnAccept = (Button) row.findViewById(R.id.btnAccept);
+                holder.btnReject = (Button) row.findViewById(R.id.btnReject);
+
+            }
+
             row.setTag(holder);
         }
         else
@@ -119,36 +123,32 @@ public class CardListAdapter extends BaseAdapter
 
 
         //FirstStep Make AllViews as Visible
-        switch (card.getType())
+        if (card.getType() == Card.Type.type_1)
         {
-            case type_1:
-                holder.iconRounded.setVisibility(View.GONE);
-                holder.iconSquared.setVisibility(View.GONE);
-                holder.title.setVisibility(View.GONE);
-                holder.contentTitle.setVisibility(View.GONE);
-                holder.line1.setVisibility(View.GONE);
-                holder.line2.setVisibility(View.GONE);
-                holder.line3.setVisibility(View.GONE);
-                holder.progressBar.setVisibility(View.GONE);
-                holder.progressTxt.setVisibility(View.GONE);
+            holder.iconRounded.setVisibility(View.GONE);
+            holder.iconSquared.setVisibility(View.GONE);
+            holder.title.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.line1.setVisibility(View.GONE);
+            holder.line2.setVisibility(View.GONE);
+            holder.line3.setVisibility(View.GONE);
+            holder.progressBar.setVisibility(View.GONE);
+            holder.progressTxt.setVisibility(View.GONE);
 
-                break;
-            case type_2:
-                row = inflater.inflate(R.layout.list_item_type_2, parent, false);
-                break;
-            case type_3:
-                row = inflater.inflate(R.layout.list_item_type_3, parent, false);
-                break;
-            case type_4:
-                row = inflater.inflate(R.layout.list_item_type_4, parent, false);
-                break;
-            case type_5:
-                row = inflater.inflate(R.layout.list_item_type_5, parent, false);
-                break;
-            default:
-                break;
         }
-
+        else if (card.getType() == Card.Type.type_2)
+        {
+            holder.title.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.challengeDescription.setVisibility(View.GONE);
+            holder.playerLeft.setVisibility(View.GONE);
+            holder.playerRight.setVisibility(View.GONE);
+            holder.userOption.setVisibility(View.GONE);
+            holder.imgRoundedLeft.setVisibility(View.GONE);
+            holder.imgRoundedRight.setVisibility(View.GONE);
+            holder.btnAccept.setVisibility(View.GONE);
+            holder.btnReject.setVisibility(View.GONE);
+        }
 
         //Now choose which elements will be showed and changed
 
@@ -157,7 +157,7 @@ public class CardListAdapter extends BaseAdapter
         {
             if (card.getImgShape() == Card.ImgShape.rounded)
             {
-                holder.iconRounded.setImageBitmap(BitmapFactory.decodeResource(context.getResources(), card.getIcon()));
+                holder.iconRounded.setImageResource(card.getIcon());
                 holder.iconRounded.setVisibility(View.VISIBLE);
             }
             else
@@ -175,7 +175,28 @@ public class CardListAdapter extends BaseAdapter
             holder.progressBar.setVisibility(View.VISIBLE);
         }
 
-        //STRING FIELDS
+        if (card.getImgRoundedLeft() != -1)
+        {
+            holder.imgRoundedLeft.setImageResource(card.getIcon());
+            holder.imgRoundedLeft.setVisibility(View.VISIBLE);
+        }
+
+        if (card.getImgRoundedRight() != -1)
+        {
+            holder.imgRoundedRight.setImageResource(card.getIcon());
+            holder.imgRoundedRight.setVisibility(View.VISIBLE);
+        }
+
+        // BOOLEAN FIELDS
+        if (card.isBtnAccept() && card.isBtnReject())
+        {
+            holder.btnAccept.setVisibility(View.VISIBLE);
+            holder.btnReject.setVisibility(View.VISIBLE);
+
+            //TODO: Implement button actions
+        }
+
+        // STRING FIELDS
         if (!card.getTitle().matches(""))
         {
             holder.title.setVisibility(View.VISIBLE);
@@ -206,19 +227,55 @@ public class CardListAdapter extends BaseAdapter
             holder.line3.setText(card.getLine3());
         }
 
+        if (!card.getChallengeDescription().matches(""))
+        {
+            holder.challengeDescription.setVisibility(View.VISIBLE);
+            holder.challengeDescription.setText(card.getChallengeDescription());
+        }
+
+        if (!card.getPlayerLeft().matches(""))
+        {
+            holder.playerLeft.setVisibility(View.VISIBLE);
+            holder.playerLeft.setText(card.getPlayerLeft());
+        }
+
+        if (!card.getPlayerRight().matches(""))
+        {
+            holder.playerRight.setVisibility(View.VISIBLE);
+            holder.playerRight.setText(card.getPlayerRight());
+        }
+
+        if (!card.getUserOption().matches("") && !(card.isBtnAccept() && card.isBtnReject()))
+        {
+            holder.userOption.setVisibility(View.VISIBLE);
+            holder.userOption.setText(card.getUserOption());
+        }
+
         return row;
     }
 
     static class ViewHolder
     {
+        Button btnAccept;
+        Button btnReject;
+
         TextView title;
-        ImageView iconRounded;
-        ImageView iconSquared;
+        TextView playerLeft;
+        TextView playerRight;
+        TextView userOption;
         TextView contentTitle;
+        TextView challengeDescription;
         TextView line1;
         TextView line2;
         TextView line3;
-        ProgressBar progressBar;
         TextView progressTxt;
+
+        CircleImageView iconRounded;
+        CircleImageView imgRoundedLeft;
+        CircleImageView imgRoundedRight;
+
+        ImageView iconSquared;
+
+        ProgressBar progressBar;
     }
 }

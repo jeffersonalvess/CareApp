@@ -27,22 +27,22 @@ public class GamesList extends CardList {
                     "66%",
                     Card.ImgShape.squared),
 
-            //TODO: Adicionar imagem para quizz
+
             new Card(Card.Type.type_1,
                     "Quizz",
-                    -1,
+                    R.mipmap.ic_action_quiz,
                     "You have a new quizz",
                     "Answer quizzes to learn more about safe driving and to get more points.",
-                    "Each quizz could give you more than 50 points",
+                    "Each quizz can give you more than 50 points",
                     "",
                     -1,
                     "",
                     Card.ImgShape.squared),
 
-            //TODO: Adicionar imagem para estatisticas
+
             new Card(Card.Type.type_1,
                     "Statistics",
-                    -1,
+                    R.mipmap.ic_action_statistics,
                     "",
                     "See your progress in the game and general information about your trips.",
                     "",

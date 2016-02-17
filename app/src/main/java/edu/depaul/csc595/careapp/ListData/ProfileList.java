@@ -15,11 +15,11 @@ public class ProfileList extends CardList {
             addItem(new Card(
                     Card.Type.type_3,
                     -1,
-                    R.mipmap.ic_action_speeding,
+                    R.mipmap.ic_action_tip,
                     "Did you know?",
                     "",
-                    "70% of the of the righways accidents with fatal victms are cause by speeding excess.",
-                    "You don't wanna be remembred by those statistics. Right?",
+                    "70% of the highway accidents with fatal victims are caused by speeding excess.",
+                    "You don't wanna be remembered by those statistics, right?",
                     ""));
 
         addItem(new Card(
@@ -28,7 +28,7 @@ public class ProfileList extends CardList {
                 R.mipmap.ic_action_hard_break,
                 "Three Days hard break free",
                 "Hard Breaking is dangerous and one of the top accident related issues.",
-                "Try to not hard break for three consecutive days.",
+                "Try not to hard break for three consecutive days.",
                 "1000 reward points",
                 66,
                 "66%",
@@ -36,8 +36,8 @@ public class ProfileList extends CardList {
 
         addItem(new Card(
                 Card.Type.type_4,
-                Card.ImgShape.squared,
-                R.drawable.com_facebook_profile_picture_blank_square,
+                Card.ImgShape.rounded,
+                R.drawable.ic_profile_lucas,
                 "",
                 "",
                 "Your Facebook friend Lucas Barbosa joined Care."
@@ -45,8 +45,8 @@ public class ProfileList extends CardList {
 
         addItem(new Card(
                 Card.Type.type_2,
-                R.drawable.com_facebook_profile_picture_blank_square,
-                R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.ic_profile_jefferson,
+                R.drawable.ic_profile_renato,
                 "Friend Challenge",
                 "100 Miles Challenge",
                 "Drive 100 miles without hardbreaking.",
@@ -59,11 +59,20 @@ public class ProfileList extends CardList {
         addItem(new Card(
                 Card.Type.type_4,
                 Card.ImgShape.squared,
-                R.mipmap.ic_action_hard_curve,
+                R.mipmap.ic_action_splash_rewards,
                 "Rewards",
                 "",
                 "There are new options available to redeem your rewards points."
         ));
+
+            addItem(new Card(
+                    Card.Type.type_4,
+                    Card.ImgShape.rounded,
+                    R.drawable.ic_profile_miller,
+                    "",
+                    "",
+                    "Your Facebook friend Miller Horvath joined Care."
+            ));
 
         addItem(new Card(
                 Card.Type.type_4,
@@ -76,11 +85,11 @@ public class ProfileList extends CardList {
 
         addItem(new Card(
                 Card.Type.type_2,
-                R.drawable.com_facebook_profile_picture_blank_square,
-                R.drawable.com_facebook_profile_picture_blank_square,
+                R.drawable.ic_profile_jefferson,
+                R.drawable.ic_profile_matheus,
                 "Friend Challenge",
                 "Drivewise",
-                "Mark 1000 points on Drivewise mode, the first to accomplish the points wil be the winner.",
+                "Mark 1000 points on Drivewise mode, the first to accomplish the points will be the winner.",
                 "You",
                 "Matheus",
                 "",

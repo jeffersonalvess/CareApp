@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:background="@android:color/white"
+    android:elevation="4dp">
+
+    <ImageView
+        android:id="@+id/imgSquaredRight"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@mipmap/ic_action_splash_rewards"
+        android:visibility="visible"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Care Rewards"
+        android:id="@+id/rewardsTitle"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imgSquaredRight"
+        android:layout_marginStart="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Balance"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/rewardsTitle"
+        android:layout_alignStart="@+id/rewardsTitle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000 points"
+        android:id="@+id/txtBalance"
+        android:paddingLeft="10dp"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignEnd="@+id/rewardsTitle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Used "
+        android:id="@+id/textView5"
+        android:layout_below="@+id/txtBalance"
+        android:layout_alignLeft="@+id/rewardsTitle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="150 points"
+        android:id="@+id/txtUsedPoints"
+        android:layout_below="@+id/txtBalance"
+        android:layout_alignEnd="@+id/rewardsTitle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have 250 points to expire on March 26th."
+        android:id="@+id/txtInformation"
+        android:layout_below="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:textSize="8dp"
+        android:layout_marginTop="8dp"/>
+
+
+</RelativeLayout>

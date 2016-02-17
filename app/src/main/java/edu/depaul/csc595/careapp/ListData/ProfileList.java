@@ -26,6 +26,7 @@ public class ProfileList extends CardList {
                 Card.Type.type_1,
                 "Current Machine Challenge",
                 R.mipmap.ic_action_hard_break,
+
                 "Three Days hard break free",
                 "Hard Breaking is dangerous and one of the top accident related issues.",
                 "Try not to hard break for three consecutive days.",

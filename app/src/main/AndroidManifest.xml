@@ -57,7 +57,7 @@
             android:label="@string/title_activity_leaderboard_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".QuizzActivity"
+            android:name=".QuizActivity"
             android:label="@string/title_activity_quizz"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

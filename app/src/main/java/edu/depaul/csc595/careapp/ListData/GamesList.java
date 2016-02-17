@@ -29,11 +29,11 @@ public class GamesList extends CardList {
 
             //TODO: Adicionar imagem para quizz
             new Card(Card.Type.type_1,
-                    "Quizz",
+                    "Quiz",
                     -1,
-                    "You have a new quizz",
+                    "You have a new quiz",
                     "Answer quizzes to learn more about safe driving and to get more points.",
-                    "Each quizz could give you more than 50 points",
+                    "Each quiz could give you more than 50 points",
                     "",
                     -1,
                     "",

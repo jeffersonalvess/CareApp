@@ -45,16 +45,12 @@ import edu.depaul.csc595.careapp.main_fragments.GamesFragment;
 import edu.depaul.csc595.careapp.main_fragments.MyCarFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
 import edu.depaul.csc595.careapp.main_fragments.RewardsFragment;
-import edu.depaul.csc595.careapp.main_fragments.TestFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private Toolbar toolbar;
-    static public View profileTop;
     MenuItem facelogout;
-    private View viewFacebook;
     private static String userName;
     private static String userID;
     NavigationView navView;
@@ -120,8 +116,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //Toolbar support code
-        toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
         setSupportActionBar(toolbar);
+
 
         navView = (NavigationView) findViewById(R.id.nav_view);
 

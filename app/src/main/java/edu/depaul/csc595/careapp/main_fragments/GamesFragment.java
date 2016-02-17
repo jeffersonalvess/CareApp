@@ -1,31 +1,24 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
 
-import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import edu.depaul.csc595.careapp.ChallengeListActivity;
 import edu.depaul.csc595.careapp.LeaderboardListActivity;
+import edu.depaul.csc595.careapp.ListData.Card;
+import edu.depaul.csc595.careapp.ListData.CardList;
 import edu.depaul.csc595.careapp.ListData.GamesList;
 import edu.depaul.csc595.careapp.QuizzActivity;
 import edu.depaul.csc595.careapp.R;
-import edu.depaul.csc595.careapp.TestActivity;
 
 public class GamesFragment extends Fragment {
 
@@ -59,7 +52,6 @@ public class GamesFragment extends Fragment {
 
             @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
             {
-                Toast.makeText(getActivity(), "Stop Clicking me " + position, Toast.LENGTH_SHORT).show();
                 Intent intent;
                 switch (position){
                     case 0:
@@ -101,6 +93,38 @@ public class GamesFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    private static final Card[] GAME_CARD_ARRAY = {
+            new Card(Card.Type.type_1,
+                    "Challenge",
+                    R.drawable.com_facebook_profile_picture_blank_square,
+                    "Hard Curve",
+                    "Complete 100 miles without make a hard curve",
+                    "",
+                    "",
+                    30,
+                    "30",
+                    Card.ImgShape.rounded),
 
+            new Card(Card.Type.type_1,
+                    "Quizz",
+                    R.drawable.com_facebook_profile_picture_blank_square,
+                    "You have a new quizz!!",
+                    "",
+                    "",
+                    "",
+                    -1,
+                    "",
+                    Card.ImgShape.squared),
 
+            new Card(Card.Type.type_1,
+                    "Statistics",
+                    R.drawable.com_facebook_profile_picture_blank_square,
+                    "",
+                    "See your progress in the game and general information about your trips.",
+                    "",
+                    "",
+                    -1,
+                    "",
+                    Card.ImgShape.rounded)
+    };
 }

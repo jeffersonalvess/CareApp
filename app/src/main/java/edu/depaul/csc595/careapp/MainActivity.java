@@ -1,23 +1,23 @@
 package edu.depaul.csc595.careapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.facebook.login.LoginManager;
 
@@ -120,6 +120,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // TODO: Acrescentar FacebookLogoutActivity ou Ação de logout.
             //Toast.makeText(MainActivity.this, "Replace with your own action", Toast.LENGTH_SHORT).show();
             LoginManager.getInstance().logOut();
+
+            SharedPreferences settings = getSharedPreferences(TabbedScreen.FACEBOOK_PREFS, 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("loginSucessful", true);
+            editor.commit();
+
+
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, TabbedScreen.class);
             intent.putExtra("REQ", 1);

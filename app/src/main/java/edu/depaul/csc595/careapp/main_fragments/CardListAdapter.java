@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -84,10 +85,10 @@ public class CardListAdapter extends BaseAdapter
 
         // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        ViewHolder holder = null;
+        final ViewHolder holder;
         View row = convertView;
 
-        Card card = cardList.PROFILES.get(position);
+        final Card card = cardList.PROFILES.get(position);
 
         if (row == null)
         {
@@ -168,6 +169,10 @@ public class CardListAdapter extends BaseAdapter
                 holder.rewardStatus = (TextView) row.findViewById(R.id.lblStatus);
                 holder.btnSaveOffer = (Button) row.findViewById(R.id.btnSaveOffer);
                 holder.btnGetOffer = (Button) row.findViewById(R.id.btnGetOffer);
+            }
+            else
+            {
+                holder = null;
             }
 
             row.setTag(holder);
@@ -290,28 +295,113 @@ public class CardListAdapter extends BaseAdapter
         // BOOLEAN FIELDS
         if (card.isBtnAccept() && card.isBtnReject())
         {
+            View.OnClickListener acceptRejectOnClickListener = new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Button b = (Button) v;
+                    String userClick = b.getText().toString().toUpperCase();
+
+                    card.setUserOption(userClick.equals("REJECT") ? "Coward" : "Challenge Accepted");
+                    holder.userOption.setText(card.getUserOption());
+
+                    holder.btnAccept.setVisibility(View.GONE);
+                    holder.btnReject.setVisibility(View.GONE);
+
+                    holder.userOption.setVisibility(View.VISIBLE);
+
+                    card.setBtnAccept(false);
+                    card.setBtnReject(false);
+                }
+            };
+
+
+
             holder.btnAccept.setVisibility(View.VISIBLE);
             holder.btnReject.setVisibility(View.VISIBLE);
 
-            //TODO: Implement button actions
+            holder.btnAccept.setOnClickListener(acceptRejectOnClickListener);
+            holder.btnReject.setOnClickListener(acceptRejectOnClickListener);
+
         }
 
         if (card.isBtnSaveOffer() && card.isBtnGetOffer())
         {
+            View.OnClickListener saveRedeemOnClickListener = new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Button b = (Button) v;
+                    String userClick = b.getText().toString().toUpperCase();
+
+                    card.setRewardStatus(userClick.equals("SAVE IT") ? "Saved" : "Successfully Redeemed");
+                    holder.rewardStatus.setText(card.getRewardStatus());
+
+                    holder.btnGetOffer.setVisibility(View.GONE);
+                    holder.btnSaveOffer.setVisibility(View.GONE);
+
+                    holder.rewardStatus.setVisibility(View.VISIBLE);
+
+                    card.setBtnGetOffer(false);
+                    card.setBtnSaveOffer(false);
+                }
+            };
+
             holder.btnGetOffer.setVisibility(View.VISIBLE);
             holder.btnSaveOffer.setVisibility(View.VISIBLE);
 
-            //TODO: Implement button actions
+            holder.btnGetOffer.setOnClickListener(saveRedeemOnClickListener);
+            holder.btnSaveOffer.setOnClickListener(saveRedeemOnClickListener);
         }
         else if (card.isBtnSaveOffer() && !card.isBtnGetOffer())
         {
+            View.OnClickListener saveRedeemOnClickListener = new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Button b = (Button) v;
+                    String userClick = b.getText().toString().toUpperCase();
+
+                    card.setRewardStatus("Saved");
+                    holder.rewardStatus.setText(card.getRewardStatus());
+
+                    holder.btnSaveOffer.setVisibility(View.GONE);
+                    holder.rewardStatus.setVisibility(View.VISIBLE);
+
+                    card.setBtnSaveOffer(false);
+                }
+            };
+
             holder.btnSaveOffer.setVisibility(View.VISIBLE);
-            //TODO: Implement button actions
+            holder.btnSaveOffer.setOnClickListener(saveRedeemOnClickListener);
+
         }
         else if (!card.isBtnSaveOffer() && card.isBtnGetOffer())
         {
+            View.OnClickListener saveRedeemOnClickListener = new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Button b = (Button) v;
+                    String userClick = b.getText().toString().toUpperCase();
+
+                    card.setRewardStatus("Saved");
+                    holder.rewardStatus.setText(card.getRewardStatus());
+
+                    holder.btnGetOffer.setVisibility(View.GONE);
+                    holder.rewardStatus.setVisibility(View.VISIBLE);
+
+                    card.setBtnGetOffer(false);
+                }
+            };
+
+            holder.btnGetOffer.setOnClickListener(saveRedeemOnClickListener);
             holder.btnGetOffer.setVisibility(View.VISIBLE);
-            //TODO: Implement button actions
+
         }
 
         // STRING FIELDS

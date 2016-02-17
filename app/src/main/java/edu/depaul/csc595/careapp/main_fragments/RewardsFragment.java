@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -51,7 +52,7 @@ public class RewardsFragment extends Fragment {
 
             @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
             {
-                Toast.makeText(getActivity(), "Stop Clicking me " + position, Toast.LENGTH_SHORT).show();
+                Snackbar.make(view, "I now you want me. Sent by card " + position + ".", Snackbar.LENGTH_SHORT).show();
             }
         });
 

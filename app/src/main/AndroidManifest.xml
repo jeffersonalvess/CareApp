@@ -45,10 +45,6 @@
             android:label="@string/title_activity_tabbed_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TestActivity"
-            android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ChallengeListActivity"
             android:label="@string/title_activity_challenge_list"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -57,7 +53,7 @@
             android:label="@string/title_activity_leaderboard_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".QuizzActivity"
+            android:name=".QuizActivity"
             android:label="@string/title_activity_quizz"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

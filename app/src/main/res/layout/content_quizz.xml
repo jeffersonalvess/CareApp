@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.depaul.csc595.careapp.QuizzActivity"
+    tools:context=".QuizActivity"
     tools:showIn="@layout/activity_quizz">
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_alignParentStart="true" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionText"

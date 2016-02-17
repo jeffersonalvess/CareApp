@@ -15,10 +15,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp"
+
+
     android:elevation="4dp">
 
     <!-- TODO: Layout dos dados do facebook -->
@@ -33,7 +31,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/imgRoundedRight"
-        android:layout_marginStart="17dp" />
+        android:layout_marginStart="9dp"
+
+
+        android:layout_marginTop="20dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -45,95 +46,90 @@
         app:civ_border_color="@color/background_material_light"
         android:visibility="visible"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        />
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/trophy"
-        android:src="@drawable/ic_trophy"
-        android:layout_below="@+id/username"
-        android:layout_alignStart="@+id/username"
-        android:layout_marginLeft="-8dp"
-        android:tint="#a69200" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="5"
-        android:id="@+id/trophyText"
-        android:layout_marginBottom="5dp"
-        android:layout_alignBottom="@+id/trophy"
-        android:layout_toEndOf="@+id/trophy" />
+        android:layout_below="@+id/imgRoundedRight"
+        android:paddingTop="8dp"
+        >
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/reward"
-        android:src="@drawable/ic_rewards"
-        android:layout_marginLeft="10dp"
-        android:tint="#a69200"
-        android:layout_below="@+id/username"
-        android:layout_toEndOf="@+id/txtLikes"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/trophy"
+            android:src="@drawable/ic_trophy"
+            android:layout_below="@+id/username"
+            android:layout_alignStart="@+id/username"
+            android:layout_marginLeft="-8dp"
+            android:tint="#a69200"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="2000 points"
-        android:id="@+id/rewardText"
-        android:layout_alignTop="@+id/txtLikes"
-        android:layout_toEndOf="@+id/reward"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5"
+            android:id="@+id/trophyText"
+            />
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/likes"
-        android:src="@drawable/ic_trophy"
-        android:layout_marginLeft="10dp"
-        android:tint="#a69200"
-        android:layout_below="@+id/username"
-        android:layout_toEndOf="@id/trophyText"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reward"
+            android:src="@drawable/ic_rewards"
+            android:layout_marginLeft="10dp"
+            android:tint="#a69200"
+            android:layout_below="@+id/username"
+            android:layout_toEndOf="@+id/txtLikes"/>
 
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar2"
-        android:progress="66"
-        android:layout_below="@+id/txtChallenge"
-        android:layout_alignStart="@+id/username"
-        android:layout_toLeftOf="@+id/txtChallengeProgress"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="2000 points"
+            android:id="@+id/rewardText"
+            android:layout_alignTop="@+id/txtLikes"
+            android:layout_toEndOf="@+id/reward"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Current Challenge:"
-        android:id="@+id/txtChallenge"
-        android:layout_below="@+id/trophy"
-        android:layout_alignStart="@+id/progressBar2"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="66%"
-        android:id="@+id/txtChallengeProgress"
-        android:layout_below="@+id/txtChallenge"
-        android:layout_alignParentEnd="true"
-        android:paddingLeft="12dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/likes"
+            android:src="@drawable/ic_action_like"
+            android:layout_marginLeft="10dp"
+            android:tint="#a69200"
+            android:layout_below="@+id/username"
+            android:layout_toEndOf="@id/trophyText"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="27"
-        android:id="@+id/txtLikes"
-        android:layout_alignTop="@+id/trophyText"
-        android:layout_toEndOf="@+id/likes"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="27"
+            android:id="@+id/txtLikes"
+            android:layout_alignTop="@+id/trophyText"
+            android:layout_toEndOf="@+id/likes"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
 
 
 </RelativeLayout>

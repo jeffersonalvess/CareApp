@@ -2,6 +2,9 @@ package edu.depaul.csc595.careapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -9,21 +12,35 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import edu.depaul.csc595.careapp.main_fragments.GamesFragment;
 import edu.depaul.csc595.careapp.main_fragments.MyCarFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
@@ -34,7 +51,68 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private Toolbar toolbar;
+    static public View profileTop;
     MenuItem facelogout;
+    private View viewFacebook;
+    private static String userName;
+    private static String userID;
+    NavigationView navView;
+
+
+
+    //This method is part of facebook implementation
+    private void saveProfileInformation(String name, String id) throws IOException {
+
+        userName = name;
+        userID = id;
+        setInformationToView();
+    }
+
+    //This method is part of facebook implementation
+    private void setInformationToView() throws IOException {
+
+        TextView txtUserName = (TextView) navView.findViewById(R.id.username);
+        CircleImageView imagem1 = (CircleImageView) navView.findViewById(R.id.imgRoundedRight);
+
+        txtUserName.setText(userName);
+        new ImageLoadTask("https://graph.facebook.com/" + userID + "/picture?type=large", imagem1).execute();
+
+    }
+
+    //This method is part of facebook implementation
+    private class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
+
+        private String url;
+        private CircleImageView imageView;
+
+        public ImageLoadTask(String url, CircleImageView imageView) {
+            this.url = url;
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... params) {
+            try {
+                URL urlConnection = new URL(url);
+                HttpURLConnection connection = (HttpURLConnection) urlConnection.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            super.onPostExecute(result);
+            imageView.setImageBitmap(result);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +120,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //Toolbar support code
-        Toolbar toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
         setSupportActionBar(toolbar);
 
+        navView = (NavigationView) findViewById(R.id.nav_view);
+
+        //TODO: Criar isso aqui dentro de uma classe com metodos para retorno dos valores, assim fica mais facil acessa isso de qualquer do codigo.
+        //Method to get Facebook information
+        GraphRequest request;
+        request = GraphRequest.newMeRequest(
+                AccessToken.getCurrentAccessToken(),
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+
+                        try {
+                            //userLocation = object.getJSONObject("user_location").getString("name");
+                            saveProfileInformation(object.getString("first_name") + " " + object.getString("last_name"), object.getString("id"));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "id, location, last_name, first_name");
+        request.setParameters(parameters);
+        request.executeAsync();
+        // Facebook end.
 
         //Sidebar Menu
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -164,7 +269,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private class ViewPagerAdapter extends FragmentPagerAdapter {
+    private class ViewPagerAdapter extends FragmentPagerAdapter
+    implements ActionBar.TabListener, ViewPager.OnPageChangeListener{
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -188,8 +294,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         @Override
-        public CharSequence getPageTitle(int position) {
-            return null;
+        public CharSequence getPageTitle(int position) { return null; }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//            toolbar.setTitle(mFragmentTitleList.get(position));
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            //toolbar.setTitle(mFragmentTitleList.get(position));
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+//            toolbar.setTitle(mFragmentTitleList.get(state));
+        }
+
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+            //toolbar.setTitle(mFragmentTitleList.get(tab.getPosition()));
+        }
+
+        @Override
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+        }
+
+        @Override
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
         }
     }
     //endregion

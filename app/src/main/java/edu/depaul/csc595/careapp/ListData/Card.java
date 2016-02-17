@@ -214,8 +214,8 @@ public class Card {
         this.playerRight = "";
         this.userOption = "";
 
-        this.btnSaveOffer = false;
-        this.btnGetOffer = false;
+        this.btnSaveOffer = btnSaveOffer;
+        this.btnGetOffer = btnGetOffer;
 
     }
 

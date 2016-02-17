@@ -20,14 +20,15 @@ public class Card {
     private int progress; //v
     private int imgRoundedLeft; //v
     private int imgRoundedRight; //v
+    private int imgSquaredLeft; //v
+    private int imgSquaredRight; //v
 
     private String title; //v
     private String contentTitle; //v
     private String line1; //v
     private String line2; //v
     private String line3; //v
-
-
+    private String progressText; //v
     private String challengeDescription; //v
     private String playerLeft; //v
     private String playerRight; //v
@@ -37,8 +38,10 @@ public class Card {
     private boolean btnReject; //v
 
 
-    /** This constructor should be used when the card type is type_1 */
-    public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, ImgShape imgShape) {
+    /**
+     * This constructor should be used when the card type is type_1
+     * */
+    public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, String progressText, ImgShape imgShape) {
 
         this.type = type;
         this.imgShape = imgShape;
@@ -51,9 +54,12 @@ public class Card {
         this.line1 = line1;
         this.line2 = line2;
         this.line3 = line3;
+        this.progressText = progressText;
 
         this.imgRoundedLeft = -1;
         this.imgRoundedRight = -1;
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
 
         this.challengeDescription = "";
         this.playerLeft = "";
@@ -65,11 +71,14 @@ public class Card {
 
     }
 
-    /** This constructor should be used when the card type is type_2 */
+    /**
+     * This constructor should be used when the card type is type_2
+     * */
     public Card(Type type, int imgRoundedLeft, int imgRoundedRight, String title, String contentTitle, String challengeDescription,
                 String playerLeft, String playerRight, String userOption, boolean btnAccept, boolean btnReject )
     {
         this.type = type;
+        this.imgShape = ImgShape.undefined;
 
         this.imgRoundedLeft = imgRoundedLeft;
         this.imgRoundedRight = imgRoundedRight;
@@ -84,15 +93,103 @@ public class Card {
         this.btnAccept = btnAccept;
         this.btnReject = btnReject;
 
-        this.imgShape = ImgShape.undefined;
-
         this.icon = -1;
         this.progress = -1;
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
 
         this.line1 = "";
         this.line2 = "";
         this.line3 = "";
+        this.progressText = "";
 
+    }
+
+    /**
+     * This constructor should be used with type_3 card
+     * */
+    public Card(Type type, int imgSquaredLeft, int imgSquaredRight, String title, String contentTitle, String line1, String line2, String line3)
+    {
+        this.type = type;
+        this.imgSquaredLeft = imgSquaredLeft;
+        this.imgSquaredRight = imgSquaredRight;
+        this.title = title;
+        this.contentTitle = contentTitle;
+        this.line1 = line1;
+        this.line2 = line2;
+        this.line3 = line3;
+
+        this.type = type;
+        this.imgShape = ImgShape.undefined;
+
+        this.imgRoundedLeft = -1;
+        this.imgRoundedRight = -1;
+        this.icon = -1;
+        this.progress = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+        this.progressText = "";
+
+        this.btnAccept = false;
+        this.btnReject = false;
+    }
+
+    /**
+     * This constructor should be used with type_4 card
+     * */
+    public Card(Type type, ImgShape imgShape, int icon, String title, String contentTitle, String line1)
+    {
+        this.type = type;
+        this.imgShape = imgShape;
+        this.icon = icon;
+        this.title = title;
+        this.contentTitle = contentTitle;
+        this.line1 = line1;
+
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
+        this.line2 = "";
+        this.line3 = "";
+
+        this.imgRoundedLeft = -1;
+        this.imgRoundedRight = -1;
+
+        this.progress = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+        this.progressText = "";
+
+        this.btnAccept = false;
+        this.btnReject = false;
+
+    }
+
+
+
+    public int getImgSquaredLeft()
+    {
+        return imgSquaredLeft;
+    }
+
+    public void setImgSquaredLeft(int imgSquaredLeft)
+    {
+        this.imgSquaredLeft = imgSquaredLeft;
+    }
+
+    public int getImgSquaredRight()
+    {
+        return imgSquaredRight;
+    }
+
+    public void setImgSquaredRight(int imgSquaredRight)
+    {
+        this.imgSquaredRight = imgSquaredRight;
     }
 
     public void setType(Type type)
@@ -209,6 +306,10 @@ public class Card {
     public int getProgress(){return progress;}
 
     public void setProgress(int progress){this.progress = progress;}
+
+    public void setProgressText(String progressText){this.progressText = progressText;}
+
+    public String getProgressText(){return progressText;}
 
     public ImgShape getImgShape(){return imgShape;}
 

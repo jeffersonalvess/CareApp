@@ -9,24 +9,19 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import edu.depaul.csc595.careapp.ChallengeListActivity;
 import edu.depaul.csc595.careapp.DriveWiseActivity;
-import edu.depaul.csc595.careapp.LeaderboardListActivity;
-import edu.depaul.csc595.careapp.ListData.GamesList;
-import edu.depaul.csc595.careapp.QuizzActivity;
 import edu.depaul.csc595.careapp.R;
 
 
-public class MyCarFragment extends Fragment {
+public class RewardsFragment extends Fragment {
 
     private ListView mList;
     private View view;
 
-    public MyCarFragment() {
+    public RewardsFragment() {
         // Required empty public constructor
     }
 
@@ -40,17 +35,7 @@ public class MyCarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_my_car, container, false);
-
-        Button btDriveWise = (Button) view.findViewById(R.id.buttonDriveWise);
-
-        btDriveWise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DriveWiseActivity.class);
-                startActivity(intent);
-            }
-        });
+        view = inflater.inflate(R.layout.fragment_rewards, container, false);
 
         return view;
     }

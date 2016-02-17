@@ -27,6 +27,7 @@ import java.util.List;
 import edu.depaul.csc595.careapp.main_fragments.GamesFragment;
 import edu.depaul.csc595.careapp.main_fragments.MyCarFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
+import edu.depaul.csc595.careapp.main_fragments.RewardsFragment;
 import edu.depaul.csc595.careapp.main_fragments.TestFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter.addFrag(new ProfileFragment(), "PROFILE");
         adapter.addFrag(new GamesFragment(), "GAME");
         adapter.addFrag(new MyCarFragment(), "MY CAR");
-        adapter.addFrag(new TestFragment(), "REWARDS");
+        adapter.addFrag(new RewardsFragment(), "REWARDS");
         viewPager.setAdapter(adapter);
     }
 

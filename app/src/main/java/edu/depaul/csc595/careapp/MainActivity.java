@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -20,6 +21,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static String userName;
     private static String userID;
     NavigationView navView;
+
+    private FloatingActionButton fbLeft;
+    private FloatingActionButton fbCenter;
+    private FloatingActionButton fbRight;
+
+    private SparseArray<View.OnClickListener> floatingActionButtonOnClickListeners;
 
 
 
@@ -121,6 +129,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         navView = (NavigationView) findViewById(R.id.nav_view);
+
+        fbLeft = (FloatingActionButton) findViewById(R.id.buttonLeft);
+        fbCenter = (FloatingActionButton) findViewById(R.id.buttonCenter);
+        fbRight = (FloatingActionButton) findViewById(R.id.buttonRight);
 
         //TODO: Criar isso aqui dentro de uma classe com metodos para retorno dos valores, assim fica mais facil acessa isso de qualquer do codigo.
         //Method to get Facebook information
@@ -256,18 +268,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * Adding fragments to ViewPager
      * @param viewPager
      */
-    private void setupViewPager(ViewPager viewPager) {
+
+    private void setupViewPager(final ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new ProfileFragment(), "PROFILE");
         adapter.addFrag(new GamesFragment(), "GAME");
         adapter.addFrag(new MyCarFragment(), "MY CAR");
         adapter.addFrag(new RewardsFragment(), "REWARDS");
         viewPager.setAdapter(adapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                if(position == 0) {
+                    fbLeft.show();
+                    fbCenter.show();
+                    fbRight.show();
+                }
+                else{
+                    fbLeft.hide();
+                    fbCenter.hide();
+                    fbRight.hide();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                viewPager.getCurrentItem();
+
+                switch (state) {
+                    case ViewPager.SCROLL_STATE_DRAGGING:
+                        if(viewPager.getCurrentItem() != 0) {
+                            fbLeft.hide();
+                            fbCenter.hide();
+                            fbRight.hide();
+                        }
+                        break;
+                    case ViewPager.SCROLL_STATE_IDLE:
+                        if(viewPager.getCurrentItem() == 0) {
+                            fbLeft.show();
+                            fbCenter.show();
+                            fbRight.show();
+                        }
+                }
+            }
+        });
     }
 
-
-    private class ViewPagerAdapter extends FragmentPagerAdapter
-    implements ActionBar.TabListener, ViewPager.OnPageChangeListener{
+    private class ViewPagerAdapter extends FragmentPagerAdapter{
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
@@ -292,36 +340,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public CharSequence getPageTitle(int position) { return null; }
-
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//            toolbar.setTitle(mFragmentTitleList.get(position));
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            //toolbar.setTitle(mFragmentTitleList.get(position));
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-//            toolbar.setTitle(mFragmentTitleList.get(state));
-        }
-
-        @Override
-        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-            //toolbar.setTitle(mFragmentTitleList.get(tab.getPosition()));
-        }
-
-        @Override
-        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-        }
-
-        @Override
-        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-        }
     }
     //endregion
 }

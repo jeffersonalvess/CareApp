@@ -64,10 +64,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/reward"
         android:src="@drawable/ic_rewards"
-        android:layout_below="@+id/username"
-        android:layout_toEndOf="@id/trophyText"
         android:layout_marginLeft="10dp"
-        android:tint="#a69200"/>
+        android:tint="#a69200"
+        android:layout_below="@+id/username"
+        android:layout_toEndOf="@+id/txtLikes"/>
 
 
     <TextView
@@ -76,19 +76,19 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="2000 points"
         android:id="@+id/rewardText"
-        android:layout_alignBottom="@+id/trophyText"
-        android:layout_toEndOf="@+id/reward" />
+        android:layout_alignTop="@+id/txtLikes"
+        android:layout_toEndOf="@+id/reward"/>
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/likes"
-        android:src="@drawable/ic_rewards"
+        android:src="@drawable/ic_action_like"
         android:layout_marginLeft="10dp"
         android:tint="#a69200"
-        android:layout_above="@+id/txtChallenge"
-        android:layout_toEndOf="@+id/rewardText"/>
+        android:layout_below="@+id/username"
+        android:layout_toEndOf="@id/trophyText"/>
 
 
     <ProgressBar
@@ -123,7 +123,7 @@
         android:layout_height="wrap_content"
         android:text="27"
         android:id="@+id/txtLikes"
-        android:layout_alignTop="@+id/rewardText"
+        android:layout_alignTop="@+id/trophyText"
         android:layout_toEndOf="@+id/likes"/>
 
 

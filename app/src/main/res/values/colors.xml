@@ -8,4 +8,5 @@
     <color name="colorAccentDark">#c95e05</color>
     <color name="black_overlay">#66000000</color>
     <color name="background_material_light">#dddddd</color>
+    <color name="colorGold">#A69200</color>
 </resources>

@@ -23,6 +23,7 @@ public class GamesList extends CardList {
                     "",
                     "",
                     30,
+                    "",
                     Card.ImgShape.squared),
 
             new Card(Card.Type.type_1,
@@ -33,6 +34,7 @@ public class GamesList extends CardList {
                     "",
                     "",
                     -1,
+                    "",
                     Card.ImgShape.squared),
 
             new Card(Card.Type.type_1,
@@ -43,6 +45,7 @@ public class GamesList extends CardList {
                     "",
                     "",
                     -1,
+                    "",
                     Card.ImgShape.rounded)
     };
 }

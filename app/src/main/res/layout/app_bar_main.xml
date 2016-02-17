@@ -23,28 +23,38 @@
         android:layout_gravity="bottom|center">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/buttonCenter"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_action_leaderboard" />
-
-        <android.support.design.widget.FloatingActionButton
             android:id="@+id/buttonLeft"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_toLeftOf="@id/buttonCenter"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_dialog_email" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="108dp"
+            android:src="@drawable/ic_action_challenge_friends"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/buttonCenter"
+            android:clickable="true" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/buttonRight"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_toRightOf="@id/buttonCenter"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@android:drawable/ic_dialog_email" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_tinder"
+            android:layout_marginStart="-12dp"
+            android:layout_alignTop="@+id/buttonLeft"
+            android:layout_toEndOf="@+id/buttonLeft"
+            android:clickable="true" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/buttonCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_leaderboard"
+            android:layout_alignParentBottom="true"
+            app:fabSize="mini"
+            android:layout_centerHorizontal="true"
+            android:clickable="true" />
+
+
+
+
 
     </RelativeLayout>
 

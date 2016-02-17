@@ -4,10 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <include layout="@layout/rewards_top" />
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/reward_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:gravity="center_horizontal|center_vertical"/>
+        android:layout_height="wrap_content"
+        android:dividerHeight="12dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="5dp"
+        android:clipToPadding="false"
+        android:divider="#0FFF"
+        android:scrollbars="none"
+        android:drawSelectorOnTop="true" /> <!-- Very important to animate the click on the list item, otherwise is needed to create our own selector. -->
+
 
 </LinearLayout>

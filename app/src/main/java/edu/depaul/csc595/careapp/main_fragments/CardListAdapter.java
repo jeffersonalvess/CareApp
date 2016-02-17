@@ -55,7 +55,7 @@ public class CardListAdapter extends BaseAdapter
     @Override
     public int getViewTypeCount()
     {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -152,6 +152,23 @@ public class CardListAdapter extends BaseAdapter
                 holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
                 holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
             }
+            else if (getItemViewType(position) == Card.Type.type_5.ordinal())
+            {
+                row = inflater.inflate(R.layout.list_item_type_5, parent, false);
+
+                holder = new ViewHolder();
+
+                holder.title = (TextView) row.findViewById(R.id.txtCardTitle);
+                holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+                holder.progressBar = (ProgressBar) row.findViewById(R.id.progressBar);
+                holder.progressTxt = (TextView) row.findViewById(R.id.txtProgress);
+
+                holder.rewardStatus = (TextView) row.findViewById(R.id.lblStatus);
+                holder.btnSaveOffer = (Button) row.findViewById(R.id.btnSaveOffer);
+                holder.btnGetOffer = (Button) row.findViewById(R.id.btnGetOffer);
+            }
 
             row.setTag(holder);
         }
@@ -206,6 +223,19 @@ public class CardListAdapter extends BaseAdapter
             holder.contentTitle.setVisibility(View.GONE);
             holder.line1.setVisibility(View.GONE);
         }
+        else if (card.getType() == Card.Type.type_5)
+        {
+            holder.title.setVisibility(View.GONE);
+            holder.iconSquared.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.line1.setVisibility(View.GONE);
+            holder.progressBar.setVisibility(View.GONE);
+            holder.progressTxt.setVisibility(View.GONE);
+
+            holder.rewardStatus.setVisibility(View.GONE);
+            holder.btnSaveOffer.setVisibility(View.GONE);
+            holder.btnGetOffer.setVisibility(View.GONE);
+        }
 
         //Now choose which elements will be showed and changed
 
@@ -227,7 +257,7 @@ public class CardListAdapter extends BaseAdapter
         if (card.getProgress() != -1)
         {
             holder.progressBar.setProgress(card.getProgress());
-            holder.progressTxt.setText(Integer.toString(card.getProgress()).concat("%"));
+            holder.progressTxt.setText(card.getProgressText());
             holder.progressTxt.setVisibility(View.VISIBLE);
             holder.progressBar.setVisibility(View.VISIBLE);
         }
@@ -263,6 +293,24 @@ public class CardListAdapter extends BaseAdapter
             holder.btnAccept.setVisibility(View.VISIBLE);
             holder.btnReject.setVisibility(View.VISIBLE);
 
+            //TODO: Implement button actions
+        }
+
+        if (card.isBtnSaveOffer() && card.isBtnGetOffer())
+        {
+            holder.btnGetOffer.setVisibility(View.VISIBLE);
+            holder.btnSaveOffer.setVisibility(View.VISIBLE);
+
+            //TODO: Implement button actions
+        }
+        else if (card.isBtnSaveOffer() && !card.isBtnGetOffer())
+        {
+            holder.btnSaveOffer.setVisibility(View.VISIBLE);
+            //TODO: Implement button actions
+        }
+        else if (!card.isBtnSaveOffer() && card.isBtnGetOffer())
+        {
+            holder.btnGetOffer.setVisibility(View.VISIBLE);
             //TODO: Implement button actions
         }
 
@@ -321,6 +369,12 @@ public class CardListAdapter extends BaseAdapter
             holder.userOption.setText(card.getUserOption());
         }
 
+        if (!card.getRewardStatus().matches("") && !(card.isBtnAccept() && card.isBtnReject()))
+        {
+            holder.rewardStatus.setVisibility(View.VISIBLE);
+            holder.rewardStatus.setText(card.getRewardStatus());
+        }
+
         return row;
     }
 
@@ -328,6 +382,8 @@ public class CardListAdapter extends BaseAdapter
     {
         Button btnAccept;
         Button btnReject;
+        Button btnSaveOffer;
+        Button btnGetOffer;
 
         TextView title;
         TextView playerLeft;
@@ -339,6 +395,7 @@ public class CardListAdapter extends BaseAdapter
         TextView line2;
         TextView line3;
         TextView progressTxt;
+        TextView rewardStatus;
 
         CircleImageView iconRounded;
         CircleImageView imgRoundedLeft;

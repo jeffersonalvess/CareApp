@@ -41,7 +41,6 @@
         android:paddingLeft="160dp"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
-
         android:textSize="16sp"
         android:elevation="4dp"
         style="@style/CustomFbButton"

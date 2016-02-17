@@ -33,10 +33,12 @@ public class Card {
     private String playerLeft; //v
     private String playerRight; //v
     private String userOption; //v
+    private String rewardStatus;
 
     private boolean btnAccept; //v
     private boolean btnReject; //v
-
+    private boolean btnSaveOffer;
+    private boolean btnGetOffer;
 
     /**
      * This constructor should be used when the card type is type_1
@@ -65,9 +67,12 @@ public class Card {
         this.playerLeft = "";
         this.playerRight = "";
         this.userOption = "";
+        this.rewardStatus = "";
 
         this.btnAccept = false;
         this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
 
     }
 
@@ -102,6 +107,10 @@ public class Card {
         this.line2 = "";
         this.line3 = "";
         this.progressText = "";
+        this.rewardStatus = "";
+
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
 
     }
 
@@ -132,9 +141,12 @@ public class Card {
         this.playerRight = "";
         this.userOption = "";
         this.progressText = "";
+        this.rewardStatus = "";
 
         this.btnAccept = false;
         this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
     }
 
     /**
@@ -153,6 +165,7 @@ public class Card {
         this.imgSquaredRight = -1;
         this.line2 = "";
         this.line3 = "";
+        this.rewardStatus = "";
 
         this.imgRoundedLeft = -1;
         this.imgRoundedRight = -1;
@@ -167,10 +180,74 @@ public class Card {
 
         this.btnAccept = false;
         this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
 
     }
 
+    /**
+     * This constructor should be used with type_5*/
+    public Card(Type type, int icon, String title, String contentTitle, String line1, int progress, String progressText, String rewardStatus, boolean btnSaveOffer, boolean btnGetOffer)
+    {
+        this.type = type;
+        this.icon = icon;
+        this.contentTitle = contentTitle;
+        this.line1 = line1;
+        this.progressText = progressText;
+        this.progress = progress;
+        this.rewardStatus = rewardStatus;
+        this.btnSaveOffer = btnSaveOffer;
+        this.btnGetOffer = btnGetOffer;
+        this.title = title;
+        this.imgShape = ImgShape.squared;
 
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
+        this.line2 = "";
+        this.line3 = "";
+
+        this.imgRoundedLeft = -1;
+        this.imgRoundedRight = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+
+        this.btnSaveOffer = btnSaveOffer;
+        this.btnGetOffer = btnGetOffer;
+
+    }
+
+    public String getRewardStatus()
+    {
+        return rewardStatus;
+    }
+
+    public void setRewardStatus(String rewardStatus)
+    {
+        this.rewardStatus = rewardStatus;
+    }
+
+    public boolean isBtnSaveOffer()
+    {
+        return btnSaveOffer;
+    }
+
+    public void setBtnSaveOffer(boolean btnSaveOffer)
+    {
+        this.btnSaveOffer = btnSaveOffer;
+    }
+
+    public boolean isBtnGetOffer()
+    {
+        return btnGetOffer;
+    }
+
+    public void setBtnGetOffer(boolean btnGetOffer)
+    {
+        this.btnGetOffer = btnGetOffer;
+    }
 
     public int getImgSquaredLeft()
     {

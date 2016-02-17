@@ -15,18 +15,19 @@
         android:fontFamily="font_fontFamily_medium"
         android:text="Welcome"
         android:textSize="24dp"
-        android:textColor="@color/black_overlay"
+        android:textColor="@color/background_material_light"
         android:textStyle="bold"
         android:layout_above="@+id/section_label2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp" />
+        android:layout_marginBottom="12dp"
+        android:capitalize="words"/>
 
     <TextView
         android:id="@+id/section_label2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome"
-        android:textColor="@color/black_overlay"
+        android:textColor="@color/background_material_light"
         android:layout_above="@+id/imageTabbedWelcome"
         android:layout_marginBottom="40dp"
         android:textAlignment="center"
@@ -38,10 +39,8 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_alignParentBottom="true"
-
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_splash_icon"
 
-        android:layout_marginBottom="90dp"
-        android:background="@android:color/background_light" />
+        android:layout_marginBottom="90dp" />
 </RelativeLayout>

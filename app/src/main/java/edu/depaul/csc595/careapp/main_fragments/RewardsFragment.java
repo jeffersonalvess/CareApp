@@ -9,10 +9,14 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import edu.depaul.csc595.careapp.DriveWiseActivity;
+import edu.depaul.csc595.careapp.ListData.ProfileList;
+import edu.depaul.csc595.careapp.ListData.RewardList;
 import edu.depaul.csc595.careapp.R;
 
 
@@ -36,6 +40,20 @@ public class RewardsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_rewards, container, false);
+
+        mList = (ListView) view.findViewById(R.id.reward_list);
+
+        CardListAdapter adapter = new CardListAdapter(getContext(), new RewardList());
+
+        mList.setAdapter(adapter);
+
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
+            {
+                Toast.makeText(getActivity(), "Stop Clicking me " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

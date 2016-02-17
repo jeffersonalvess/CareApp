@@ -11,7 +11,6 @@ public class ProfileList extends CardList {
 
     public ProfileList()
     {
-        Random random = new Random();
 
             addItem(new Card(
                     Card.Type.type_3,

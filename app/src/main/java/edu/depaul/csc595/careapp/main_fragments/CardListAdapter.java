@@ -257,7 +257,7 @@ public class CardListAdapter extends BaseAdapter
         if (card.getProgress() != -1)
         {
             holder.progressBar.setProgress(card.getProgress());
-            holder.progressTxt.setText(Integer.toString(card.getProgress()).concat("%"));
+            holder.progressTxt.setText(card.getProgressText());
             holder.progressTxt.setVisibility(View.VISIBLE);
             holder.progressBar.setVisibility(View.VISIBLE);
         }

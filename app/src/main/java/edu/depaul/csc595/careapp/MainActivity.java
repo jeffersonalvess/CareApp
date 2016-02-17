@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.depaul.csc595.careapp.main_fragments.GamesFragment;
+import edu.depaul.csc595.careapp.main_fragments.MyCarFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
 import edu.depaul.csc595.careapp.main_fragments.TestFragment;
 
@@ -57,14 +58,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         facelogout = (MenuItem) findViewById(R.id.face_logout);
 
 
-        //Floating Button <<temporary?>>
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Jefferson Gordo
-            }
-        });
+//        //Floating Button <<temporary?>>
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Jefferson Gordo
+//            }
+//        });
 
 
         // TabView Elements
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new ProfileFragment(), "PROFILE");
         adapter.addFrag(new GamesFragment(), "GAME");
-        adapter.addFrag(new TestFragment(), "MY CAR");
+        adapter.addFrag(new MyCarFragment(), "MY CAR");
         adapter.addFrag(new TestFragment(), "REWARDS");
         viewPager.setAdapter(adapter);
     }

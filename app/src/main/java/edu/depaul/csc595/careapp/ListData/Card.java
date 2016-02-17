@@ -26,7 +26,8 @@ public class Card {
     private String line1; //v
     private String line2; //v
     private String line3; //v
-    private String progressText; //v
+
+
     private String challengeDescription; //v
     private String playerLeft; //v
     private String playerRight; //v
@@ -37,7 +38,7 @@ public class Card {
 
 
     /** This constructor should be used when the card type is type_1 */
-    public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, String progressText, ImgShape imgShape) {
+    public Card(Type type, String title, int icon, String contentTitle, String line1, String line2, String line3, int progress, ImgShape imgShape) {
 
         this.type = type;
         this.imgShape = imgShape;
@@ -50,7 +51,6 @@ public class Card {
         this.line1 = line1;
         this.line2 = line2;
         this.line3 = line3;
-        this.progressText = progressText;
 
         this.imgRoundedLeft = -1;
         this.imgRoundedRight = -1;
@@ -92,7 +92,6 @@ public class Card {
         this.line1 = "";
         this.line2 = "";
         this.line3 = "";
-        this.progressText = "";
 
     }
 
@@ -210,10 +209,6 @@ public class Card {
     public int getProgress(){return progress;}
 
     public void setProgress(int progress){this.progress = progress;}
-
-    public void setProgressText(String progressText){this.progressText = progressText;}
-
-    public String getProgressText(){return progressText;}
 
     public ImgShape getImgShape(){return imgShape;}
 

@@ -1,7 +1,8 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
-
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,23 +10,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import edu.depaul.csc595.careapp.ChallengeListActivity;
+import edu.depaul.csc595.careapp.DriveWiseActivity;
 import edu.depaul.csc595.careapp.LeaderboardListActivity;
-import edu.depaul.csc595.careapp.ListData.Card;
-import edu.depaul.csc595.careapp.ListData.CardList;
 import edu.depaul.csc595.careapp.ListData.GamesList;
 import edu.depaul.csc595.careapp.QuizzActivity;
 import edu.depaul.csc595.careapp.R;
 
-public class GamesFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link MyCarFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link MyCarFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class MyCarFragment extends Fragment {
 
     private ListView mList;
     private View view;
 
-    public GamesFragment() {
+    public MyCarFragment() {
         // Required empty public constructor
     }
 
@@ -39,32 +47,15 @@ public class GamesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_games, container, false);
+        view = inflater.inflate(R.layout.fragment_my_car, container, false);
 
-        mList = (ListView) view.findViewById(R.id.games_list);
-        CardListAdapter adapter = new CardListAdapter(getContext(), new GamesList());
+        Button btDriveWise = (Button) view.findViewById(R.id.buttonDriveWise);
 
-        mList.setAdapter(adapter);
-
-        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long arg3)
-            {
-                Intent intent;
-                switch (position){
-                    case 0:
-                        intent = new Intent(getActivity(), ChallengeListActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
-                        intent = new Intent(getActivity(), QuizzActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 2:
-                        intent = new Intent(getActivity(), LeaderboardListActivity.class);
-                        startActivity(intent);
-                        break;
-                }
+        btDriveWise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DriveWiseActivity.class);
+                startActivity(intent);
             }
         });
 

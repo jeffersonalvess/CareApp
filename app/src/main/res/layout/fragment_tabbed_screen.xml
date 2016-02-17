@@ -12,9 +12,11 @@
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="font_fontFamily_medium"
         android:text="Welcome"
         android:textSize="24dp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/black_overlay"
+        android:textStyle="bold"
         android:layout_above="@+id/section_label2"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="12dp" />
@@ -24,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome"
-        android:textColor="@android:color/white"
+        android:textColor="@color/black_overlay"
         android:layout_above="@+id/imageTabbedWelcome"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="40dp"
         android:textAlignment="center"
         android:layout_alignStart="@+id/imageTabbedWelcome"
         android:layout_alignEnd="@+id/imageTabbedWelcome" />
@@ -35,8 +37,11 @@
         android:id="@+id/imageTabbedWelcome"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+
         android:layout_centerHorizontal="true"
-        android:src="@drawable/app_icon_splash"
-        android:background="@color/colorPrimary" />
+        android:src="@drawable/ic_splash_icon"
+
+        android:layout_marginBottom="90dp"
+        android:background="@android:color/background_light" />
 </RelativeLayout>

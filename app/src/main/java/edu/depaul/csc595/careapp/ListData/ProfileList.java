@@ -32,7 +32,6 @@ public class ProfileList extends CardList {
                 "Try to not hard break for three consecutive days.",
                 "1000 reward points",
                 66,
-                "66%",
                 Card.ImgShape.squared));
 
         addItem(new Card(

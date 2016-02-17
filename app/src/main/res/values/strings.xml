@@ -6,7 +6,7 @@
     <string name="title_activity_care">CareActivity</string>
 
     <!-- Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Comming soon...</string>
 
     <string name="tab_stream">Profile</string>
     <string name="tab_messages">Game</string>
@@ -31,5 +31,6 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_challenge_list">ChallengeListActivity</string>
     <string name="title_activity_leaderboard_list">LeaderboardListActivity</string>
+    <string name="title_activity_drive_wise">DriveWiseActivity</string>
 
 </resources>

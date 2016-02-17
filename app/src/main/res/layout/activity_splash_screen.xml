@@ -13,7 +13,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:gravity="center"
-        android:src="@drawable/app_icon_splash"
+        android:src="@drawable/ic_splash_icon"
         android:layout_gravity="center"
         android:layout_marginBottom="25dp"/>
 

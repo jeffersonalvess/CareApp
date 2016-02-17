@@ -187,7 +187,7 @@ public class Card {
 
     /**
      * This constructor should be used with type_5*/
-    public Card(Type type, int icon, String contentTitle, String line1, String progressText, int progress, String rewardStatus, boolean btnSaveOffer, boolean btnGetOffer, String title)
+    public Card(Type type, int icon, String title, String contentTitle, String line1, String progressText, int progress, String rewardStatus, boolean btnSaveOffer, boolean btnGetOffer)
     {
         this.type = type;
         this.icon = icon;

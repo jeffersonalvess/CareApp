@@ -110,6 +110,7 @@ public class TabbedScreen extends AppCompatActivity {
         mIndicator.setStrokeColor(0xA0145EA7);
         mIndicator.setStrokeWidth(1 * density);
 
+
     }
 
 
@@ -177,21 +178,21 @@ public class TabbedScreen extends AppCompatActivity {
             TextView txtLine1 = (TextView) rootView.findViewById(R.id.section_label2);
             ImageView imageTabbedWelcome = (ImageView) rootView.findViewById(R.id.imageTabbedWelcome);
 
-            //TODO: Change the images on the splash screen
+
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
-                    txtTitle.setText("WELCOME");
+                    txtTitle.setText("Welcome");
                     txtLine1.setVisibility(View.INVISIBLE);
                     break;
                 case 2:
-                    txtTitle.setText("REWARDS");
-                    txtLine1.setText("Get rewards when you improve your driving behavior.");
-                    imageTabbedWelcome.setImageResource(R.mipmap.ic_action_splash_rewards);
+                    txtTitle.setText("Rewards");
+                    txtLine1.setText("Get rewarded by improving your driving behavior");
+                    imageTabbedWelcome.setImageResource(R.drawable.ic_splash_rewards);
                     break;
                 case 3:
-                    txtTitle.setText("ENGAGE TOGETHER");
-                    txtLine1.setText("Challenge friends and compare yourself with other drivers.");
-                    imageTabbedWelcome.setImageResource(R.mipmap.ic_action_splash_social);
+                    txtTitle.setText("Engage together");
+                    txtLine1.setText("Challenge friends and compare yourself with other drivers");
+                    imageTabbedWelcome.setImageResource(R.drawable.ic_splash_social);
                     break;
             }
 

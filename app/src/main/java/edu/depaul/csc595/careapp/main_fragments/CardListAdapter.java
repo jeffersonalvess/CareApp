@@ -2,6 +2,7 @@ package edu.depaul.csc595.careapp.main_fragments;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,7 @@ public class CardListAdapter extends BaseAdapter
     @Override
     public int getViewTypeCount()
     {
-        return 2;
+        return 4;
     }
 
     @Override
@@ -70,7 +71,7 @@ public class CardListAdapter extends BaseAdapter
 
         // There is a lot of code here, so I'll try to clarify the sections:
         // First I declare the variables that will be used inside this methods, please declare everything on the beginning
-        // Second theres a switch statement which prepare the objects for each type of cards. Now there are 5 types.
+        // Second there is an if statement which prepare the objects for each type of cards. Now there are 5 types.
         // Then I initialize all objects as gone to clean the list item and avoid errors later
         // Then there are a huge section with IF statements, this section looks if an element is not empty on the card list
         // If an item is not empty it will be filled on the list item
@@ -125,6 +126,32 @@ public class CardListAdapter extends BaseAdapter
                 holder.btnReject = (Button) row.findViewById(R.id.btnReject);
 
             }
+            else if (getItemViewType(position) == Card.Type.type_3.ordinal())
+            {
+                row = inflater.inflate(R.layout.list_item_type_3, parent, false);
+
+                holder = new ViewHolder();
+
+                holder.title = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentSubTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+                holder.line2 = (TextView) row.findViewById(R.id.txtLine2);
+                holder.line3 = (TextView) row.findViewById(R.id.txtLine3);
+                holder.imgSquaredLeft = (ImageView) row.findViewById(R.id.imgCardIconSquaredLeft);
+                holder.imgSquaredRight = (ImageView) row.findViewById(R.id.imgCardIconSquaredRight);
+            }
+            else if (getItemViewType(position) == Card.Type.type_4.ordinal())
+            {
+                row = inflater.inflate(R.layout.list_item_type_4, parent, false);
+
+                holder = new ViewHolder();
+
+                holder.iconRounded = (CircleImageView) row.findViewById(R.id.imgCardIconRounded);
+                holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
+                holder.title = (TextView) row.findViewById(R.id.txtCardTitle);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+            }
 
             row.setTag(holder);
         }
@@ -161,6 +188,24 @@ public class CardListAdapter extends BaseAdapter
             holder.btnAccept.setVisibility(View.GONE);
             holder.btnReject.setVisibility(View.GONE);
         }
+        else if (card.getType() == Card.Type.type_3)
+        {
+            holder.title.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.line1.setVisibility(View.GONE);
+            holder.line2.setVisibility(View.GONE);
+            holder.line3.setVisibility(View.GONE);
+            holder.imgSquaredLeft.setVisibility(View.GONE);
+            holder.imgSquaredRight.setVisibility(View.GONE);
+        }
+        else if (card.getType() == Card.Type.type_4)
+        {
+            holder.iconRounded.setVisibility(View.GONE);
+            holder.iconSquared.setVisibility(View.GONE);
+            holder.title.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.line1.setVisibility(View.GONE);
+        }
 
         //Now choose which elements will be showed and changed
 
@@ -189,15 +234,28 @@ public class CardListAdapter extends BaseAdapter
 
         if (card.getImgRoundedLeft() != -1)
         {
-            holder.imgRoundedLeft.setImageResource(card.getIcon());
-            holder.imgRoundedLeft.setVisibility(View.VISIBLE);
+            holder.imgRoundedLeft.setImageResource(card.getImgRoundedLeft());
+           holder.imgRoundedLeft.setVisibility(View.VISIBLE);
         }
 
         if (card.getImgRoundedRight() != -1)
         {
-            holder.imgRoundedRight.setImageResource(card.getIcon());
+            holder.imgRoundedRight.setImageResource(card.getImgRoundedRight());
             holder.imgRoundedRight.setVisibility(View.VISIBLE);
         }
+
+        if (card.getImgSquaredLeft() != -1)
+        {
+            holder.imgSquaredLeft.setImageResource(card.getImgSquaredLeft());
+            holder.imgSquaredLeft.setVisibility(View.VISIBLE);
+        }
+
+        if (card.getImgSquaredRight() != -1)
+        {
+            holder.imgSquaredRight.setImageResource(card.getImgSquaredRight());
+            holder.imgSquaredRight.setVisibility(View.VISIBLE);
+        }
+
 
         // BOOLEAN FIELDS
         if (card.isBtnAccept() && card.isBtnReject())
@@ -287,6 +345,8 @@ public class CardListAdapter extends BaseAdapter
         CircleImageView imgRoundedRight;
 
         ImageView iconSquared;
+        ImageView imgSquaredLeft;
+        ImageView imgSquaredRight;
 
         ProgressBar progressBar;
     }

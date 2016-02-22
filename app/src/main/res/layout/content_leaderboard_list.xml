@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/leaderboard_list"
-        android:dividerHeight="12dp"
+        android:dividerHeight="6dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         android:paddingBottom="8dp"

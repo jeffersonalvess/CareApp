@@ -1,7 +1,6 @@
 package edu.depaul.csc595.careapp;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +11,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
     public enum QuestionType {
@@ -88,8 +86,30 @@ public class QuizActivity extends AppCompatActivity {
         previousScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                quizInformation.resetAnswers(currentQuestion);
+                if(TYPE[currentQuestion] == QuestionType.CHECKBOX)
+                {
+
+                    for(int i = 0; i < 5; i++)
+                    {
+                        if(checkBox[i].isChecked()) {
+                            quizInformation.saveCheckbox(currentQuestion, i);
+                        }
+                    }
+                }
+                else
+                {
+                    for(int i = 0; i < 5; i++)
+                    {
+                        if(radio[i].isChecked())
+                        {
+                            quizInformation.saveRadio(currentQuestion, i);
+                        }
+                    }
+                }
+
                 currentQuestion--;
-                if(currentQuestion == 0){
+                if (currentQuestion == 0) {
                     previousScreen.setVisibility(View.INVISIBLE);
                 }
 
@@ -102,8 +122,8 @@ public class QuizActivity extends AppCompatActivity {
 
                     radioGroup.check(-1);
 
-                    for(int i = 0; i < 5; i++){
-                        checkBox[i].setChecked(false);
+                    for (int i = 0; i < 5; i++) {
+                        //checkBox[i].setChecked(false);
                         if (TYPE[currentQuestion] == QuestionType.CHECKBOX) {
                             checkBox[i].setText(ANSWERS[currentQuestion][i]);
                             checkBox[i].setVisibility(View.VISIBLE);
@@ -124,12 +144,22 @@ public class QuizActivity extends AppCompatActivity {
                     questionText.setText(QUESTIONS[currentQuestion]);
 
                     for (int i = 0; i < 5; i++) {
-                        if(TYPE[currentQuestion] == QuestionType.RADIOBUTTON) {
+                        if (TYPE[currentQuestion] == QuestionType.RADIOBUTTON) {
                             radio[i].setText(ANSWERS[currentQuestion][i]);
-                        }
-                        else {
+                        } else {
                             checkBox[i].setText(ANSWERS[currentQuestion][i]);
                         }
+                    }
+                }
+                if (TYPE[currentQuestion] == QuestionType.CHECKBOX) {
+                    for (int i = 0; i < 5; i++) {
+                        if(quizInformation.getCheckbox(currentQuestion, i)) {
+                            checkBox[i].setChecked(true);
+                        }
+                    }
+                } else {
+                    for (int i = 0; i < 5; i++) {
+                        radio[quizInformation.getRadio(currentQuestion)].setChecked(true);
                     }
                 }
             }
@@ -138,6 +168,27 @@ public class QuizActivity extends AppCompatActivity {
         nextScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                quizInformation.resetAnswers(currentQuestion);
+                if(TYPE[currentQuestion] == QuestionType.CHECKBOX)
+                {
+
+                    for(int i = 0; i < 5; i++)
+                    {
+                        if(checkBox[i].isChecked()) {
+                            quizInformation.saveCheckbox(currentQuestion, i);
+                        }
+                    }
+                }
+                else
+                {
+                    for(int i = 0; i < 5; i++)
+                    {
+                        if(radio[i].isChecked())
+                        {
+                            quizInformation.saveRadio(currentQuestion, i);
+                        }
+                    }
+                }
                 if(radioGroup.getCheckedRadioButtonId() != -1 || checkBox[0].isChecked() ||
                         checkBox[1].isChecked() || checkBox[2].isChecked() ||
                         checkBox[3].isChecked() || checkBox[4].isChecked())
@@ -175,12 +226,19 @@ public class QuizActivity extends AppCompatActivity {
 
                         questionText.setText(QUESTIONS[currentQuestion]);
 
+                        if(TYPE[currentQuestion] == QuestionType.RADIOBUTTON && quizInformation.getRadio(currentQuestion) != -1)
+                        {
+                            radio[quizInformation.getRadio(currentQuestion)].setChecked(true);
+                        }
+
                         for (int i = 0; i < 5; i++) {
-                            if(TYPE[currentQuestion] == QuestionType.RADIOBUTTON) {
+                            if (TYPE[currentQuestion] == QuestionType.RADIOBUTTON) {
                                 radio[i].setText(ANSWERS[currentQuestion][i]);
-                            }
-                            else {
+                            } else {
                                 checkBox[i].setText(ANSWERS[currentQuestion][i]);
+                                if (quizInformation.getCheckbox(currentQuestion, i)) {
+                                    checkBox[i].setChecked(true);
+                                }
                             }
                         }
                     } else {
@@ -247,4 +305,64 @@ public class QuizActivity extends AppCompatActivity {
     TextView questionText;
     RadioButton[] radio = new RadioButton[5];
     CheckBox[] checkBox = new CheckBox[5];
+    QuizInformation quizInformation = new QuizInformation();
+
+}
+
+class QuizInformation {
+
+    private Boolean[][] answers;
+
+    QuizInformation() {
+        answers = new Boolean[3][5];
+        for(int i = 0; i<3; i++)
+        {
+            resetAnswers(i);
+        }
+    }
+
+    public void resetAnswers(int questionNumber) {
+        for (int i = 0; i < 5; i++) {
+            answers[questionNumber][i] = false;
+        }
+    }
+
+    public void printaTudo()
+    {
+        for(int i=0; i < 3; i++)
+        {
+            for(int j = 0 ; j < 5 ; j++)
+            {
+                System.out.print(answers[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public void saveCheckbox(int questionNumber, int index) {
+        answers[questionNumber][index] = true;
+    }
+
+    public void saveRadio(int questionNumber, int index) {
+        resetAnswers(questionNumber);
+        answers[questionNumber][index] = true;
+    }
+
+    public boolean getCheckbox(int questionNumber, int index)
+    {
+        if(answers[questionNumber][index])
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public int getRadio(int questionNumber)
+    {
+        for(int i=0 ; i < 5 ; i++)
+        {
+            if(answers[questionNumber][i])
+                return i;
+        }
+        return -1;
+    }
 }

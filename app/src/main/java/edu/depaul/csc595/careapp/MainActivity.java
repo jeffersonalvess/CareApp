@@ -153,7 +153,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fbRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Coming soon...", Snackbar.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, RideActivity.class);
+                startActivity(intent);
             }
         });
 

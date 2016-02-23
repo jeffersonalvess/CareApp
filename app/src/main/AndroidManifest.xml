@@ -59,6 +59,10 @@
         <activity
             android:name=".DriveWiseActivity"
             android:label="@string/title_activity_drive_wise"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RideActivity"
+            android:label="@string/title_activity_ride"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

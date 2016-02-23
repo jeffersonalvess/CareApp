@@ -27,5 +27,6 @@
     <string name="title_activity_challenge_list">Challenges</string>
     <string name="title_activity_leaderboard_list">Leaderboard</string>
     <string name="title_activity_drive_wise">Drivewise Activity</string>
+    <string name="title_activity_ride">Care Ride</string>
 
 </resources>

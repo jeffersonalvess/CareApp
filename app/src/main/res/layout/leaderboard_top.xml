@@ -93,7 +93,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/txtContentTitle"
                 android:layout_marginBottom="3dp"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="wrap_content"

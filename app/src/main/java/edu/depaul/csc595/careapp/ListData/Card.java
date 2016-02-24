@@ -9,7 +9,7 @@ import edu.depaul.csc595.careapp.R;
  */
 public class Card {
 
-    public enum Type {type_1, type_2, type_3, type_4, type_5, type_6}
+    public enum Type {type_1, type_2, type_3, type_4, type_5, type_6, type_7}
 
     public enum ImgShape {rounded, squared, undefined}
 
@@ -216,6 +216,80 @@ public class Card {
 
         this.btnSaveOffer = btnSaveOffer;
         this.btnGetOffer = btnGetOffer;
+
+    }
+
+    /**
+     * This constructor should be used with type_6 card
+     * */
+    public Card(Type type, ImgShape imgShape, int icon, String contentTitle, String line1)
+    {
+        this.type = type;
+        this.imgShape = imgShape;
+        this.icon = icon;
+        this.line1 = line1;
+        this.contentTitle = contentTitle;
+
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
+        this.line2 = "";
+        this.line3 = "";
+        this.rewardStatus = "";
+
+        this.imgRoundedLeft = -1;
+        this.imgRoundedRight = -1;
+
+        this.progress = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+        this.progressText = "";
+
+        this.title = "";
+
+        this.btnAccept = false;
+        this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
+
+    }
+
+    /**
+     * This constructor should be used with type_7 card
+     * */
+    public Card(Type type, ImgShape imgShape, int icon, String contentTitle)
+    {
+        this.type = type;
+        this.imgShape = imgShape;
+        this.icon = icon;
+        this.line1 = "";
+        this.contentTitle = contentTitle;
+
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
+        this.line2 = "";
+        this.line3 = "";
+        this.rewardStatus = "";
+
+        this.imgRoundedLeft = -1;
+        this.imgRoundedRight = -1;
+
+        this.progress = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+        this.progressText = "";
+
+        this.title = "";
+
+        this.btnAccept = false;
+        this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
 
     }
 

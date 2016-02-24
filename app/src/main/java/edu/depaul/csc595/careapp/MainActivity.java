@@ -29,6 +29,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
+import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
@@ -161,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //TODO: Criar isso aqui dentro de uma classe com metodos para retorno dos valores, assim fica mais facil acessa isso de qualquer do codigo.
         //Method to get Facebook information
+        //FacebookSdk.sdkInitialize(getApplicationContext());
         GraphRequest request;
         request = GraphRequest.newMeRequest(
                 AccessToken.getCurrentAccessToken(),
@@ -215,6 +217,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabLayout = (TabLayout) findViewById(R.id.main_tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null)
+        {
+            if (extras.getBoolean("EXTRA_CHALLENGED"))
+            {
+                Snackbar.make(viewPager, "You have challenged " + extras.getString("EXTRA_FRIEND_NAME") + " successfully.", Snackbar.LENGTH_LONG).show();
+            }
+
+        }
 
     }
 

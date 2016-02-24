@@ -14,7 +14,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_lucas,
-                    "",
                     "Lucas Barbosa",
                     ""),
 
@@ -22,7 +21,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_matheus,
-                    "",
                     "Matheus Zamberlan",
                     ""),
 
@@ -30,7 +28,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_miller,
-                    "",
                     "Miller Horvath",
                     ""),
 
@@ -38,7 +35,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_renato,
-                    "",
                     "Renato Leonel",
                     ""),
 
@@ -46,7 +42,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_lucas,
-                    "",
                     "Lucas Barbosa",
                     ""),
 
@@ -54,7 +49,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_matheus,
-                    "",
                     "Matheus Zamberlan",
                     ""),
 
@@ -62,7 +56,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_miller,
-                    "",
                     "Miller Horvath",
                     ""),
 
@@ -70,7 +63,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_renato,
-                    "",
                     "Renato Leonel",
                     ""),
 
@@ -78,7 +70,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_lucas,
-                    "",
                     "Lucas Barbosa",
                     ""),
 
@@ -86,7 +77,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_matheus,
-                    "",
                     "Matheus Zamberlan",
                     ""),
 
@@ -94,7 +84,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_miller,
-                    "",
                     "Miller Horvath",
                     ""),
 
@@ -102,7 +91,6 @@ public class FriendsList extends CardList {
                     Card.Type.type_6,
                     Card.ImgShape.rounded,
                     R.drawable.ic_profile_renato,
-                    "",
                     "Renato Leonel",
                     "")
     };

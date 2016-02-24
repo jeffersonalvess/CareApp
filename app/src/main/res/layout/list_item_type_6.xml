@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    list_item_type_1
+
+    This list item can be used to:
+        - General card, can be used to all kind of small information like a new friend, maintenance alert, new rank level ...
+
+    It follows this name pattern:
+
+        Title: txtCardTitle
+        TextLine 1: txtLine1
+        Image View Rounded: imgCardIconRounded (Default image view visible = "visible")
+        Image View Squared: imgCardIconSquared (By default visible = "gone")
+
+    Enjoy baby!
+
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imgCardIconRounded"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/background_material_light"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/imgCardIconSquared"
+            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            android:contentDescription="Content Icon"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Card Title"
+                android:id="@+id/txtContentTitle"
+                android:layout_marginBottom="3dp"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, tale iusto quaerendum sed no."
+                android:id="@+id/txtLine1"
+                android:singleLine="false"
+                android:layout_marginBottom="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

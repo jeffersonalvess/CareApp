@@ -32,7 +32,7 @@ public class FriendChallenge extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 Card c = (Card) adapter.getItem(position);
-                Toast.makeText(getApplicationContext(), c.getContentTitle(), Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), c.getContentTitle(), Toast.LENGTH_LONG).show();
             }
         });
     }

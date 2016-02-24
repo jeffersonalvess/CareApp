@@ -56,7 +56,7 @@ public class CardListAdapter extends BaseAdapter
     @Override
     public int getViewTypeCount()
     {
-        return 5;
+        return 6;
     }
 
     @Override
@@ -170,6 +170,17 @@ public class CardListAdapter extends BaseAdapter
                 holder.btnSaveOffer = (Button) row.findViewById(R.id.btnSaveOffer);
                 holder.btnGetOffer = (Button) row.findViewById(R.id.btnGetOffer);
             }
+            else if (getItemViewType(position) == Card.Type.type_6.ordinal())
+            {
+                row = inflater.inflate(R.layout.list_item_type_6, parent, false);
+
+                holder = new ViewHolder();
+
+                holder.iconRounded = (CircleImageView) row.findViewById(R.id.imgCardIconRounded);
+                holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+            }
             else
             {
                 holder = null;
@@ -240,6 +251,13 @@ public class CardListAdapter extends BaseAdapter
             holder.rewardStatus.setVisibility(View.GONE);
             holder.btnSaveOffer.setVisibility(View.GONE);
             holder.btnGetOffer.setVisibility(View.GONE);
+        }
+        else if (card.getType() == Card.Type.type_6)
+        {
+            holder.iconRounded.setVisibility(View.GONE);
+            holder.iconSquared.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.line1.setVisibility(View.GONE);
         }
 
         //Now choose which elements will be showed and changed

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.depaul.csc595.careapp.FriendChallenge">
+
+    <include layout="@layout/friends_challenge_top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/friendsView">
+
+        <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/friends_list"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:clipToPadding="false"
+                  android:divider="#0FFF"
+                  android:scrollbars="none"
+                  android:drawSelectorOnTop="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:id="@+id/challengesView">
+
+    </LinearLayout>
+
+</LinearLayout>

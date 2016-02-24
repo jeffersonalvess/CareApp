@@ -9,7 +9,7 @@ import edu.depaul.csc595.careapp.R;
  */
 public class Card {
 
-    public enum Type {type_1, type_2, type_3, type_4, type_5}
+    public enum Type {type_1, type_2, type_3, type_4, type_5, type_6}
 
     public enum ImgShape {rounded, squared, undefined}
 

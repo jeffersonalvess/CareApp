@@ -114,7 +114,8 @@
                 android:layout_below="@+id/imgRoundedLeft"
                 android:layout_alignLeft="@+id/imgRoundedLeft"
                 android:layout_alignRight="@+id/imgRoundedLeft"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:maxLines="1"/>
 
             <ImageView
                 android:layout_width="48dp"
@@ -148,7 +149,8 @@
                 android:layout_alignLeft="@+id/imgRoundedRight"
                 android:layout_below="@+id/imgRoundedRight"
                 android:layout_alignRight="@+id/imgRoundedRight"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:maxLines="1"/>
 
         </RelativeLayout>
 

@@ -1,12 +1,10 @@
 package edu.depaul.csc595.careapp.Design;
 
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -15,7 +13,6 @@ import android.graphics.Xfermode;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 
 import edu.depaul.csc595.careapp.R;
 
@@ -34,9 +31,8 @@ class CircularProgressBar extends View {
     private final Paint mPaintBackground = new Paint();
     private final Paint mPaintErase = new Paint();
     private static final Xfermode PORTER_DUFF_CLEAR = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-    private int mColorForeground = Color.GRAY;
+    private int mColorForeground = ContextCompat.getColor(getContext(), R.color.background_material_light);
     private int mColorBackground = ContextCompat.getColor(getContext(), R.color.colorAccent);
-//    private int mColorBackground = getResources().getColor(R.color.colorAccent);
     private float mValue;
     private boolean mPieStyle;
     /**

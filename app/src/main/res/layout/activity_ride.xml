@@ -24,4 +24,50 @@
 
     <include layout="@layout/content_ride" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_material_light"
+            android:layout_alignParentTop="true"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ride_btInfo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:backgroundTint="#FFF"
+            app:elevation="2dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_tinder_info"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ride_btRefuse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#FFF"
+            app:elevation="2dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_tinder_dislike"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/ride_btInfo"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ride_btAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#FFF"
+            app:elevation="2dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_tinder_like"
+            android:layout_marginEnd="108dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/ride_btInfo"/>
+    </RelativeLayout>
+
 </android.support.design.widget.CoordinatorLayout>

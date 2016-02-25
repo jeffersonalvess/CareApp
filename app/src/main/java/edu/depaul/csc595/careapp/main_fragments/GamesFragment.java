@@ -11,13 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import edu.depaul.csc595.careapp.ChallengeListActivity;
-import edu.depaul.csc595.careapp.LeaderboardListActivity;
 import edu.depaul.csc595.careapp.ListData.GamesList;
 import edu.depaul.csc595.careapp.QuizActivity;
 import edu.depaul.csc595.careapp.R;
+import edu.depaul.csc595.careapp.StatisticsActivity;
 
 public class GamesFragment extends Fragment {
 
@@ -60,7 +59,9 @@ public class GamesFragment extends Fragment {
                         startActivityForResult(intent, 0);
                         break;
                     case 2:
-                        Snackbar.make(arg1, "Coming soon...", Snackbar.LENGTH_SHORT).show();
+                        //Snackbar.make(arg1, "Coming soon...", Snackbar.LENGTH_SHORT).show();
+                        intent = new Intent(getActivity(), StatisticsActivity.class);
+                        startActivityForResult(intent, 0);
                         break;
                 }
             }

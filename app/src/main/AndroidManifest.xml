@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+            android:value="@string/facebook_app_id" />
 
         <activity
             android:name=".SplashScreen"
@@ -38,7 +38,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="My Car"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".TabbedScreen"
@@ -59,6 +59,11 @@
         <activity
             android:name=".DriveWiseActivity"
             android:label="@string/title_activity_drive_wise"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="@string/title_activity_statistics"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".RideActivity"

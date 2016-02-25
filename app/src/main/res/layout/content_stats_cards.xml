@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--<RelativeLayout-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:paddingLeft="15dp"-->
+<!--android:paddingRight="15dp"-->
+<!--android:paddingTop="5dp"-->
+<!--android:paddingBottom="5dp"-->
+<!--android:background="@android:color/white"-->
+<!--android:elevation="4dp">-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+
+    android:elevation="4dp">
+
+    <!-- TODO: Layout dos dados do facebook -->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Name"
+        android:id="@+id/username"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imgRoundedRight"
+        android:layout_marginStart="9dp"
+
+
+        android:layout_marginTop="20dp"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imgRoundedRight"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/com_facebook_profile_picture_blank_square"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/background_material_light"
+        android:visibility="visible"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+
+        android:layout_below="@+id/imgRoundedRight"
+        android:paddingTop="8dp"
+        >
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/trophy"
+            android:src="@drawable/ic_trophy"
+            android:layout_below="@+id/username"
+            android:layout_alignStart="@+id/username"
+            android:layout_marginLeft="-8dp"
+            android:tint="#a69200"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5"
+            android:id="@+id/trophyText"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reward"
+            android:src="@drawable/ic_rewards"
+            android:layout_marginLeft="10dp"
+            android:tint="#a69200"
+            android:layout_below="@+id/username"
+            android:layout_toEndOf="@+id/txtLikes"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="2000 points"
+            android:id="@+id/rewardText"
+            android:layout_alignTop="@+id/txtLikes"
+            android:layout_toEndOf="@+id/reward"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/likes"
+            android:src="@drawable/ic_action_like"
+            android:layout_marginLeft="10dp"
+            android:tint="#a69200"
+            android:layout_below="@+id/username"
+            android:layout_toEndOf="@id/trophyText"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="27"
+            android:id="@+id/txtLikes"
+            android:layout_alignTop="@+id/trophyText"
+            android:layout_toEndOf="@+id/likes"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,50 +1,53 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 
-import edu.depaul.csc595.careapp.DriveWiseActivity;
 import edu.depaul.csc595.careapp.R;
 
+public class StatsFragment extends Fragment {
 
-public class MyCarFragment extends Fragment {
 
     private ListView mList;
     private View view;
 
-    public MyCarFragment() {
+    public StatsFragment() {
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_my_car, container, false);
-        Button btDriveWise = (Button) view.findViewById(R.id.buttonDriveWise);
-
-        btDriveWise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DriveWiseActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_stats, container, false);
+//        view = inflater.inflate(R.layout.fragment_stats, container, fals//e//);
+//
+//        mList = (ListView) view.findViewById(R.id.stats_lis//t//);
+//
+//        CardListAdapter adapter = new CardListAdapter(getContext(), new StatsList(//)//);
+//
+//        mList.setAdapter(adapte//r//);
+//
+//        mList.setOnItemClickListener(new AdapterView.OnItemClickListener(//)// {
+//
+//            @Override public void onItemClick(AdapterView<?> arg0, View arg1,int position, long ar//g3)
+//          //  {
+//                Snackbar.make(view, "I can feel your finger on card " + position + ".", Snackbar.LENGTH_SHORT).show//();
+//          //  }
+//        //}//);
+//
+//        return view;
     }
 
     @Override
@@ -67,3 +70,5 @@ public class MyCarFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 }
+
+

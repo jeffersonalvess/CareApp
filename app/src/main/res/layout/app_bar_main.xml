@@ -48,11 +48,9 @@
             android:layout_height="100dp"
 
 
-            android:src="@mipmap/ic_action_leaderboard"
+            android:src="@drawable/ic_leaderboard"
             android:layout_alignParentBottom="true"
-
             app:fabSize="mini"
-
             android:layout_centerHorizontal="true"
             android:clickable="true"/>
 

@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -14,11 +13,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +26,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
@@ -328,6 +324,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     fbCenter.hide();
                     fbRight.hide();
                 }
+
+                switch (position){
+                    case 0: setTitle("My Care");
+                            break;
+                    case 1: setTitle("Play Care");
+                        break;
+                    case 2: setTitle("Take Care");
+                        break;
+                    case 3: setTitle("Care Rewards");
+                        break;
+                    default: setTitle("");
+                        break;
+                }
+
             }
 
             @Override

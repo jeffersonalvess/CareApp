@@ -263,8 +263,8 @@ public class Card {
     {
         this.type = type;
         this.imgShape = imgShape;
-        this.icon = icon;
         this.line1 = "";
+        this.icon = icon;
         this.contentTitle = contentTitle;
 
         this.imgSquaredLeft = -1;

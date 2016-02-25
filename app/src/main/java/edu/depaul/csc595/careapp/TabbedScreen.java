@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 public class TabbedScreen extends AppCompatActivity {
 
@@ -63,6 +64,7 @@ public class TabbedScreen extends AppCompatActivity {
 
         loginButton = (LoginButton) findViewById(R.id.fb_login_button);
         loginButton.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+        loginButton.setReadPermissions(Arrays.asList("user_friends"));
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 

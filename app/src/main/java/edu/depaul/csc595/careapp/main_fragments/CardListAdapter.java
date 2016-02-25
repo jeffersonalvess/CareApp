@@ -56,7 +56,7 @@ public class CardListAdapter extends BaseAdapter
     @Override
     public int getViewTypeCount()
     {
-        return 7;
+        return 9;
     }
 
     @Override
@@ -191,6 +191,25 @@ public class CardListAdapter extends BaseAdapter
                 holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
                 holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
             }
+            else if (getItemViewType(position) == Card.Type.type_8.ordinal())
+            {
+                row = inflater.inflate(R.layout.list_item_type_8, parent, false);
+
+                holder = new ViewHolder();
+
+                //TODO: Include Type 8 code here.
+            }
+            else if (getItemViewType(position) == Card.Type.type_9.ordinal())
+            {
+                row = inflater.inflate(R.layout.list_item_type_9, parent, false);
+
+                holder = new ViewHolder();
+
+                holder.imgRoundedLeft = (CircleImageView) row.findViewById(R.id.imgCardIconRounded);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+                holder.line2 = (TextView) row.findViewById(R.id.txtLine2);
+            }
             else
             {
                 holder = null;
@@ -275,9 +294,22 @@ public class CardListAdapter extends BaseAdapter
             holder.iconSquared.setVisibility(View.GONE);
             holder.contentTitle.setVisibility(View.GONE);
         }
+        else if (card.getType() == Card.Type.type_8)
+        {
+            //TODO: Include Card 8 content here
+        }
+        else if (card.getType() == Card.Type.type_9)
+        {
+            holder.imgRoundedLeft.setVisibility(View.GONE);
+            holder.contentTitle.setVisibility(View.GONE);
+            holder.line1.setVisibility(View.GONE);
+            holder.line2.setVisibility(View.GONE);
+        }
 
 
-        //Now choose which elements will be showed and changed
+        // AVOID TOUCH HERE AS MUCH AS YOU CAN: GENERIC CODE MODIFYING THIS COULD CHANGE ALL THE SCREENS BEHAVIOUR BE CAREFUL
+        // Now choose which elements will be showed and changed
+
 
         // INTEGER FIELDS
         if (card.getIcon() != -1)

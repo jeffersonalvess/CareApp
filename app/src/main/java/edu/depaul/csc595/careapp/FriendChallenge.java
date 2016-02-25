@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
@@ -36,6 +37,7 @@ public class FriendChallenge extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_challenge);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final CardListAdapter adapterFriends = new CardListAdapter(getApplicationContext(), new FriendsList());
         final CardListAdapter adapterChallenges = new CardListAdapter(getApplicationContext(), new ChallengesList());
@@ -123,8 +125,6 @@ public class FriendChallenge extends AppCompatActivity
                 });
 
                 d.show();
-
-
             }
         });
     }
@@ -142,5 +142,25 @@ public class FriendChallenge extends AppCompatActivity
         {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        final ViewFlipper flipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+
+        if (item.getItemId() == android.R.id.home)
+        {
+            if (flipper.getDisplayedChild() == 1)
+            {
+                flipper.showPrevious();
+            } else
+            {
+                finish();
+            }
+
+        }
+
+        return true;
     }
 }

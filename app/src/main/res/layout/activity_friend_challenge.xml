@@ -43,6 +43,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="visible"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
             android:id="@+id/challengesView">
 
 
@@ -52,11 +54,14 @@
                 android:layout_height="match_parent"
                 android:columnWidth="90dp"
                 android:numColumns="auto_fit"
-                android:verticalSpacing="1dp"
-                android:horizontalSpacing="1dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:verticalSpacing="3dp"
+                android:horizontalSpacing="3dp"
                 android:stretchMode="columnWidth"
                 android:gravity="center"
                 android:scrollbars="none"
+                android:clipToPadding="false"
                 android:drawSelectorOnTop="true" />
 
         </LinearLayout>

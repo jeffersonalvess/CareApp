@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import edu.depaul.csc595.careapp.ChallengeListActivity;
 import edu.depaul.csc595.careapp.ListData.GamesList;
 import edu.depaul.csc595.careapp.QuizActivity;
 import edu.depaul.csc595.careapp.R;
@@ -50,16 +49,11 @@ public class GamesFragment extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 Intent intent;
                 switch (position) {
-                    case 0:
-                        intent = new Intent(getActivity(), ChallengeListActivity.class);
-                        startActivity(intent);
-                        break;
                     case 1:
                         intent = new Intent(getActivity(), QuizActivity.class);
                         startActivityForResult(intent, 0);
                         break;
                     case 2:
-                        //Snackbar.make(arg1, "Coming soon...", Snackbar.LENGTH_SHORT).show();
                         intent = new Intent(getActivity(), StatisticsActivity.class);
                         startActivityForResult(intent, 0);
                         break;

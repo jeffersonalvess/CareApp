@@ -13,7 +13,7 @@
         android:dividerHeight="12dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="108dp"
         android:paddingTop="5dp"
         android:clipToPadding="false"
         android:divider="#0FFF"

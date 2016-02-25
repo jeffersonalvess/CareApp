@@ -9,7 +9,7 @@ import edu.depaul.csc595.careapp.R;
  */
 public class Card {
 
-    public enum Type {type_1, type_2, type_3, type_4, type_5, type_6, type_7}
+    public enum Type {type_1, type_2, type_3, type_4, type_5, type_6, type_7, type_8, type_9}
 
     public enum ImgShape {rounded, squared, undefined}
 
@@ -292,6 +292,50 @@ public class Card {
         this.btnGetOffer = false;
 
     }
+
+    /**
+     * This constructor should be used with type_8 card
+     * */
+    //TODO: Criar o construtor do type 8 aqui
+
+
+    /**
+     * This constructor should be used with type_9 card
+     * */
+    public Card(Type type, int imgRoundedLeft, String line1, String line2, String contentTitle)
+    {
+        this.type = type;
+        this.imgRoundedLeft = imgRoundedLeft;
+        this.line1 = line1;
+        this.line2 = line2;
+        this.contentTitle = contentTitle;
+
+
+        this.imgShape = ImgShape.undefined;
+        this.icon = -1;
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
+        this.line3 = "";
+        this.rewardStatus = "";
+
+
+        this.imgRoundedRight = -1;
+        this.progress = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+        this.progressText = "";
+
+        this.title = "";
+
+        this.btnAccept = false;
+        this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
+    }
+
 
     public String getRewardStatus()
     {

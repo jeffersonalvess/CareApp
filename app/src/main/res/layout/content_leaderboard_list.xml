@@ -8,31 +8,18 @@
     tools:context="edu.depaul.csc595.careapp.LeaderboardListActivity"
     tools:showIn="@layout/fragment_stats">
 
-
-
-    <include layout="@layout/leaderboard_top"
-        android:id="@+id/leaderboard_top"
-        />
-
-
-
+    <include layout="@layout/leaderboard_top" android:id="@+id/leaderboard_top"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/leaderboard_list"
-        android:dividerHeight="6dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
+        android:dividerHeight="0dp"
+        android:paddingBottom="3dp"
         android:divider="#0FFF"
         android:scrollbars="none"
         android:clipToPadding="false"
-        android:drawSelectorOnTop="true"
-        android:layout_below="@id/leaderboard_top"
-        />
-
-
+        android:drawSelectorOnTop="false"
+        android:layout_below="@id/leaderboard_top" />
 
 </RelativeLayout>

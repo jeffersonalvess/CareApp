@@ -25,7 +25,7 @@
     <!--<string name="title_activity_challenges">Challenges</string>-->
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_challenge_list">Challenges</string>
-    <string name="title_activity_leaderboard_list">Leaderboard</string>
+    <string name="title_activity_leaderboard_list">Care Leaderboard</string>
     <string name="title_activity_drive_wise">Drivewise Activity</string>
     <string name="title_activity_ride">Care Ride</string>
     <string name="title_activity_statistics">StatisticsActivity</string>

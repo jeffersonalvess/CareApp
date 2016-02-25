@@ -30,6 +30,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private SparseArray<View.OnClickListener> floatingActionButtonOnClickListeners;
 
+    public static String names [];
+    public static String ids [];
 
 
     //This method is part of facebook implementation
@@ -169,7 +172,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         try {
                             //userLocation = object.getJSONObject("user_location").getString("name");
                             saveProfileInformation(object.getString("first_name") + " " + object.getString("last_name"), object.getString("id"));
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
@@ -181,6 +183,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         parameters.putString("fields", "id, location, last_name, first_name");
         request.setParameters(parameters);
         request.executeAsync();
+
+
+
+        //Getting friends here..
+        GraphRequest request2;
+        request2 = GraphRequest.newMyFriendsRequest(
+                AccessToken.getCurrentAccessToken(),
+                new GraphRequest.GraphJSONArrayCallback() {
+                    @Override
+                    public void onCompleted( JSONArray jsonArray, GraphResponse response) {
+                        for(int i =0 ; i< jsonArray.length(); i++) {
+                            try {
+                                JSONObject friend = jsonArray.getJSONObject(i);
+                                System.out.println("userId: " + friend.getString("id"));
+                                System.out.println("name: " + friend.getString("name"));
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+
+                    }
+                });
+
+        request2.executeAsync();
+        //request2.executeAndWait(); If necessary, change for this call.
+
         // Facebook end.
 
         //Sidebar Menu

@@ -14,4 +14,8 @@
     <color name="background_tinder_buttons">#ffffffff</color>
     <color name="border_tinder_buttons">#dddddd</color>
 
+    <color name="RED">#ed0000</color>
+    <color name="YELLOW">#f9d400</color>
+    <color name="GREEN">#1d9f1d</color>
+
 </resources>

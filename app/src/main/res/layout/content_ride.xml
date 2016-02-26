@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.depaul.csc595.careapp.RideActivity"
-    tools:showIn="@layout/activity_ride">
+    tools:showIn="@layout/activity_ride"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shape_cards_rounded_corners"
+        android:padding="5dp"
+        android:elevation="2dp"
+        android:layout_weight="1"
+        android:layout_margin="5dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="4"
+            android:background="@drawable/shape_cards_rounded_corners"
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
                 <edu.depaul.csc595.careapp.Design.OurCircleImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/com_facebook_profile_picture_blank_portrait"/>
+                    android:src="@drawable/com_facebook_profile_picture_blank_square"/>
 
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Unknown Driver"/>
+                android:text="Mysterious Driver"
+                android:textColor="#000"
+                android:textSize="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="from Unknown City"/>
+                android:text="from Gothan City"
+                android:textColor="#000"
+                android:textSize="16dp"/>
 
         </LinearLayout>
 
@@ -48,8 +60,7 @@
             android:id="@+id/ride_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingBottom="80dp"
+            android:layout_weight="3"
             android:orientation="vertical"
             android:gravity="bottom">
 
@@ -63,6 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:background="@drawable/shape_cards_rounded_corners"
                 android:layout_weight="0"
                 android:layout_margin="5dp">
 
@@ -80,7 +92,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true" />
+                        android:layout_centerVertical="true"
+                        app:progress="88.0"
+                        />
 
                     <edu.depaul.csc595.careapp.Design.OurCircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -101,7 +115,7 @@
                         android:text="130"
                         android:padding="2dp"
                         android:background="@drawable/shape_cards_rounded_corners"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/RED"
                         android:gravity="center"
                         android:lines="1"
                         android:layout_centerHorizontal="true"
@@ -128,7 +142,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true" />
+                        android:layout_centerVertical="true"
+                        app:progress="60"/>
 
                     <edu.depaul.csc595.careapp.Design.OurCircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -149,7 +164,7 @@
                         android:text="2.5"
                         android:padding="2dp"
                         android:background="@drawable/shape_cards_rounded_corners"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/YELLOW"
                         android:gravity="center"
                         android:lines="1"
                         android:layout_centerHorizontal="true"
@@ -176,7 +191,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true" />
+                        android:layout_centerVertical="true"
+                        app:progress="20.0"/>
 
                     <edu.depaul.csc595.careapp.Design.OurCircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -197,7 +213,7 @@
                         android:text="2.5"
                         android:padding="2dp"
                         android:background="@drawable/shape_cards_rounded_corners"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/GREEN"
                         android:gravity="center"
                         android:lines="1"
                         android:layout_centerHorizontal="true"
@@ -223,7 +239,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true" />
+                        android:layout_centerVertical="true"
+                        app:progress="40"/>
 
                     <edu.depaul.csc595.careapp.Design.OurCircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -245,7 +262,7 @@
                         android:text="2.5"
                         android:padding="2dp"
                         android:background="@drawable/shape_cards_rounded_corners"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/YELLOW"
                         android:gravity="center"
                         android:lines="1"
                         android:layout_centerHorizontal="true"
@@ -268,6 +285,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:background="@drawable/shape_cards_rounded_corners"
                 android:layout_margin="5dp">
 
                 <LinearLayout
@@ -393,7 +411,7 @@
                 android:padding="1dp"
                 android:background="@drawable/shape_cards_rounded_corners"
                 android:backgroundTint="@color/colorAccent"
-                android:layout_margin="5dp">
+                android:layout_marginBottom="3dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -437,10 +455,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
-
         </LinearLayout>
 
 
     </LinearLayout>
 
-</RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_material_light"
+            android:layout_alignParentTop="true"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ride_btInfo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:backgroundTint="#FFF"
+            app:elevation="2dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_tinder_info"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ride_btRefuse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#FFF"
+            app:elevation="2dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_tinder_dislike"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/ride_btInfo"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ride_btAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#FFF"
+            app:elevation="2dp"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_tinder_like"
+            android:layout_marginEnd="108dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/ride_btInfo"/>
+    </RelativeLayout>
+</LinearLayout>

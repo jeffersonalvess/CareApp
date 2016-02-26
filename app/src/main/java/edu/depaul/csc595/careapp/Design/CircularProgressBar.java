@@ -3,6 +3,7 @@ package edu.depaul.csc595.careapp.Design;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -32,7 +33,12 @@ class CircularProgressBar extends View {
     private final Paint mPaintErase = new Paint();
     private static final Xfermode PORTER_DUFF_CLEAR = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     private int mColorForeground = ContextCompat.getColor(getContext(), R.color.background_material_light);
-    private int mColorBackground = ContextCompat.getColor(getContext(), R.color.colorAccent);
+    private int mColorBackground;
+    private final int []COLORS = {
+            ContextCompat.getColor(getContext(), R.color.RED),
+            ContextCompat.getColor(getContext(), R.color.YELLOW),
+            ContextCompat.getColor(getContext(), R.color.GREEN)
+    };
     private float mValue;
     private boolean mPieStyle;
     /**
@@ -70,6 +76,20 @@ class CircularProgressBar extends View {
     public CircularProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         Resources r = context.getResources();
+
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.CircularProgressBar);
+        mValue = ta.getFloat(R.styleable.CircularProgressBar_progress, 50.0f);
+
+        if(mValue < 33.33f){
+            mColorBackground = COLORS[2];
+        }
+        else if(mValue < 66.66f){
+            mColorBackground = COLORS[1];
+        }
+        else{
+            mColorBackground = COLORS[0];
+        }
+
         float scale = r.getDisplayMetrics().density;
         mPadding = scale * PADDING ;
         mPaintForeground.setColor(mColorForeground);
@@ -78,7 +98,9 @@ class CircularProgressBar extends View {
         mPaintBackground.setAntiAlias(true);
         mPaintErase.setXfermode(PORTER_DUFF_CLEAR);
         mPaintErase.setAntiAlias(true);
-        mValue = 50;
+
+
+        //mValue = 50;
     }
 
     /**
@@ -139,20 +161,22 @@ class CircularProgressBar extends View {
     }
 
     /**
-     * @param value A number between 0 and 1
+     * @param progress A number between 0 and 1
      */
-    public synchronized void setValue(float value) {
-        if(value < 0.0f){
-            value = 0.0f;
+    public synchronized void setProgress(float progress) {
+        if(progress < 0.0f){
+            progress = 0.0f;
         }
-        else if(value > 100.0f){
-            value = 100.0f;
+        else if(progress > 100.0f){
+            progress = 100.0f;
         }
         else {
-            mValue = value;
+            mValue = progress;
         }
         updateBitmap();
     }
+
+    public float getProgress(){return mValue;}
 
     private void updateBitmap() {
         if (mRect == null || mRect.width() == 0) {
@@ -165,7 +189,7 @@ class CircularProgressBar extends View {
         if (mValue < 0.01f) {
             canvas.drawLine(mRect.width() / 2, mRect.height() / 2, mRect.width() / 2, 0, mPaintForeground);
         }
-        float angle = mValue / 100 * 270;
+        float angle = (1 - mValue / 100) * 270;
         canvas.drawArc(mRect, 270, -angle, true, mPaintForeground);
         if (!mPieStyle) {
             canvas.drawArc(mRectInner, 0, 270, true, mPaintErase);

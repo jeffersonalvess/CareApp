@@ -10,18 +10,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-import edu.depaul.csc595.careapp.Quiz.Quiz;
+import edu.depaul.csc595.careapp.Helpers.Quiz;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -57,7 +54,17 @@ public class QuizActivity extends AppCompatActivity {
         txtTop = (TextView) findViewById(R.id.questionHeaderText);
         progress = (ProgressBar) findViewById(R.id.progressBarQuiz);
 
-        numberOfQuestions = 2;
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btnCloseQuiz);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                finish();
+            }
+        });
+
+        numberOfQuestions = 3;
 
         txtTop.setText("QUESTION 1 OF " + numberOfQuestions);
         progress.setProgress((1 * 100)/numberOfQuestions);
@@ -358,7 +365,7 @@ public class QuizActivity extends AppCompatActivity {
     {
         ArrayList<LinearLayout> cards = new ArrayList<LinearLayout>();
         ArrayList<TextView> cardsText = new ArrayList<TextView>();
-        int userGrade = 0;
+        float userGrade = 0;
 
         LinearLayout card1 = (LinearLayout) findViewById(R.id.card1);
         LinearLayout card2 = (LinearLayout) findViewById(R.id.card2);
@@ -440,8 +447,8 @@ public class QuizActivity extends AppCompatActivity {
         }
 
         userGrade = (userGrade * 100) / (numberOfQuestions * 100);
-        txtUserGrade.setText("Your grade is " + userGrade);
-        progress.setProgress(userGrade);
+        txtUserGrade.setText("Your grade is " + (int)userGrade);
+        progress.setProgress((int)userGrade);
 
     }
 

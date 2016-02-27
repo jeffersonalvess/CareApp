@@ -55,7 +55,7 @@
             android:layout_toRightOf="@+id/imgCardIconRounded"
             android:layout_below="@+id/txtLine1"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"/>
+            />
 
 
     </RelativeLayout>

@@ -21,7 +21,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_tabbed_screen">TabbedScreen</string>
     <!--<string name="title_activity_leaderboard">Leaderboard</string>-->
-    <string name="title_activity_quizz">Quizz</string>
+    <string name="title_activity_quizz">Care Quiz</string>
     <!--<string name="title_activity_challenges">Challenges</string>-->
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_challenge_list">Challenges</string>

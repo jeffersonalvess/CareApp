@@ -21,6 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_quizz" />
+    <include layout="@layout/content_quiz" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -57,7 +57,7 @@ public class QuizActivity extends AppCompatActivity {
         txtTop = (TextView) findViewById(R.id.questionHeaderText);
         progress = (ProgressBar) findViewById(R.id.progressBarQuiz);
 
-        numberOfQuestions = 3;
+        numberOfQuestions = 2;
 
         txtTop.setText("QUESTION 1 OF " + numberOfQuestions);
         progress.setProgress((1 * 100)/numberOfQuestions);

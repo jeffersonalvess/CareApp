@@ -3,6 +3,7 @@ package edu.depaul.csc595.careapp.main_fragments;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.text.TextDirectionHeuristic;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -197,7 +198,10 @@ public class CardListAdapter extends BaseAdapter
 
                 holder = new ViewHolder();
 
-                //TODO: Include Type 8 code here.
+                holder.iconRounded = (CircleImageView) row.findViewById(R.id.imgCardIconRounded);
+                holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
+                holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
+
             }
             else if (getItemViewType(position) == Card.Type.type_9.ordinal())
             {

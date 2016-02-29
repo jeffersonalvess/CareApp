@@ -296,8 +296,39 @@ public class Card {
     /**
      * This constructor should be used with type_8 card
      * */
-    //TODO: Criar o construtor do type 8 aqui
+    public Card(Type type, int imageIcon, String contentTitle, String line1)
+    {
+        this.type = type;
+        this.icon = imageIcon;
+        this.line1 = line1;
+        this.contentTitle = contentTitle;
+        this.imgShape = ImgShape.rounded;
 
+
+        this.imgRoundedLeft = -1;
+        this.line2 = "";
+        this.imgSquaredLeft = -1;
+        this.imgSquaredRight = -1;
+        this.line3 = "";
+        this.rewardStatus = "";
+
+
+        this.imgRoundedRight = -1;
+        this.progress = -1;
+
+        this.challengeDescription = "";
+        this.playerLeft = "";
+        this.playerRight = "";
+        this.userOption = "";
+        this.progressText = "";
+
+        this.title = "";
+
+        this.btnAccept = false;
+        this.btnReject = false;
+        this.btnSaveOffer = false;
+        this.btnGetOffer = false;
+    }
 
     /**
      * This constructor should be used with type_9 card

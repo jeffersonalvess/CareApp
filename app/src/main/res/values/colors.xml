@@ -6,7 +6,8 @@
     <color name="colorAccentLight">#ff9705</color>
     <color name="colorAccent">#f17105</color>
     <color name="colorAccentDark">#c95e05</color>
-    <color name="black_overlay">#66000000</color>
+    <color name="black_overlay">#77000000</color>
+    <color name="black_overlay2">#CC000000</color>
     <color name="background_material_light">#dddddd</color>
     <color name="colorGold">#A69200</color>
 

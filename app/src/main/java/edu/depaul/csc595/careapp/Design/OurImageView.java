@@ -2,21 +2,19 @@ package edu.depaul.csc595.careapp.Design;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
-
-import de.hdodenhof.circleimageview.CircleImageView;
+import android.widget.ImageView;
 
 /**
- * Created by Miller on 23/02/2016.
+ * Created by Miller on 01/03/2016.
  */
-public class OurCircleImageView extends CircleImageView {
+public class OurImageView extends ImageView {
 
     private static final float PADDING = 4;
     private float mPadding;
-    private static final float INNER_RADIUS_RATIO = 0.95f;
+    private static final float INNER_RADIUS_RATIO = 1.0f;
 
-    public OurCircleImageView(Context context) {
+    public OurImageView(Context context) {
         super(context);
 
         Resources r = context.getResources();
@@ -24,7 +22,7 @@ public class OurCircleImageView extends CircleImageView {
         mPadding = scale * PADDING ;
     }
 
-    public OurCircleImageView(Context context, AttributeSet attrs){
+    public OurImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         Resources r = context.getResources();
@@ -32,8 +30,16 @@ public class OurCircleImageView extends CircleImageView {
         mPadding = scale * PADDING ;
     }
 
-    public OurCircleImageView(Context context, AttributeSet attrs, int defStyle){
-        super(context, attrs, defStyle);
+    public OurImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+
+        Resources r = context.getResources();
+        float scale = r.getDisplayMetrics().density;
+        mPadding = scale * PADDING ;
+    }
+
+    public OurImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
 
         Resources r = context.getResources();
         float scale = r.getDisplayMetrics().density;

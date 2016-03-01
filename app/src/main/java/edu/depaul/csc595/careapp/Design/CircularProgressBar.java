@@ -25,7 +25,7 @@ import edu.depaul.csc595.careapp.R;
  * Class used to show a determinate progress indicator.
  * Two display modes are supported "wheel" and "pie"
  */
-class CircularProgressBar extends View {
+public class CircularProgressBar extends View {
     private final RectF mRect = new RectF();
     private final RectF mRectInner = new RectF();
     private final Paint mPaintForeground = new Paint();
@@ -160,6 +160,10 @@ class CircularProgressBar extends View {
         invalidate();
     }
 
+    public int getBackgroundColor() {
+        return this.mColorBackground;
+    }
+
     /**
      * @param progress A number between 0 and 1
      */
@@ -172,6 +176,16 @@ class CircularProgressBar extends View {
         }
         else {
             mValue = progress;
+
+            if(mValue < 33.33f){
+                setBackgroundColor(COLORS[2]);
+            }
+            else if(mValue < 66.66f){
+                setBackgroundColor(COLORS[1]);
+            }
+            else{
+                setBackgroundColor(COLORS[0]);
+            }
         }
         updateBitmap();
     }
@@ -192,7 +206,7 @@ class CircularProgressBar extends View {
         float angle = (1 - mValue / 100) * 270;
         canvas.drawArc(mRect, 270, -angle, true, mPaintForeground);
         if (!mPieStyle) {
-            canvas.drawArc(mRectInner, 0, 270, true, mPaintErase);
+            canvas.drawArc(mRectInner, 0, 360, true, mPaintErase);
         }
         postInvalidate();
     }

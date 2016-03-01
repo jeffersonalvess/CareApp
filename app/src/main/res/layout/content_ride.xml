@@ -199,12 +199,13 @@
                         android:id="@+id/ride_icon3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_action_quiz"
+                        android:src="@mipmap/ic_infraction_per_mile"
                         app:civ_border_width="1dp"
                         app:civ_border_color="@color/background_material_light"
                         android:visibility="visible"
                         android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true"  />
+                        android:layout_centerHorizontal="true"
+                        />
 
                     <TextView
                         android:id="@+id/ride_num3"

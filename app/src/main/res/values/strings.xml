@@ -30,4 +30,10 @@
     <string name="title_activity_ride">Care Ride</string>
     <string name="title_activity_statistics">My Care</string>
 
+    <string name="icon1_explanation">Respresents drivers average speed</string>
+    <string name="icon2_explanation">Respresents drivers average of infractions per trip</string>
+    <string name="icon3_explanation">Respresents drivers average of infractions per each 100 miles driven</string>
+    <string name="icon4_explanation">Respresents drivers average of infractions per each 24 hours driven</string>
+    <string name="dismiss_explanation">( tap to dismiss )</string>
+
 </resources>

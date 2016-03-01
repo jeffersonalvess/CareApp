@@ -199,7 +199,7 @@
                         android:id="@+id/ride_icon3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@mipmap/ic_infraction_per_distance"
+                        android:src="@mipmap/ic_action_quiz"
                         app:civ_border_width="1dp"
                         app:civ_border_color="@color/background_material_light"
                         android:visibility="visible"

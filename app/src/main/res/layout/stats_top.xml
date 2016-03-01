@@ -19,29 +19,16 @@
         android:layout_marginBottom="5dp"
         android:gravity="center_vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imgCardIconRounded"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_action_statistics"
-            app:civ_border_width="1dp"
-            app:civ_border_color="@color/default_circle_indicator_fill_color"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:visibility="visible"/>
-
         <ImageView
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:id="@+id/imgCardIconSquared"
-            android:src="@drawable/com_facebook_profile_picture_blank_square"
+            android:src="@mipmap/ic_action_statistics"
             android:contentDescription="Content Icon"
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -52,12 +39,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Leaderboard"
+                android:text="Status"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/txtContentTitle"
                 android:layout_marginBottom="3dp"
-                android:textColor="@android:color/black"
-                android:visibility="gone"/>
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"

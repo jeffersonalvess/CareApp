@@ -48,7 +48,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".LeaderboardListActivity"
+            android:name=".LeaderboardActivity"
             android:label="@string/title_activity_leaderboard_list"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
@@ -72,8 +72,9 @@
             android:label="@string/title_activity_ride"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
-        <activity android:name=".FriendChallenge"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".FriendChallenge"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

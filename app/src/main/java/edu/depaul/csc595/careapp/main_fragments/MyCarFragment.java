@@ -1,6 +1,5 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -9,12 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
-import edu.depaul.csc595.careapp.DriveWiseActivity;
-import edu.depaul.csc595.careapp.ListData.MaintenenceList;
-import edu.depaul.csc595.careapp.ListData.ProfileList;
+import edu.depaul.csc595.careapp.ListData.MaintenanceList;
 import edu.depaul.csc595.careapp.R;
 
 
@@ -41,7 +37,7 @@ public class MyCarFragment extends Fragment {
 
         mList = (ListView) view.findViewById(R.id.profile_list);
 
-        CardListAdapter adapter = new CardListAdapter(getContext(), new MaintenenceList());
+        CardListAdapter adapter = new CardListAdapter(getContext(), new MaintenanceList());
 
         mList.setAdapter(adapter);
 

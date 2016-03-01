@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.depaul.csc595.careapp.LeaderboardListActivity"
+    tools:context=".LeaderboardActivity"
     tools:showIn="@layout/fragment_stats">
 
     <include layout="@layout/leaderboard_top" android:id="@+id/leaderboard_top"/>

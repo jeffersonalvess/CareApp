@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FloatingActionButton fbLeft;
     private FloatingActionButton fbCenter;
     private FloatingActionButton fbRight;
+    private FloatingActionButton addMaintenence;
 
     private SparseArray<View.OnClickListener> floatingActionButtonOnClickListeners;
 
@@ -149,6 +150,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fbLeft = (FloatingActionButton) findViewById(R.id.buttonLeft);
         fbCenter = (FloatingActionButton) findViewById(R.id.buttonCenter);
         fbRight = (FloatingActionButton) findViewById(R.id.buttonRight);
+        addMaintenence = (FloatingActionButton) findViewById(R.id.buttonAddMaintenence);
+
+        addMaintenence.hide();
+
+        addMaintenence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MaintenanceActivity.class);
+                startActivity(intent);
+            }
+        });
 
         fbLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RideActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, UNKNOWN_DRIVER_RIDE);
             }
         });
 
@@ -170,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, FriendChallenge.class);
-                startActivityForResult(intent, 1);
+                startActivity(intent);
             }
         });
 
@@ -368,6 +380,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     fbLeft.hide();
                     fbCenter.hide();
                     fbRight.hide();
+                }
+
+
+                if(position == 2) {
+                    addMaintenence.show();
+                }
+                else{
+                    addMaintenence.hide();
                 }
 
                 switch (position){

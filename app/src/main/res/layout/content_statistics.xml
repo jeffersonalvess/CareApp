@@ -12,4 +12,6 @@
     tools:context="edu.depaul.csc595.careapp.StatisticsActivity"
     tools:showIn="@layout/activity_statistics">
 
+
+
 </RelativeLayout>

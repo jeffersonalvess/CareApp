@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Space;
 import android.widget.TextView;
 
 import edu.depaul.csc595.careapp.Design.*;
@@ -27,6 +28,10 @@ public class RideActivity extends AppCompatActivity {
         CircularProgressBar tempCircularProgressBar;
         OurImageView tempOurImageView;
         TextView tempTextView;
+
+        findViewById(R.id.space_profile_1).setVisibility(View.GONE);
+        findViewById(R.id.space_profile_2).setVisibility(View.GONE);
+        findViewById(R.id.space_profile_3).setVisibility(View.GONE);
 
         // Tinting icons and setting TextViews text color based on the progress bars value.
         tempCircularProgressBar = (CircularProgressBar) findViewById(R.id.ride_cpBar1);

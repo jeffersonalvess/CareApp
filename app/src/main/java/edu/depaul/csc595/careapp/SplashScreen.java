@@ -5,9 +5,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.login.widget.LoginButton;
+
+import java.util.concurrent.ExecutionException;
+
+import edu.depaul.csc595.careapp.Helpers.FacebookUserInfo;
+import edu.depaul.csc595.careapp.Helpers.FacebookUserProfileInfo;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -26,15 +32,13 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         getSupportActionBar().hide();
 
-        //FacebookSdk.sdkInitialize(getApplicationContext());
-        //mCallbackManager = CallbackManager.Factory.create();
         FacebookSdk.sdkInitialize(getApplicationContext());
         SharedPreferences settings = getSharedPreferences(FACEBOOK_PREFS, 0);
 
         if (settings.getBoolean("loginSucessful", true)) {
+
             Intent intent = new Intent();
             intent.setClass(this, TabbedScreen.class);
-            //intent.setClass(WelcomeScreen.this, GoogleMapsTest.class);
             intent.putExtra("REQ", 1);
             startActivity(intent);
             finish();
@@ -43,7 +47,7 @@ public class SplashScreen extends AppCompatActivity {
         {
             Intent intent = new Intent();
             intent.setClass(this, MainActivity.class);
-            //intent.setClass(WelcomeScreen.this, GoogleMapsTest.class);
+
             intent.putExtra("REQ", 1);
             startActivity(intent);
             finish();

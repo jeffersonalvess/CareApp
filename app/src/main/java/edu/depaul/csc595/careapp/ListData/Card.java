@@ -302,7 +302,7 @@ public class Card {
         this.icon = imageIcon;
         this.line1 = line1;
         this.contentTitle = contentTitle;
-        this.imgShape = ImgShape.rounded;
+        this.imgShape = ImgShape.squared;
 
 
         this.imgRoundedLeft = -1;

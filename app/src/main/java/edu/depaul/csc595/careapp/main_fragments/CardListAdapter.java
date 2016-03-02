@@ -199,6 +199,8 @@ public class CardListAdapter extends BaseAdapter
                 holder = new ViewHolder();
 
                 holder.iconRounded = (CircleImageView) row.findViewById(R.id.imgCardIconRounded);
+                holder.iconRounded.setVisibility(View.GONE);
+                holder.iconSquared = (ImageView) row.findViewById(R.id.imgCardIconSquared);
                 holder.contentTitle = (TextView) row.findViewById(R.id.txtContentTitle);
                 holder.line1 = (TextView) row.findViewById(R.id.txtLine1);
 

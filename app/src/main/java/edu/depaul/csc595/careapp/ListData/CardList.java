@@ -13,7 +13,7 @@ public class CardList {
     public List<Card> PROFILES = new ArrayList<>();
     public Map<String, Card> PROFILE_MAP = new HashMap<>();
 
-    protected void addItem(Card card) {
+    public void addItem(Card card) {
         PROFILES.add(card);
         PROFILE_MAP.put(card.getTitle(), card);
     }

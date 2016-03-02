@@ -23,6 +23,7 @@ import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -42,6 +43,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import edu.depaul.csc595.careapp.ListData.Card;
+import edu.depaul.csc595.careapp.ListData.MaintenanceList;
+import edu.depaul.csc595.careapp.main_fragments.CardListAdapter;
 import edu.depaul.csc595.careapp.main_fragments.GamesFragment;
 import edu.depaul.csc595.careapp.main_fragments.MyCarFragment;
 import edu.depaul.csc595.careapp.main_fragments.ProfileFragment;
@@ -67,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static String ids [];
 
     static final int UNKNOWN_DRIVER_RIDE = 1;
+    static final int ADD_MAINTENANCE_REMINDER = 2;
+
+    // Gambiarra
+    public static MaintenanceList maintenanceList;
 
     //This method is part of facebook implementation
     private void saveProfileInformation(String name, String id) throws IOException {
@@ -133,12 +141,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Snackbar.make(viewPager, "You would NOT take a ride with this driver. :(", Snackbar.LENGTH_LONG).show();
             }
         }
+        else if(requestCode == ADD_MAINTENANCE_REMINDER) {
+            if(resultCode == RESULT_OK){
+                ListView lv = (ListView) findViewById(R.id.maintenance_list);
+                CardListAdapter adapter = (CardListAdapter) lv.getAdapter();
+                adapter.cardList.addItem(new Card(Card.Type.type_8,
+                        data.getIntExtra("Icon", -1),
+                        data.getStringExtra("ContentTitle"),
+                        data.getStringExtra("Line1")));
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Gambiarra
+        maintenanceList = new MaintenanceList();
 
         //Toolbar support code
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
@@ -158,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MaintenanceActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, ADD_MAINTENANCE_REMINDER);
             }
         });
 

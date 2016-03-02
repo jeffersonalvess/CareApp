@@ -9,8 +9,15 @@ public class MaintenanceList extends CardList {
     public MaintenanceList() {
         addItem(new Card(
                 Card.Type.type_8,
-                R.mipmap.ic_action_tip,
-                "Maintenence",
-                "Maintenence Info"));
+                R.mipmap.ic_maintenance_tires_pressure,
+                "Tires Preassure",
+                "Due in 6 days"));
+
+        addItem(new Card(
+                Card.Type.type_8,
+                R.mipmap.ic_maintenance_brakes,
+                "Brakes Maintenance",
+                "Due in 11 months"
+        ));
     }
 }

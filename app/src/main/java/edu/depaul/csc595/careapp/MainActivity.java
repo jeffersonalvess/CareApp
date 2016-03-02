@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fbLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FriendChallenge.class);
+                Intent intent = new Intent(MainActivity.this, LeaderboardActivity.class);
                 startActivity(intent);
             }
         });
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fbCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LeaderboardActivity.class);
+                Intent intent = new Intent(MainActivity.this, RideActivity.class);
                 startActivity(intent);
             }
         });
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fbRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RideActivity.class);
+                Intent intent = new Intent(MainActivity.this, FriendChallenge.class);
                 startActivityForResult(intent, 1);
             }
         });

@@ -16,102 +16,13 @@ public class ChallengesList extends CardList {
     public final Card[] PROFILES_ARRAY = {
             new Card(Card.Type.type_7,
                     Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Speed Zen"),
+                    R.mipmap.ic_challenge_keep_calm,
+                    "Keep Calm"),
 
             new Card(Card.Type.type_7,
                     Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Soft Foot"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Neither Fast\nNeither Slow"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "100mi Challenge"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Speed Zen"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Soft Foot"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Neither Fast\nNeither Slow"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "100mi Challenge"),
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Speed Zen"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Soft Foot"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Neither Fast\nNeither Slow"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "100mi Challenge"),
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Speed Zen"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Soft Foot"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Neither Fast\nNeither Slow"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "100mi Challenge"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Gas Saver"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "3 days on 40"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "Quiz Riddle"),
-
-            new Card(
-                    Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
-                    "50 less"),
+                    R.mipmap.ic_action_hard_break,
+                    "Soft Break"),
 
             new Card(
                     Card.Type.type_7,

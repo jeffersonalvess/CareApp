@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.depaul.csc595.careapp.main_fragments.QuizStatsFragment;
+import edu.depaul.csc595.careapp.main_fragments.AchievementsFragment;
 import edu.depaul.csc595.careapp.main_fragments.StatsFragment;
 
 public class StatisticsActivity extends AppCompatActivity {
@@ -54,7 +54,7 @@ public class StatisticsActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(new StatsFragment(), "STATUS");
-        adapter.addFragment(new QuizStatsFragment(), "ACHIEVEMENTS");
+        adapter.addFragment(new AchievementsFragment(), "ACHIEVEMENTS");
 
 
         viewPager.setAdapter(adapter);

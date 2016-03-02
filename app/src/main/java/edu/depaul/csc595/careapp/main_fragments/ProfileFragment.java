@@ -53,8 +53,6 @@ public class ProfileFragment extends Fragment {
     }
 
 
-
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

@@ -75,7 +75,7 @@ public class RideActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadNewUser(indexCount);
-                Toast.makeText(getApplicationContext(), "You would take a ride with this driver :)", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You would take a ride with this driver :)", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -83,7 +83,7 @@ public class RideActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadNewUser(indexCount);
-                Toast.makeText(getApplicationContext(), "You would not take a ride with this driver :(", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "You would not take a ride with this driver :(", Toast.LENGTH_SHORT).show();
             }
         });
 

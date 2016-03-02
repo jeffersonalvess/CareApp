@@ -30,8 +30,8 @@
                 android:gravity="center_horizontal">
 
                 <edu.depaul.csc595.careapp.Design.OurCircleImageView
-                    android:layout_width="230dp"
-                    android:layout_height="230dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:src="@drawable/com_facebook_profile_picture_blank_square"
                     android:id="@+id/userProfilePicture"/>
 
@@ -481,5 +481,7 @@
 
 
     </LinearLayout>
+
+
 
 </LinearLayout>

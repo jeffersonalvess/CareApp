@@ -11,5 +11,3 @@ Developers:
 - Matheus Zamberlan
 - Miller Horvath
 - Renato Leonel
-
-Facebook Page <soon>

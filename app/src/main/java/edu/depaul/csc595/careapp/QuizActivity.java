@@ -223,7 +223,7 @@ public class QuizActivity extends AppCompatActivity {
         //Mock Quizs
         Quiz question01 = new Quiz(
                 "The only time you can cross two solid yellow lines is when:",
-                "Continuous yellow lines should never be crossed, unless to avoid an accident.",
+                "Continuous yellow lines should never be crossed. Unless it is the only option to avoid an accident.",
                 false,
                 new ArrayList<String>() {{
                     add("You need to pass.");
@@ -237,13 +237,13 @@ public class QuizActivity extends AppCompatActivity {
 
         Quiz question02 = new Quiz(
                 "Always leave extra space in front of you when (select all that apply):",
-                "Keep a safe distance from vehicles in front of you is a very good practice. By doing this you get more time to react to an unforeseen situation.",
+                "Keep a safe distance from vehicles in front of you is a very good practice. By doing this, you will have more time to react to an unforeseen situation.",
                 true,
                 new ArrayList<String>() {{
                     add("Driving in bad weather.");
                     add("Another driver is following you closely.");
                     add("You are following a motorcycle.");
-                    add("You are having problens with your car.");
+                    add("You are having problems with your car.");
                     add("Never leave extra space in front of you.");
                 }},
                 new ArrayList<Integer>() {{
@@ -262,7 +262,7 @@ public class QuizActivity extends AppCompatActivity {
                     add("Accelerate in the curve.");
                     add("Brake once you are in the curve to slow down.");
                     add("Maintain your regular speed there is no other traffic.");
-                    add("Break until the car stoppes and then make the curve");
+                    add("Break until the car stops and then make the curve");
                 }},
                 new ArrayList<Integer>() {{add(0);}}
         );

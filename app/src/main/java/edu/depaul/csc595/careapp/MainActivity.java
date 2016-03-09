@@ -134,12 +134,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Check which request we're responding to
         if (requestCode == UNKNOWN_DRIVER_RIDE) {
             // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                Snackbar.make(viewPager, "You would take a ride with this driver. :)", Snackbar.LENGTH_LONG).show();
-            }
-            else{
-                Snackbar.make(viewPager, "You would NOT take a ride with this driver. :(", Snackbar.LENGTH_LONG).show();
-            }
+//            if (resultCode == RESULT_OK) {
+//               Snackbar.make(viewPager, "You would take a ride with this driver. :)", Snackbar.LENGTH_LONG).show();
+//            }
+//            else{
+//                Snackbar.make(viewPager, "You would NOT take a ride with this driver. :(", Snackbar.LENGTH_LONG).show();
+//            }
         }
         else if(requestCode == ADD_MAINTENANCE_REMINDER) {
             if(resultCode == RESULT_OK){

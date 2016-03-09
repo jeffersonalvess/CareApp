@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.depaul.csc595.careapp">
 
+    <!--
+
+    Server API Key help: AIzaSyDeNtjG1umfoLmFfgdd9Yilk9SrPgyN_eg
+    Sender ID help: 83668348383
+
+    -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

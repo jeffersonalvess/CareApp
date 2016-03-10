@@ -13,9 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import edu.depaul.csc595.careapp.ListData.GamesList;
-import edu.depaul.csc595.careapp.QuizActivity;
 import edu.depaul.csc595.careapp.R;
 import edu.depaul.csc595.careapp.StatisticsActivity;
+import edu.depaul.csc595.careapp.TestActivity;
 
 public class GamesFragment extends Fragment {
 
@@ -50,7 +50,8 @@ public class GamesFragment extends Fragment {
                 Intent intent;
                 switch (position) {
                     case 1:
-                        intent = new Intent(getActivity(), QuizActivity.class);
+                        //intent = new Intent(getActivity(), QuizActivity.class);
+                        intent = new Intent(getActivity(), TestActivity.class);
                         startActivityForResult(intent, 0);
                         break;
                     case 2:

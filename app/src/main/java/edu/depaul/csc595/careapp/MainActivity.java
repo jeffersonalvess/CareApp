@@ -2,9 +2,6 @@ package edu.depaul.csc595.careapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -27,18 +24,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -76,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // Gambiarra
     public static MaintenanceList maintenanceList;
 
+    public static FacebookUserInfo f = new FacebookUserInfo();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //Facebook Information \o/
         try
         {
-            FacebookUserInfo f = new FacebookUserProfileInfo(getApplicationContext(), AccessToken.getCurrentAccessToken()).execute().get();
+            f = new FacebookUserProfileInfo(getApplicationContext(), AccessToken.getCurrentAccessToken()).execute().get();
 
             profileName.setText(f.getUserName());
             profilePicture.setImageBitmap(f.getUserPicture());

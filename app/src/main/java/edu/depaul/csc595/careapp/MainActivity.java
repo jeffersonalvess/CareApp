@@ -41,8 +41,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import edu.depaul.csc595.careapp.Helpers.FacebookUserInfo;
+import edu.depaul.csc595.careapp.Helpers.FacebookUserProfileInfo;
 import edu.depaul.csc595.careapp.ListData.Card;
 import edu.depaul.csc595.careapp.ListData.MaintenanceList;
 import edu.depaul.csc595.careapp.main_fragments.CardListAdapter;
@@ -56,9 +59,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TabLayout tabLayout;
     private ViewPager viewPager;
     MenuItem facelogout;
-    private static String userName;
-    private static String userID;
-    NavigationView navView;
 
     private FloatingActionButton fbLeft;
     private FloatingActionButton fbCenter;
@@ -76,84 +76,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // Gambiarra
     public static MaintenanceList maintenanceList;
 
-    //This method is part of facebook implementation
-    private void saveProfileInformation(String name, String id) throws IOException {
-
-        userName = name;
-        userID = id;
-        setInformationToView();
-    }
-
-    //This method is part of facebook implementation
-    private void setInformationToView() throws IOException {
-
-        TextView txtUserName = (TextView) navView.findViewById(R.id.username);
-        CircleImageView imagem1 = (CircleImageView) navView.findViewById(R.id.imgRoundedRight);
-
-        txtUserName.setText(userName);
-        new ImageLoadTask("https://graph.facebook.com/" + userID + "/picture?type=large", imagem1).execute();
-
-    }
-
-    //This method is part of facebook implementation
-    private class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
-
-        private String url;
-        private CircleImageView imageView;
-
-        public ImageLoadTask(String url, CircleImageView imageView) {
-            this.url = url;
-            this.imageView = imageView;
-        }
-
-        @Override
-        protected Bitmap doInBackground(Void... params) {
-            try {
-                URL urlConnection = new URL(url);
-                HttpURLConnection connection = (HttpURLConnection) urlConnection.openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                Bitmap myBitmap = BitmapFactory.decodeStream(input);
-                return myBitmap;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            super.onPostExecute(result);
-            imageView.setImageBitmap(result);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Check which request we're responding to
-        if (requestCode == UNKNOWN_DRIVER_RIDE) {
-            // Make sure the request was successful
-//            if (resultCode == RESULT_OK) {
-//               Snackbar.make(viewPager, "You would take a ride with this driver. :)", Snackbar.LENGTH_LONG).show();
-//            }
-//            else{
-//                Snackbar.make(viewPager, "You would NOT take a ride with this driver. :(", Snackbar.LENGTH_LONG).show();
-//            }
-        }
-        else if(requestCode == ADD_MAINTENANCE_REMINDER) {
-            if(resultCode == RESULT_OK){
-                ListView lv = (ListView) findViewById(R.id.maintenance_list);
-                CardListAdapter adapter = (CardListAdapter) lv.getAdapter();
-                adapter.cardList.addItem(new Card(Card.Type.type_8,
-                        data.getIntExtra("Icon", -1),
-                        data.getStringExtra("ContentTitle"),
-                        data.getStringExtra("Line1")));
-                adapter.notifyDataSetChanged();
-            }
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,15 +88,65 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_icons_toolbar);
         setSupportActionBar(toolbar);
 
-
-        navView = (NavigationView) findViewById(R.id.nav_view);
-
         fbLeft = (FloatingActionButton) findViewById(R.id.buttonLeft);
         fbCenter = (FloatingActionButton) findViewById(R.id.buttonCenter);
         fbRight = (FloatingActionButton) findViewById(R.id.buttonRight);
         addMaintenence = (FloatingActionButton) findViewById(R.id.buttonAddMaintenence);
 
         addMaintenence.hide();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        TextView profileName = (TextView) header.findViewById(R.id.username);
+        CircleImageView profilePicture = (CircleImageView) header.findViewById(R.id.imgRoundedRight);
+
+        //Facebook Information \o/
+        try
+        {
+            FacebookUserInfo f = new FacebookUserProfileInfo(getApplicationContext(), AccessToken.getCurrentAccessToken()).execute().get();
+
+            profileName.setText(f.getUserName());
+            profilePicture.setImageBitmap(f.getUserPicture());
+
+        }
+        catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+        //Sidebar Menu
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        facelogout = (MenuItem) findViewById(R.id.face_logout);
+
+        // TabView Elements
+        viewPager = (ViewPager) findViewById(R.id.main_viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.main_tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons();
+
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null)
+        {
+            if (extras.getBoolean("EXTRA_CHALLENGED"))
+            {
+                Snackbar.make(viewPager, "You have challenged " + extras.getString("EXTRA_FRIEND_NAME") + " successfully.", Snackbar.LENGTH_LONG).show();
+            }
+
+        }
+
 
         addMaintenence.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,103 +180,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        //TODO: Criar isso aqui dentro de uma classe com metodos para retorno dos valores, assim fica mais facil acessa isso de qualquer do codigo.
-        //Method to get Facebook information
-        //FacebookSdk.sdkInitialize(getApplicationContext());
-        GraphRequest request;
-        request = GraphRequest.newMeRequest(
-                AccessToken.getCurrentAccessToken(),
-                new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject object, GraphResponse response) {
-
-                        try {
-                            //userLocation = object.getJSONObject("user_location").getString("name");
-                            saveProfileInformation(object.getString("first_name") + " " + object.getString("last_name"), object.getString("id"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id, location, last_name, first_name");
-        request.setParameters(parameters);
-        request.executeAsync();
-
-
-
-        //Getting friends here..
-        GraphRequest request2;
-        request2 = GraphRequest.newMyFriendsRequest(
-                AccessToken.getCurrentAccessToken(),
-                new GraphRequest.GraphJSONArrayCallback() {
-                    @Override
-                    public void onCompleted( JSONArray jsonArray, GraphResponse response) {
-                        for(int i =0 ; i< jsonArray.length(); i++) {
-                            try {
-                                JSONObject friend = jsonArray.getJSONObject(i);
-                                System.out.println("userId: " + friend.getString("id"));
-                                System.out.println("name: " + friend.getString("name"));
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-
-                    }
-                });
-
-        request2.executeAsync();
-        //request2.executeAndWait(); If necessary, change for this call.
-
-        // Facebook end.
-
-        //Sidebar Menu
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        facelogout = (MenuItem) findViewById(R.id.face_logout);
-
-
-//        //Floating Button <<temporary?>>
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Jefferson Gordo
-//            }
-//        });
-
-
-        // TabView Elements
-        viewPager = (ViewPager) findViewById(R.id.main_viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) findViewById(R.id.main_tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
-
-        Bundle extras = getIntent().getExtras();
-
-        if (extras != null)
-        {
-            if (extras.getBoolean("EXTRA_CHALLENGED"))
-            {
-                Snackbar.make(viewPager, "You have challenged " + extras.getString("EXTRA_FRIEND_NAME") + " successfully.", Snackbar.LENGTH_LONG).show();
-            }
-
-        }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        // Check which request we're responding to
+        if (requestCode == UNKNOWN_DRIVER_RIDE)
+        {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK)
+            {
+                Snackbar.make(viewPager, "You would take a ride with this driver. :)", Snackbar.LENGTH_LONG).show();
+            } else
+            {
+                Snackbar.make(viewPager, "You would NOT take a ride with this driver. :(", Snackbar.LENGTH_LONG).show();
+            }
+        } else if (requestCode == ADD_MAINTENANCE_REMINDER)
+        {
+            if (resultCode == RESULT_OK)
+            {
+                ListView lv = (ListView) findViewById(R.id.maintenance_list);
+                CardListAdapter adapter = (CardListAdapter) lv.getAdapter();
+                adapter.cardList.addItem(new Card(Card.Type.type_8,
+                        data.getIntExtra("Icon", -1),
+                        data.getStringExtra("ContentTitle"),
+                        data.getStringExtra("Line1")));
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
+
 
     //region SIDEMENU
     @Override

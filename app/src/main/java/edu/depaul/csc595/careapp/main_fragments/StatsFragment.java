@@ -1,5 +1,6 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Display;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.facebook.AccessToken;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -28,6 +31,8 @@ public class StatsFragment extends Fragment {
 
     private ListView mList;
     private View view;
+    Bitmap fbPicture = null;
+
 
     public StatsFragment() {
         // Required empty public constructor
@@ -53,9 +58,9 @@ public class StatsFragment extends Fragment {
         {
             FacebookUserInfo f = new FacebookUserProfileInfo(getContext(), AccessToken.getCurrentAccessToken()).execute().get();
 
-            profileName.setText(f.getUserName());
-            profilePicture.setImageBitmap(f.getUserPicture());
+            fbPicture = new FacebookImageLoadTask(f.getUserID()).execute().get();
 
+            profileName.setText(f.getUserName());
         } catch (ExecutionException e)
         {
             e.printStackTrace();
@@ -63,7 +68,6 @@ public class StatsFragment extends Fragment {
         {
             e.printStackTrace();
         }
-
 
         return view;
     }

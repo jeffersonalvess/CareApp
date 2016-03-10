@@ -3,7 +3,10 @@ package edu.depaul.csc595.careapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +35,10 @@ public class RideActivity extends AppCompatActivity {
     private int mLongAnimationDuration;
     private ArrayList<UserProfileAndStatistics> users;
     private int indexCount;
+
+    private TextView txtTimer;
+    private ProgressBar pbTimer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +82,7 @@ public class RideActivity extends AppCompatActivity {
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadNewUser(indexCount);
+                userTransition();
                 Toast.makeText(getApplicationContext(), "You would take a ride with this driver :)", Toast.LENGTH_SHORT).show();
             }
         });
@@ -93,6 +101,37 @@ public class RideActivity extends AppCompatActivity {
                 startActivity(new Intent(RideActivity.this, RideInfo.class));
             }
         });
+
+        txtTimer = (TextView) findViewById(R.id.ride_txtTimer);
+        pbTimer = (ProgressBar) findViewById(R.id.ride_pbTimer);
+
+        txtTimer.setVisibility(View.GONE);
+        pbTimer.setVisibility(View.GONE);
+    }
+
+    private void userTransition(){
+        crossfadeA();
+
+        txtTimer.setVisibility(View.VISIBLE);
+        pbTimer.setVisibility(View.VISIBLE);
+
+        pbTimer.setProgress(0);
+
+        new CountDownTimer(5200, 100) {
+
+            public void onTick(long millisUntilFinished) {
+                if(millisUntilFinished > 201)
+                    txtTimer.setText(Integer.toString((int) (millisUntilFinished - 200) / 1000 + 1));
+                else
+                    txtTimer.setText("0");
+            }
+
+            public void onFinish() {
+                txtTimer.setVisibility(View.GONE);
+                pbTimer.setVisibility(View.GONE);
+                loadNewUser(indexCount);
+            }
+        }.start();
     }
 
     @Override
@@ -108,8 +147,6 @@ public class RideActivity extends AppCompatActivity {
 
     private void loadNewUser(int index)
     {
-        crossfadeA();
-
         CircularProgressBar tempCircularProgressBar;
         OurImageView tempOurImageView;
         TextView tempTextView;
@@ -157,6 +194,7 @@ public class RideActivity extends AppCompatActivity {
         TextView k = (TextView) findViewById(R.id.ride_num4);
 
         CircleImageView l = (CircleImageView) findViewById(R.id.userProfilePicture);
+        CircleImageView m = (CircleImageView) findViewById(R.id.userProfilePicture2);
 
         a.setText(u.getPoints());
         b.setText(u.getDrivenMiles());
@@ -169,10 +207,11 @@ public class RideActivity extends AppCompatActivity {
         i.setText(u.getAverageInfractionsPerTrip());
         j.setText(u.getAverageInfractions100mi());
         k.setText(u.getAverageInfractions24h());
-        l.setImageBitmap(u.getFbPicture());
+        l.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.com_facebook_profile_picture_blank_square));
 
         indexCount = (indexCount <= 0) ? users.size() - 1 : indexCount - 1;
         crossfadeB();
+        m.setImageBitmap(u.getFbPicture());
     }
 
     private void createGambiarraList() throws ExecutionException, InterruptedException

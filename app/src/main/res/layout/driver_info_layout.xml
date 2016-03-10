@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/shape_cards_rounded_corners"
         android:padding="5dp"
@@ -30,10 +30,11 @@
                 android:gravity="center_horizontal">
 
                 <edu.depaul.csc595.careapp.Design.OurCircleImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/com_facebook_profile_picture_blank_square"
-                    android:id="@+id/userProfilePicture"/>
+                    android:id="@+id/userProfilePicture"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 

@@ -27,7 +27,7 @@ public class CardListAdapter extends BaseAdapter
 
     private LayoutInflater inflater;
     private final Context context;
-    CardList cardList;
+    public CardList cardList;
 
     public CardListAdapter(Context context, CardList cardList)
     {

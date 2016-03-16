@@ -16,7 +16,6 @@ import edu.depaul.csc595.careapp.ListData.GamesList;
 import edu.depaul.csc595.careapp.QuizActivity;
 import edu.depaul.csc595.careapp.R;
 import edu.depaul.csc595.careapp.StatisticsActivity;
-
 public class GamesFragment extends Fragment {
 
     private ListView mList;

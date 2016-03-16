@@ -1,25 +1,17 @@
 package edu.depaul.csc595.careapp.main_fragments;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.facebook.AccessToken;
-
-import java.util.concurrent.ExecutionException;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 import edu.depaul.csc595.careapp.Design.OurCircleImageView;
-import edu.depaul.csc595.careapp.Helpers.FacebookImageLoadTask;
-import edu.depaul.csc595.careapp.Helpers.FacebookUserProfileInfo;
-import edu.depaul.csc595.careapp.Helpers.FacebookUserInfo;
+import edu.depaul.csc595.careapp.MainActivity;
 import edu.depaul.csc595.careapp.R;
 
 
@@ -28,6 +20,8 @@ public class StatsFragment extends Fragment {
 
     private ListView mList;
     private View view;
+    Bitmap fbPicture = null;
+
 
     public StatsFragment() {
         // Required empty public constructor
@@ -49,21 +43,11 @@ public class StatsFragment extends Fragment {
         final OurCircleImageView profilePicture = (OurCircleImageView) view.findViewById(R.id.userProfilePicture);
         final TextView profileName = (TextView) view.findViewById(R.id.profileName);
 
-        try
-        {
-            FacebookUserInfo f = new FacebookUserProfileInfo(getContext(), AccessToken.getCurrentAccessToken()).execute().get();
+        //FacebookUserInfo f = new FacebookUserProfileInfo(getContext(), AccessToken.getCurrentAccessToken()).execute().get();
 
-            profileName.setText(f.getUserName());
-            profilePicture.setImageBitmap(f.getUserPicture());
-
-        } catch (ExecutionException e)
-        {
-            e.printStackTrace();
-        } catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-
+        fbPicture = MainActivity.f.getUserPicture();
+        profileName.setText(MainActivity.f.getUserName());
+        profilePicture.setImageBitmap(fbPicture);
 
         return view;
     }

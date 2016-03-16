@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import edu.depaul.csc595.careapp.ListData.MaintenanceList;
+import edu.depaul.csc595.careapp.MainActivity;
 import edu.depaul.csc595.careapp.R;
 
 
@@ -33,11 +34,11 @@ public class MyCarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_profile, container, false);
+        view = inflater.inflate(R.layout.fragment_my_car, container, false);
 
-        mList = (ListView) view.findViewById(R.id.profile_list);
+        mList = (ListView) view.findViewById(R.id.maintenance_list);
 
-        CardListAdapter adapter = new CardListAdapter(getContext(), new MaintenanceList());
+        CardListAdapter adapter = new CardListAdapter(getContext(), MainActivity.maintenanceList);
 
         mList.setAdapter(adapter);
 

@@ -5,10 +5,18 @@
     android:orientation="vertical"
     android:gravity="center_vertical|center_horizontal">
 
-    <Button
-        android:id="@+id/buttonDriveWise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Drive Wise Activity" />
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/maintenance_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="12dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="108dp"
+        android:paddingTop="5dp"
+        android:clipToPadding="false"
+        android:divider="#0FFF"
+        android:scrollbars="none"
+        android:drawSelectorOnTop="true" />
 
 </LinearLayout>

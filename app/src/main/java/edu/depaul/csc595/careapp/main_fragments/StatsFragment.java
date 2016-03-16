@@ -52,6 +52,8 @@ public class StatsFragment extends Fragment {
         return view;
     }
 
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

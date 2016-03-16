@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RideActivity.class);
-                startActivityForResult(intent, UNKNOWN_DRIVER_RIDE);
+                startActivity(intent);
             }
         });
 
@@ -175,18 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        // Check which request we're responding to
-        if (requestCode == UNKNOWN_DRIVER_RIDE)
-        {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK)
-            {
-                Snackbar.make(viewPager, "You would take a ride with this driver. :)", Snackbar.LENGTH_LONG).show();
-            } else
-            {
-                Snackbar.make(viewPager, "You would NOT take a ride with this driver. :(", Snackbar.LENGTH_LONG).show();
-            }
-        } else if (requestCode == ADD_MAINTENANCE_REMINDER)
+        if (requestCode == ADD_MAINTENANCE_REMINDER)
         {
             if (resultCode == RESULT_OK)
             {

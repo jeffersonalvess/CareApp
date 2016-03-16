@@ -778,15 +778,6 @@
                     </LinearLayout>
                 </ScrollView>
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/btnCloseQuiz"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:layout_gravity="end|bottom"
-                    android:layout_margin="@dimen/fab_margin"
-                    android:src="@drawable/ic_close_24dp"
-                    android:clickable="true"/>
-
             </FrameLayout>
         </ViewFlipper>
     </LinearLayout>

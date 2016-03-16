@@ -54,16 +54,6 @@ public class QuizActivity extends AppCompatActivity {
         txtTop = (TextView) findViewById(R.id.questionHeaderText);
         progress = (ProgressBar) findViewById(R.id.progressBarQuiz);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btnCloseQuiz);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                finish();
-            }
-        });
-
         numberOfQuestions = 3;
 
         txtTop.setText("QUESTION 1 OF " + numberOfQuestions);

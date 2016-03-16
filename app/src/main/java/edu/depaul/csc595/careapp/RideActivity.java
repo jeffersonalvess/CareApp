@@ -2,9 +2,13 @@ package edu.depaul.csc595.careapp;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
@@ -13,8 +17,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +44,8 @@ public class RideActivity extends AppCompatActivity {
 
     private TextView txtTimer;
     private ProgressBar pbTimer;
+
+    private RelativeLayout layBts;
 
 
     @Override
@@ -79,19 +87,23 @@ public class RideActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+       layBts = (RelativeLayout) findViewById(R.id.ride_layBt);
+
         fabAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userTransition();
-                Toast.makeText(getApplicationContext(), "You would take a ride with this driver :)", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "You would take a ride with this driver :)", Toast.LENGTH_SHORT).show();
+                layBts.setVisibility(View.INVISIBLE);
             }
         });
 
         fabRefuse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadNewUser(indexCount);
-                Toast.makeText(getApplicationContext(), "You would not take a ride with this driver :(", Toast.LENGTH_SHORT).show();
+                userTransition();
+//                Toast.makeText(getApplicationContext(), "You would take a ride with this driver :)", Toast.LENGTH_SHORT).show();
+                layBts.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -130,6 +142,7 @@ public class RideActivity extends AppCompatActivity {
                 txtTimer.setVisibility(View.GONE);
                 pbTimer.setVisibility(View.GONE);
                 loadNewUser(indexCount);
+                layBts.setVisibility(View.VISIBLE);
             }
         }.start();
     }
@@ -145,13 +158,27 @@ public class RideActivity extends AppCompatActivity {
         return true;
     }
 
+    public Intent getFBIntent(PackageManager pm, String facebookId) {
+        facebookId = "https://www.facebook.com/" + facebookId;
+        Uri uri = Uri.parse(facebookId);
+
+        try {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
+            if (applicationInfo.enabled) {
+                uri = Uri.parse("fb://facewebmodal/f?href=" + facebookId);
+            }
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+        return new Intent(Intent.ACTION_VIEW, uri);
+    }
+
     private void loadNewUser(int index)
     {
         CircularProgressBar tempCircularProgressBar;
         OurImageView tempOurImageView;
         TextView tempTextView;
 
-        UserProfileAndStatistics u = users.get(index);
+        final UserProfileAndStatistics u = users.get(index);
 
         tempCircularProgressBar = (CircularProgressBar) findViewById(R.id.ride_cpBar1);
         tempOurImageView = (OurImageView) findViewById(R.id.ride_icon1);
@@ -195,6 +222,15 @@ public class RideActivity extends AppCompatActivity {
 
         CircleImageView l = (CircleImageView) findViewById(R.id.userProfilePicture);
         CircleImageView m = (CircleImageView) findViewById(R.id.userProfilePicture2);
+
+        m.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent facebookIntent = getFBIntent(getApplicationContext().getPackageManager(), u.getFbID());
+
+                startActivity(facebookIntent);
+            }
+        });
 
         a.setText(u.getPoints());
         b.setText(u.getDrivenMiles());

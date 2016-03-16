@@ -19,7 +19,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom|center">
 
         <android.support.design.widget.FloatingActionButton
@@ -55,9 +55,12 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/buttonAddMaintenence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:src="@drawable/ic_add"
+            android:layout_margin="10dp"
+            app:fabSize="normal"
+            android:tint="#FFF"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:clickable="true"/>

@@ -51,58 +51,14 @@ public class AchievementsList extends CardList {
 
             new Card(Card.Type.type_7,
                     Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Neither Fast\nNeither Slow"),
+                    R.mipmap.ic_hard_brake,
+                    "Soft Brake"),
 
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "100mi Challenge"),
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Speed Zen"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Soft Foot"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Neither Fast\nNeither Slow"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "100mi Challenge"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Gas Saver"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "3 days on 40"),
-
-            new Card(Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Quiz Riddle"),
 
             new Card(
                     Card.Type.type_7,
                     Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "50 less"),
-
-            new Card(
-                    Card.Type.type_7,
-                    Card.ImgShape.squared,
-                    R.mipmap.ic_profile_achievement,
-                    "Gas Saver")
+                    R.mipmap.ic_action_hard_curve,
+                    "Soft Curves")
     };
 }

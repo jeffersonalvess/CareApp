@@ -24,10 +24,25 @@ public class ChallengesList extends CardList {
                     R.mipmap.ic_action_hard_break,
                     "Soft Break"),
 
+            new Card(Card.Type.type_7,
+                    Card.ImgShape.squared,
+                    R.mipmap.ic_achievement_a,
+                    "A"),
+
+            new Card(Card.Type.type_7,
+                    Card.ImgShape.squared,
+                    R.mipmap.ic_achievement_the_best,
+                    "The Best"),
+
+            new Card(Card.Type.type_7,
+                    Card.ImgShape.squared,
+                    R.mipmap.ic_achievement_cash,
+                    "Cash"),
+
             new Card(
                     Card.Type.type_7,
                     Card.ImgShape.squared,
-                    R.drawable.ic_friends_challenge,
+                    R.mipmap.ic_achievement_gas_saver,
                     "Gas Saver")
     };
 }

@@ -18,8 +18,10 @@ public class ProfileList extends CardList {
                     R.mipmap.ic_action_tip,
                     "Did you know?",
                     "",
-                    "70% of the highway accidents with fatal victims are caused by speeding excess.",
-                    "You don't wanna be remembered by those statistics, right?",
+                    "Motor vehicle crashes are the leading cause of death for all 15- to 20-year-olds, " +
+                            "according to the most recent data available (2009) from the National Center for " +
+                            "Health Statistics.",
+                    "",
                     ""));
 
         addItem(new Card(
@@ -56,6 +58,17 @@ public class ProfileList extends CardList {
                 "",
                 true,
                 true));
+
+            addItem(new Card(
+                    Card.Type.type_3,
+                    -1,
+                    R.mipmap.ic_action_tip,
+                    "Did you know?",
+                    "",
+                    "NHTSA estimates that helmets saved the lives of 1,699 motorcyclists of all ages in 2012, and " +
+                            "that if all motorcyclists had worn helmets, an additional 781 lives could have been saved.",
+                    "",
+                    ""));
 
         addItem(new Card(
                 Card.Type.type_4,

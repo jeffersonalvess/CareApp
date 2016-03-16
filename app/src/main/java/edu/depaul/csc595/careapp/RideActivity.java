@@ -286,6 +286,21 @@ public class RideActivity extends AppCompatActivity {
         ));
 
         users.add(new UserProfileAndStatistics(
+                "10204521347753539",
+                "Jefferson",
+                "130",
+                "2.5",
+                "2.5",
+                "2.5",
+                "23000",
+                "975/0",
+                "3",
+                "1000 miles",
+                "0.5 hours",
+                "90%"
+        ));
+
+        users.add(new UserProfileAndStatistics(
                 "903567903084504",
                 "Renato",
                 "90",
@@ -313,21 +328,6 @@ public class RideActivity extends AppCompatActivity {
                 "500 miles",
                 "20 hours",
                 "100%"
-        ));
-
-        users.add(new UserProfileAndStatistics(
-            "10204521347753539",
-            "Jefferson",
-            "130",
-            "2.5",
-            "2.5",
-            "2.5",
-            "23000",
-            "975/0",
-            "3",
-            "1000 miles",
-            "0.5 hours",
-            "90%"
         ));
 
         indexCount = users.size() - 1;

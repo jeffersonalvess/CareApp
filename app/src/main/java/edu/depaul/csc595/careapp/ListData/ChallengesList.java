@@ -27,7 +27,7 @@ public class ChallengesList extends CardList {
             new Card(Card.Type.type_7,
                     Card.ImgShape.squared,
                     R.mipmap.ic_achievement_a,
-                    "A"),
+                    "'A' Grade"),
 
             new Card(Card.Type.type_7,
                     Card.ImgShape.squared,

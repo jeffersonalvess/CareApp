@@ -182,28 +182,28 @@ public class RideActivity extends AppCompatActivity {
 
         tempCircularProgressBar = (CircularProgressBar) findViewById(R.id.ride_cpBar1);
         tempOurImageView = (OurImageView) findViewById(R.id.ride_icon1);
-        tempCircularProgressBar.setProgress(Integer.parseInt(u.getAverageSpeed()));
+        tempCircularProgressBar.setProgress(Float.parseFloat(u.getAverageSpeed()));
         tempOurImageView.setColorFilter(tempCircularProgressBar.getBackgroundColor());
         tempTextView = (TextView) findViewById(R.id.ride_num1);
         tempTextView.setTextColor(tempCircularProgressBar.getBackgroundColor());
 
         tempCircularProgressBar = (CircularProgressBar) findViewById(R.id.ride_cpBar2);
         tempOurImageView = (OurImageView) findViewById(R.id.ride_icon2);
-        tempCircularProgressBar.setProgress(Integer.parseInt(u.getAverageInfractionsPerTrip()) * 10);
+        tempCircularProgressBar.setProgress(Float.parseFloat(u.getAverageInfractionsPerTrip()) * 10);
         tempOurImageView.setColorFilter(tempCircularProgressBar.getBackgroundColor());
         tempTextView = (TextView) findViewById(R.id.ride_num2);
         tempTextView.setTextColor(tempCircularProgressBar.getBackgroundColor());
 
         tempCircularProgressBar = (CircularProgressBar) findViewById(R.id.ride_cpBar3);
         tempOurImageView = (OurImageView) findViewById(R.id.ride_icon3);
-        tempCircularProgressBar.setProgress(Integer.parseInt(u.getAverageInfractions100mi()) * 10);
+        tempCircularProgressBar.setProgress(Float.parseFloat(u.getAverageInfractions100mi()) * 10);
         tempOurImageView.setColorFilter(tempCircularProgressBar.getBackgroundColor());
         tempTextView = (TextView) findViewById(R.id.ride_num3);
         tempTextView.setTextColor(tempCircularProgressBar.getBackgroundColor());
 
         tempCircularProgressBar = (CircularProgressBar) findViewById(R.id.ride_cpBar4);
         tempOurImageView = (OurImageView) findViewById(R.id.ride_icon4);
-        tempCircularProgressBar.setProgress(Integer.parseInt(u.getAverageInfractions24h()) * 10);
+        tempCircularProgressBar.setProgress(Float.parseFloat(u.getAverageInfractions24h()) * 10);
         tempOurImageView.setColorFilter(tempCircularProgressBar.getBackgroundColor());
         tempTextView = (TextView) findViewById(R.id.ride_num4);
         tempTextView.setTextColor(tempCircularProgressBar.getBackgroundColor());
@@ -246,6 +246,7 @@ public class RideActivity extends AppCompatActivity {
         l.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.com_facebook_profile_picture_blank_square));
 
         indexCount = (indexCount <= 0) ? users.size() - 1 : indexCount - 1;
+
         crossfadeB();
         m.setImageBitmap(u.getFbPicture());
     }
@@ -312,6 +313,21 @@ public class RideActivity extends AppCompatActivity {
                 "500 miles",
                 "20 hours",
                 "100%"
+        ));
+
+        users.add(new UserProfileAndStatistics(
+            "10204521347753539",
+            "Jefferson",
+            "130",
+            "2.5",
+            "2.5",
+            "2.5",
+            "23000",
+            "975/0",
+            "3",
+            "1000 miles",
+            "0.5 hours",
+            "90%"
         ));
 
         indexCount = users.size() - 1;

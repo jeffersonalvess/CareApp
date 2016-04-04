@@ -1,4 +1,6 @@
-<center>![logo](https://cloud.githubusercontent.com/assets/7515790/14260389/f0c7354c-fa70-11e5-82e1-8d0646f9dbb1.png)</center>
+<center>
+![logo](https://cloud.githubusercontent.com/assets/7515790/14260389/f0c7354c-fa70-11e5-82e1-8d0646f9dbb1.png)
+</center>
 
 Care is an Android app developed to DePaul University CSC 595 in partnership with Allstate Insurance Company. In this repository you are going to find all the source code used to build Care's prototype.
 
@@ -16,5 +18,22 @@ The app produces challenges to stimulate good driving behavior, and the user ear
 
 Content
 -------------
-<center>![appshots](https://cloud.githubusercontent.com/assets/7515790/14260388/f0bfd496-fa70-11e5-9200-cbbb3bc660dc.png)
-</center>
+####Screenshots
+![appshots](https://cloud.githubusercontent.com/assets/7515790/14260388/f0bfd496-fa70-11e5-9200-cbbb3bc660dc.png)
+
+####Presentation
+[![Presentation](http://img.youtube.com/vi/cLIKwnn0e-s/0.jpg)](https://www.youtube.com/watch?v=cLIKwnn0e-s)
+
+> **Materials:**
+
+> - [Presentation Slides](https://github.com/jeffersonalvess/CareApp/files/203193/Final-Presentation.pptx)
+> - [Presentation Handout](https://github.com/jeffersonalvess/CareApp/files/203195/CARE-Handout.pdf)
+
+Team
+-------------
+- [Jefferson Alves](https://www.linkedin.com/in/jeffersoanlvess)
+- [Lucas Barbosa](https://www.linkedin.com/in/lucas-nunes-barbosa-09862276/en)
+- [Matheus Zamberlan](https://www.linkedin.com/in/matheus-zamberlan-19a8a7109)
+- [Miller Horvath](https://www.facebook.com/miller.horvath)
+- [Renato Leonel] (https://www.linkedin.com/in/renatoleonel/en)
+

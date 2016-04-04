@@ -1,4 +1,4 @@
-<center>![CareLogo](https://cloud.githubusercontent.com/assets/7515790/14259295/e749c066-fa6b-11e5-941d-58f67307cba9.png)</center>
+<center><img src="https://cloud.githubusercontent.com/assets/7515790/14259295/e749c066-fa6b-11e5-941d-58f67307cba9.png" width="200"/></center>
 
 Care is an Android app developed to DePaul University CSC 595 in partnership with Allstate Insurance Company. In this repository you are going to find all the source code used to build Care's prototype.
 
